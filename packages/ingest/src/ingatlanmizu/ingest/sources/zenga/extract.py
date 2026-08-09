@@ -15,37 +15,33 @@ def extract():
 def _extract_seed_urls():
     page_num = 1
     for url in SEED_URLS:
-        _download_html(
-            url=url + f"?page={page_num}",
-            filename=f"/tmp/ingatlanmizu/zenga_{page_num}.html"
-        )
+        resp = requests.get(url + f"?page={page_num}")
+        resp.raise_for_status()
+        _extract_listings(list_page_html=resp.text)
                 
-def _extract_listings():
-    for file_path in _read_dir("/tmp/ingatlanmizu"):
-        with open(file_path, "r") as f:
-            content = f.read()
-            soup = BeautifulSoup(content, "html.parser")
-            
-            for link in soup.find_all("a"):
-                href = link.get("href")
-                if href and href.startswith("/ingatlan/"):
-                    id = href.split("/")[-1]
-                    print(f"extracting {id}")
-                    Path(f"/tmp/ingatlanmizu/listings/{id}").mkdir(parents=True, exist_ok=True)
+def _extract_listings(list_page_html: str):
+    soup = BeautifulSoup(list_page_html, "html.parser")
+    
+    for link in soup.find_all("a"):
+        href = link.get("href")
+        if href and href.startswith("/ingatlan/"):
+            id = href.split("/")[-1]
+            print(f"extracting {id}")
+            Path(f"/tmp/ingatlanmizu/listings/{id}").mkdir(parents=True, exist_ok=True)
 
-                    _download_html(
-                        url=f"https://zenga.hu{href}",
-                        filename=f"/tmp/ingatlanmizu/listings/{id}/{id}.html"
-                    )
-                    
-                    _extract_listing_images(
-                        id=id,
-                        html_path=f"/tmp/ingatlanmizu/listings/{id}/{id}.html",
-                        output_directory=f"/tmp/ingatlanmizu/listings/{id}",
-                    )
+            _download_html(
+                url=f"https://zenga.hu{href}",
+                filename=f"/tmp/ingatlanmizu/listings/{id}/{id}.html"
+            )
+            
+            _extract_listing_images(
+                id=id,
+                html_path=f"/tmp/ingatlanmizu/listings/{id}/{id}.html",
+                output_directory=f"/tmp/ingatlanmizu/listings/{id}",
+            )
                     
 def _extract_listing_images(id: str, html_path: str, output_directory: str):
-    print(f"etracting images {id}")
+    print(f"etracting images for {id}")
     output_path = Path(output_directory)
     
     files = _read_dir(output_directory)
@@ -53,10 +49,7 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
     
     # images have already been downloaded
     if len(images) > 0:
-        print("skipping image")
         return
-    
-    print(f"actually DOWNLOADING images for {id}")
     
     with open(html_path, "r") as f:
         html = f.read()
@@ -101,5 +94,6 @@ def _read_dir(directory: str) -> Iterator[Path]:
             
 def _download_html(url: str, filename: str) -> str:
     resp = requests.get(url)
+    resp.raise_for_status()
     with open(filename, "w") as f:
         f.write(resp.text)
