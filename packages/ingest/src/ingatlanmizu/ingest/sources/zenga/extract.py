@@ -24,26 +24,30 @@ def _extract_listings(list_page_html: str) -> Iterator[tuple[str, str]]:
     
     for link in soup.find_all("a"):
         href = link.get("href")
-        if href and href.startswith("/ingatlan/"):
-            id = href.split("/")[-1]
-            print(f"extracting {id}")
-            
-            folder = f"/tmp/ingatlanmizu/listings/{id}"
-            
-            Path(folder).mkdir(parents=True, exist_ok=True)
+        if href is None:
+            continue
+        if href.startswith("/ingatlan/") is False:
+            continue
+        
+        id = href.split("/")[-1]
+        print(f"extracting {id}")
+        
+        folder = f"/tmp/ingatlanmizu/listings/{id}"
+        
+        Path(folder).mkdir(parents=True, exist_ok=True)
 
-            html = _download_html(
-                url=f"https://zenga.hu{href}",
-                filename=f"{folder}/{id}.html"
-            )
-            
-            _extract_listing_images(
-                id=id,
-                html_path=f"{folder}/{id}.html",
-                output_directory=folder,
-            )
-            
-            yield (folder, html)
+        html = _download_html(
+            url=f"https://zenga.hu{href}",
+            filename=f"{folder}/{id}.html"
+        )
+        
+        _extract_listing_images(
+            id=id,
+            html_path=f"{folder}/{id}.html",
+            output_directory=folder,
+        )
+        
+        yield (folder, html)
                     
 def _extract_listing_images(id: str, html_path: str, output_directory: str):
     print(f"etracting images for {id}")
