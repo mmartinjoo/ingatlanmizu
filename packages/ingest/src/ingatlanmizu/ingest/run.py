@@ -3,9 +3,9 @@ from .sources.zenga.parse import parse
 from .sources.zenga.load import load
 
 def main():
-    for id, html in extract():
+    for folder, html in extract():
         listing = parse(html)
-        load(listing)
+        load(listing, folder)
         
 if __name__ == "__main__":
     main()

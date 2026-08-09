@@ -1,11 +1,11 @@
 from ingatlanmizu.core.db import connection
 import json
 
-def load(listing: dict[str, str|None]):
+def load(listing: dict[str, str|None], storage_folder: str):
     if _exists(listing):
-        _update(listing)
+        _update(listing, storage_folder)
     else:
-        _insert(listing)
+        _insert(listing, storage_folder)
         
 def _exists(listing: dict[str, str|None]) -> bool:
     with connection() as conn:
@@ -19,7 +19,7 @@ def _exists(listing: dict[str, str|None]) -> bool:
         )).fetchone()
         return row is not None
     
-def _insert(listing: dict[str, str|None]) -> None:
+def _insert(listing: dict[str, str|None], storage_folder: str) -> None:
     with connection() as conn:
         conn.execute(f"""
             insert into bronze.zenga_listings
@@ -45,11 +45,12 @@ def _insert(listing: dict[str, str|None]) -> None:
                 ingatlan_iroda_neve,
                 tipus,
                 szintek_szama,
-                raw_data
+                raw_data,
+                storage_folder
             )         
             values
             (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )    
         """,
         (
@@ -74,11 +75,12 @@ def _insert(listing: dict[str, str|None]) -> None:
             listing["ingatlan_iroda_neve"],
             listing["tipus"],
             listing["szintek_szama"],
-            json.dumps(listing)
+            json.dumps(listing),
+            storage_folder
         ))
         conn.commit()
         
-def _update(listing: dict[str, str|None]) -> None:
+def _update(listing: dict[str, str|None], storage_folder: str) -> None:
     with connection() as conn:
         conn.execute(f"""
             update bronze.zenga_listings
@@ -104,7 +106,8 @@ def _update(listing: dict[str, str|None]) -> None:
                 ingatlan_iroda_neve=%s,
                 tipus=%s,
                 szintek_szama=%s,
-                raw_data=%s
+                raw_data=%s,
+                storage_folder=%s
             where hirdeteskod = %s
         """,
         (
@@ -130,6 +133,7 @@ def _update(listing: dict[str, str|None]) -> None:
             listing["tipus"],
             listing["szintek_szama"],
             json.dumps(listing),
-            listing["hirdeteskod"]
+            storage_folder,
+            listing["hirdeteskod"],
         ))
         conn.commit()

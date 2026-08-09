@@ -16,8 +16,8 @@ def extract() -> Iterator[tuple[str, str]]:
         resp = requests.get(url + f"?page={page_num}")
         resp.raise_for_status()
         
-        for id, html in _extract_listings(list_page_html=resp.text):
-            yield id, html
+        for folder, html in _extract_listings(list_page_html=resp.text):
+            yield folder, html
                 
 def _extract_listings(list_page_html: str) -> Iterator[tuple[str, str]]:
     soup = BeautifulSoup(list_page_html, "lxml")
@@ -27,20 +27,23 @@ def _extract_listings(list_page_html: str) -> Iterator[tuple[str, str]]:
         if href and href.startswith("/ingatlan/"):
             id = href.split("/")[-1]
             print(f"extracting {id}")
-            Path(f"/tmp/ingatlanmizu/listings/{id}").mkdir(parents=True, exist_ok=True)
+            
+            folder = f"/tmp/ingatlanmizu/listings/{id}"
+            
+            Path(folder).mkdir(parents=True, exist_ok=True)
 
             html = _download_html(
                 url=f"https://zenga.hu{href}",
-                filename=f"/tmp/ingatlanmizu/listings/{id}/{id}.html"
+                filename=f"{folder}/{id}.html"
             )
             
             _extract_listing_images(
                 id=id,
-                html_path=f"/tmp/ingatlanmizu/listings/{id}/{id}.html",
-                output_directory=f"/tmp/ingatlanmizu/listings/{id}",
+                html_path=f"{folder}/{id}.html",
+                output_directory=folder,
             )
             
-            yield (id, html)
+            yield (folder, html)
                     
 def _extract_listing_images(id: str, html_path: str, output_directory: str):
     print(f"etracting images for {id}")
