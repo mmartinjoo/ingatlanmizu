@@ -6,7 +6,8 @@ import json
 from ingatlanmizu.core.file_utils import read_dir_files
 
 SEED_URLS = [
-    "https://www.zenga.hu/szombathely+elado+haz"
+    "https://www.zenga.hu/szombathely+elado+haz",
+    "https://www.zenga.hu/ikervar+elado+haz",
 ]
 
 def extract() -> Iterator[tuple[str, str]]:
