@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Iterator
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -44,8 +45,19 @@ def _extract_listings():
                     )
                     
 def _extract_listing_images(id: str, html_path: str, output_directory: str):
-    print(f"etracting images {output_directory}")
+    print(f"etracting images {id}")
     output_path = Path(output_directory)
+    
+    files = _read_dir(output_directory)
+    images = [f for f in files if f.name.endswith(".webp")]
+    
+    # images have already been downloaded
+    if len(images) > 0:
+        print("skipping image")
+        return
+    
+    print(f"actually DOWNLOADING images for {id}")
+    
     with open(html_path, "r") as f:
         html = f.read()
         soup = BeautifulSoup(html, "html.parser")
@@ -81,9 +93,9 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
             filename = output_path / Path(url).name
             filename.write_bytes(resp.content)
         
-def _read_dir(directory):
-    directory = Path(directory)
-    for file_path in directory.iterdir():
+def _read_dir(directory: str) -> Iterator[Path]:
+    path = Path(directory)
+    for file_path in path.iterdir():
         if file_path.is_file():
             yield file_path
             
