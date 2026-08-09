@@ -1,6 +1,7 @@
 from pathlib import Path
 from bs4 import BeautifulSoup
 import requests
+import json
 
 SEED_URLS = [
     "https://www.zenga.hu/szombathely+elado+haz"
@@ -11,12 +12,12 @@ def extract():
     _extract_listings()
 
 def _extract_seed_urls():
+    page_num = 1
     for url in SEED_URLS:
-        for page_num in range(1, 3):
-            _download_html(
-                url=url + f"?page={page_num}",
-                filename=f"/tmp/ingatlanmizu/zenga_{page_num}.html"
-            )
+        _download_html(
+            url=url + f"?page={page_num}",
+            filename=f"/tmp/ingatlanmizu/zenga_{page_num}.html"
+        )
                 
 def _extract_listings():
     for file_path in _read_dir("/tmp/ingatlanmizu"):
@@ -37,31 +38,49 @@ def _extract_listings():
                     )
                     
                     _extract_listing_images(
+                        id=id,
                         html_path=f"/tmp/ingatlanmizu/listings/{id}/{id}.html",
                         output_directory=f"/tmp/ingatlanmizu/listings/{id}",
                     )
                     
-def _extract_listing_images(html_path: str, output_directory: str):
+def _extract_listing_images(id: str, html_path: str, output_directory: str):
     print(f"etracting images {output_directory}")
     output_path = Path(output_directory)
     with open(html_path, "r") as f:
         html = f.read()
         soup = BeautifulSoup(html, "html.parser")
-        for img in soup.find_all("img"):
-            src = img.get("src")
-            if not src:
+        
+        urls = []
+        for tag in soup.find_all("script", type="application/ld+json"):
+            try:
+                data = json.loads(tag.string)
+            except (json.JSONDecodeError, TypeError):
                 continue
-            if src.startswith("https://images.zenga.hu") is False:
+
+            # @graph is a list of nodes; a page may also have a bare object or list
+            nodes = data.get("@graph", [data]) if isinstance(data, dict) else data
+
+            for node in nodes:
+                img = node.get("image")
+                if isinstance(img, str):
+                    urls.append(img)
+                elif isinstance(img, list):
+                    urls.extend(i for i in img if isinstance(i, str))
+
+        urls_dedup = list(dict.fromkeys(urls))  # dedupe, keep order
+        
+        for url in urls_dedup:
+            if url.startswith("https://images.zenga.hu") is False:
+                continue
+            if id not in url:
                 continue
             
-            print(f"extracting {src}")
-            
-            resp = requests.get(src, timeout=30)
+            resp = requests.get(url, timeout=30)
             resp.raise_for_status()
             
-            filename = output_path / Path(src).name
+            filename = output_path / Path(url).name
             filename.write_bytes(resp.content)
-                        
+        
 def _read_dir(directory):
     directory = Path(directory)
     for file_path in directory.iterdir():
