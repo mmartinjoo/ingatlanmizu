@@ -1,8 +1,8 @@
 from pathlib import Path
-from typing import Iterator
 from bs4 import BeautifulSoup
 import requests
 import json
+from ingatlanmizu.core.file_utils import read_dir_files
 
 SEED_URLS = [
     "https://www.zenga.hu/szombathely+elado+haz"
@@ -20,7 +20,7 @@ def _extract_seed_urls():
         _extract_listings(list_page_html=resp.text)
                 
 def _extract_listings(list_page_html: str):
-    soup = BeautifulSoup(list_page_html, "html.parser")
+    soup = BeautifulSoup(list_page_html, "lxml")
     
     for link in soup.find_all("a"):
         href = link.get("href")
@@ -44,7 +44,7 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
     print(f"etracting images for {id}")
     output_path = Path(output_directory)
     
-    files = _read_dir(output_directory)
+    files = read_dir_files(output_directory)
     images = [f for f in files if f.name.endswith(".webp")]
     
     # images have already been downloaded
@@ -53,7 +53,7 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
     
     with open(html_path, "r") as f:
         html = f.read()
-        soup = BeautifulSoup(html, "html.parser")
+        soup = BeautifulSoup(html, "lxml")
         
         urls = []
         for tag in soup.find_all("script", type="application/ld+json"):
@@ -86,12 +86,6 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
             filename = output_path / Path(url).name
             filename.write_bytes(resp.content)
         
-def _read_dir(directory: str) -> Iterator[Path]:
-    path = Path(directory)
-    for file_path in path.iterdir():
-        if file_path.is_file():
-            yield file_path
-            
 def _download_html(url: str, filename: str) -> str:
     resp = requests.get(url)
     resp.raise_for_status()
