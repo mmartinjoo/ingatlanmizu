@@ -1,16 +1,9 @@
+from typing import Iterator
+
 from bs4 import BeautifulSoup
 from ingatlanmizu.core.file_utils import read_dir_folders
 
-def parse():
-    folders = read_dir_folders("/tmp/ingatlanmizu/listings")
-    for folder in folders:
-        id = folder.name
-        with open(f"{folder}/{id}.html", "r") as f:
-            html = f.read()
-            listing = _parse_listing(html=html)
-            print(listing)
-
-def _parse_listing(html):
+def parse(html: str) -> dict[str, str|None]:
     """
     zenga.hu hirdetés HTML-ből dict-et készít.
 
@@ -20,12 +13,13 @@ def _parse_listing(html):
     soup = BeautifulSoup(html, "lxml")
 
     data = {
-        "hirdetes_cime": _text(_by_cy(soup, "advert-details-title")),
+        "megnevezes": _text(_by_cy(soup, "advert-details-title")),
         "ar": _text(_by_cy(soup, "advert-details-price")),
         "negyzetmeter_ar": _text(_by_cy(soup, "advert-details-price-per-square-meter")),
         "cim": _text(_by_cy(soup, "advert-details-map-btn")),
         "alapterulet": None,
-        "telek_emelet": None,
+        "telek": None,
+        "emelet": None,
         "szobak_szama": None,
         "leiras": _text(_by_cy(soup, "advert-details-description")),
         "hirdeteskod": _after_label(
@@ -42,6 +36,8 @@ def _parse_listing(html):
         "energetikai_besorolas": None,
         "hirdeto_neve": _text(_by_cy(soup, "advertiser-contact-name")),
         "ingatlan_iroda_neve": _text(_by_cy(soup, "advertiser-contact-agency")),
+        "tipus": None,
+        "szintek_szama": None,
     }
 
     data.update(_highlight_params(soup))
@@ -65,8 +61,8 @@ PARAM_LABELS = {
 
 HIGHLIGHT_LABELS = {
     "Alapterület": "alapterulet",
-    "Telek": "telek_emelet",
-    "Emelet": "telek_emelet",
+    "Telek": "telek",
+    "Emelet": "emelet",
     "Szobák száma": "szobak_szama",
 }
 

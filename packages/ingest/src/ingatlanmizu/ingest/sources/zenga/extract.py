@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Iterator
 from bs4 import BeautifulSoup
 import requests
 import json
@@ -8,18 +9,16 @@ SEED_URLS = [
     "https://www.zenga.hu/szombathely+elado+haz"
 ]
 
-def extract():
-    _extract_seed_urls()
-    _extract_listings()
-
-def _extract_seed_urls():
+def extract() -> Iterator[tuple[str, str]]:
     page_num = 1
     for url in SEED_URLS:
         resp = requests.get(url + f"?page={page_num}")
         resp.raise_for_status()
-        _extract_listings(list_page_html=resp.text)
+        
+        for id, html in _extract_listings(list_page_html=resp.text):
+            yield id, html
                 
-def _extract_listings(list_page_html: str):
+def _extract_listings(list_page_html: str) -> Iterator[tuple[str, str]]:
     soup = BeautifulSoup(list_page_html, "lxml")
     
     for link in soup.find_all("a"):
@@ -29,7 +28,7 @@ def _extract_listings(list_page_html: str):
             print(f"extracting {id}")
             Path(f"/tmp/ingatlanmizu/listings/{id}").mkdir(parents=True, exist_ok=True)
 
-            _download_html(
+            html = _download_html(
                 url=f"https://zenga.hu{href}",
                 filename=f"/tmp/ingatlanmizu/listings/{id}/{id}.html"
             )
@@ -39,6 +38,8 @@ def _extract_listings(list_page_html: str):
                 html_path=f"/tmp/ingatlanmizu/listings/{id}/{id}.html",
                 output_directory=f"/tmp/ingatlanmizu/listings/{id}",
             )
+            
+            yield (id, html)
                     
 def _extract_listing_images(id: str, html_path: str, output_directory: str):
     print(f"etracting images for {id}")
@@ -89,5 +90,8 @@ def _extract_listing_images(id: str, html_path: str, output_directory: str):
 def _download_html(url: str, filename: str) -> str:
     resp = requests.get(url)
     resp.raise_for_status()
+    html = resp.text
     with open(filename, "w") as f:
-        f.write(resp.text)
+        f.write(html)
+        
+    return html
