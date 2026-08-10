@@ -52,17 +52,15 @@ def mark_extracting(run_item_id: int) -> None:
         ))
         conn.commit()
         
-def mark_extracted(run_item_id: int, content_hash: str) -> None:
+def mark_extracted(run_item_id: int) -> None:
     with connection() as conn:
         conn.execute("""
             update ops.ingestion_run_items
             set 
-                status = %s,
-                content_hash = %s
+                status = %s
             where id = %s        
         """, (
             "extracted",
-            content_hash,
             run_item_id,
         ))
         conn.commit()
@@ -146,7 +144,7 @@ def enqueue_run_items(run_id: int, listings: list[ListingReference]):
 def dequeue_run_items(run_id: int, status: str) -> list[dict[str, any]]:
     with connection() as conn:
         rows = conn.execute("""
-            select id, external_id, content_hash, ingestion_run_id
+            select id, external_id, ingestion_run_id
             from ops.ingestion_run_items
             where ingestion_run_id = %s
             and status = %s
@@ -155,7 +153,7 @@ def dequeue_run_items(run_id: int, status: str) -> list[dict[str, any]]:
             status,
         )).fetchall()
         
-        return [{"id": r[0], "external_id": r[1], "content_hash": r[2], "ingestion_run_id": r[3]} for r in rows]
+        return [{"id": r[0], "external_id": r[1], "ingestion_run_id": r[2]} for r in rows]
     
 def fetch_run(run_id: int) -> dict[str, any]:
     with connection() as conn:

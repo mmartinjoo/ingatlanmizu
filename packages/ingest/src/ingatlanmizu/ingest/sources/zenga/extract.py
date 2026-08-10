@@ -60,7 +60,6 @@ def fetch_listing(listing_ref: ListingReference) -> ListingContent:
     
     return ListingContent(
         html=html,
-        content_hash=_content_hash(html),
         html_path=html_file_path_for(source="zenga", external_id=listing_ref.external_id),
         images_path=folder_for_images(source="zenga", external_id=listing_ref.external_id),
     )
@@ -106,6 +105,3 @@ def _download_html(url: str) -> str:
     resp = _session().get(url, timeout=30)
     resp.raise_for_status()
     return resp.text
-
-def _content_hash(html: str) -> str:
-    return hashlib.sha256(html.encode("utf-8")).hexdigest()

@@ -1,8 +1,13 @@
 from ingatlanmizu.core.db import connection
-from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId
+from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId, PayloadHash
 import json
+import hashlib
 
-def load(listing: SourceSpecificListingDict, ingestion_run_id: IngestionRunId):
+def load(
+    listing: SourceSpecificListingDict, 
+    ingestion_run_id: IngestionRunId,
+    payload_hash: PayloadHash,    
+):
     if listing.get("hirdeteskod") is None:
         raise ValueError(f"hirdeteskod is missing: {json.dumps(listing)}")
     
@@ -34,11 +39,12 @@ def load(listing: SourceSpecificListingDict, ingestion_run_id: IngestionRunId):
                 raw_data,
                 html_path,
                 images_path,
-                ingestion_run_id
+                ingestion_run_id,
+                payload_hash
             )         
             values
             (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )    
         """,
         (
@@ -67,5 +73,15 @@ def load(listing: SourceSpecificListingDict, ingestion_run_id: IngestionRunId):
             listing.get("html_path"),
             listing.get("images_path"),
             ingestion_run_id,
+            payload_hash,
         ))
         conn.commit()
+        
+def hash_payload(listing: SourceSpecificListingDict) -> str:
+    payload = {}
+    for key, value in listing.items():
+        if key in ["html_path", "images_path", "frissitve"]:
+            continue
+        payload[key] = value
+    js = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(js.encode("utf-8")).hexdigest()
