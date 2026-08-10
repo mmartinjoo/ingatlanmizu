@@ -96,14 +96,17 @@ def fetch_run_item(run_item_id: int) -> dict[str, any]:
             "url": row[1],
         }
     
-def mark_completed(run_item_id: int) -> None:
+def mark_completed(run_item_id: int, new_record_created: bool) -> None:
     with connection() as conn:
         conn.execute("""
             update ops.ingestion_run_items
-            set status = %s
+            set 
+                status = %s,
+                new_record_created = %s
             where id = %s        
         """, (
             "completed",
+            new_record_created,
             run_item_id,
         ))
         conn.commit()

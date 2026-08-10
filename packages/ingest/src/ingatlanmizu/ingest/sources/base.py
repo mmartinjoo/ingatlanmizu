@@ -5,6 +5,7 @@ SourceSpecificListingDict: TypeAlias = dict[str, str|None]
 SeedUrl: TypeAlias = str
 IngestionRunId: TypeAlias = int
 PayloadHash: TypeAlias = str
+NewRecordCreated: TypeAlias = bool
 
 @dataclass(frozen=True)
 class ListingReference:
@@ -25,7 +26,7 @@ class Source:
     discover: Callable[[list[SeedUrl]], list[ListingReference]]
     fetch_listing: Callable[[ListingReference], ListingContent]
     parse: Callable[[ListingContent], SourceSpecificListingDict]
-    load: Callable[[SourceSpecificListingDict, IngestionRunId, PayloadHash], None]
+    load: Callable[[SourceSpecificListingDict, IngestionRunId, PayloadHash], NewRecordCreated]
     
     hash_payload: Callable[[SourceSpecificListingDict], str]
     

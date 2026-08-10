@@ -1,5 +1,5 @@
 from ingatlanmizu.core.db import connection
-from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId, PayloadHash
+from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId, PayloadHash, NewRecordCreated
 import json
 import hashlib
 
@@ -7,9 +7,12 @@ def load(
     listing: SourceSpecificListingDict, 
     ingestion_run_id: IngestionRunId,
     payload_hash: PayloadHash,    
-):
+) -> NewRecordCreated:
     if listing.get("hirdeteskod") is None:
         raise ValueError(f"hirdeteskod is missing: {json.dumps(listing)}")
+    
+    if _has_changed(listing=listing, payload_hash=payload_hash) is False:
+        return False
     
     with connection() as conn:
         conn.execute(f"""
@@ -77,6 +80,25 @@ def load(
         ))
         conn.commit()
         
+        return True
+        
+def _has_changed(listing: SourceSpecificListingDict, payload_hash: PayloadHash) -> bool:
+    with connection() as conn:
+        row = conn.execute("""
+            select payload_hash
+            from bronze.zenga_listings
+            where hirdeteskod = %s
+            order by created_at desc
+            limit 1             
+        """, (
+            listing["hirdeteskod"],
+        )).fetchone()
+        
+        if row is None:
+            return True
+        
+        return False if row[0] == payload_hash else True
+            
 def hash_payload(listing: SourceSpecificListingDict) -> str:
     payload = {}
     for key, value in listing.items():

@@ -31,7 +31,7 @@ def run_load_item(source: Source, run_item: dict[str, any]):
         )
         listing = source.parse(listing_content)
         payload_hash = source.hash_payload(listing)
-        source.load(listing, run_item["ingestion_run_id"], payload_hash)
-        mark_completed(run_item_id=run_item["id"])
-    except Exception as exc:
-        mark_failed(run_item_id=run_item["id"], error_message=str(exc))
+        new_record_created = source.load(listing, run_item["ingestion_run_id"], payload_hash)
+        mark_completed(run_item_id=run_item["id"], new_record_created=new_record_created)
+    except Exception:
+        mark_failed(run_item_id=run_item["id"], error_message=traceback.format_exc())
