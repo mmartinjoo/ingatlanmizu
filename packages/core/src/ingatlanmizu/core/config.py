@@ -25,4 +25,6 @@ class Settings(BaseSettings):
     s3_access_key: str
     s3_secret_key: str
     
+    ingest_max_workers: int = 8
+    
 settings = Settings()

@@ -5,10 +5,20 @@ from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write
 from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl
 import requests
 import json
+import threading
 
 SEED_URLS = [
     "https://www.zenga.hu/szombathely+elado+haz",
 ]
+
+_local = threading.local()
+
+def _session() -> requests.Session:
+    session = getattr(_local, "session", None)
+    if session is None:
+        session = requests.Session()
+        _local.session = session
+    return session
 
 def extract() -> None:
     urls = []
@@ -23,7 +33,7 @@ def extract() -> None:
 def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
     results = []
     for url in seed_urls:
-        resp = requests.get(url)
+        resp = _session().get(url, timeout=30)
         resp.raise_for_status()
         
         soup = BeautifulSoup(resp.text, "lxml")
@@ -85,13 +95,13 @@ def fetch_listing_images(id: str) -> None:
         if id not in url:
             continue
         
-        resp = requests.get(url, timeout=30)
+        resp = _session().get(url, timeout=30)
         resp.raise_for_status()
         
         write_image(external_id=id, image_url=url, data=resp.content)
         
 def _download_html(url: str) -> str:
-    resp = requests.get(url)
+    resp = _session().get(url, timeout=30)
     resp.raise_for_status()
     return resp.text
 
