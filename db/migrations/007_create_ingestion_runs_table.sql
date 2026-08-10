@@ -5,7 +5,7 @@ create table if not exists ops.ingestion_runs(
     completed_at timestamptz,
     metadata jsonb,
 
-    status varchar(50) not null default 'running'
+    status varchar(50) not null default 'running',
 
     discovered_count int not null default 0,
 
