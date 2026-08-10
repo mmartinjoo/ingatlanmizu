@@ -1,3 +1,5 @@
+import hashlib
+
 from bs4 import BeautifulSoup
 from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image
 import requests
@@ -8,31 +10,42 @@ SEED_URLS = [
 ]
 
 def extract() -> None:
-    page_num = 1
-    for url in SEED_URLS:
-        resp = requests.get(url + f"?page={page_num}")
+    urls = []
+    for page_num in range(1,2):
+        for url in SEED_URLS:
+            urls.append(f"{url}?page={page_num}")
+            
+    listings = discover(urls)
+    for external_id, url in listings:
+        fetch_listing(external_id=external_id, url=url)
+        
+def discover(seed_urls: list[str]) -> list[tuple[str, str]]:
+    results = []
+    for url in seed_urls:
+        resp = requests.get(url)
         resp.raise_for_status()
-        _extract_listings(list_page_html=resp.text)
-                
-def _extract_listings(list_page_html: str) -> None:
-    soup = BeautifulSoup(list_page_html, "lxml")
+        
+        soup = BeautifulSoup(resp.text, "lxml")
+        for link in soup.find_all("a"):
+            listing_href = link.get("href")
+            if listing_href is None:
+                continue
+            if listing_href.startswith("/ingatlan/") is False:
+                continue
+            
+            external_id = listing_href.split("/")[-1]
+            results.append((external_id, f"https://zenga.hu{listing_href}"))
+            
+    return results
+
+def fetch_listing(external_id: str, url: str) -> tuple[str, str]:
+    html = _download_html(url)
+    write_html(external_id=external_id, html=html)
+    fetch_listing_images(external_id)
     
-    for link in soup.find_all("a"):
-        href = link.get("href")
-        if href is None:
-            continue
-        if href.startswith("/ingatlan/") is False:
-            continue
-        
-        id = href.split("/")[-1]
-        print(f"extracting {id}")
-        
-        html = _download_html(url=f"https://zenga.hu{href}")
-        write_html(external_id=id, html=html)
-        
-        _extract_listing_images(id)
-                    
-def _extract_listing_images(id: str):
+    return (html, _content_hash(html))
+                
+def fetch_listing_images(id: str):
     print(f"etracting images for {id}")
     
     if has_images(external_id=id):
@@ -75,3 +88,6 @@ def _download_html(url: str) -> str:
     resp = requests.get(url)
     resp.raise_for_status()
     return resp.text
+
+def _content_hash(html: str) -> str:
+    return hashlib.sha256(html.encode("utf-8")).hexdigest()
