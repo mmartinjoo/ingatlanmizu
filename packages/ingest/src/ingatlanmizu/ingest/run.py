@@ -1,10 +1,11 @@
-from ingatlanmizu.ingest.sources.zenga.extract import SEED_URLS
 from ingatlanmizu.ingest.stages import discover_stage, extract_stage, load_stage
 from ingatlanmizu.ingest.tracking import start_run, finish_run
+from ingatlanmizu.ingest.sources import get_source
 
 def main():
-    run_id = start_run(source="zenga", metadata={"seed_urls": SEED_URLS})
-    discover_stage(run_id=run_id, source="zenga", metadata={"seed_urls": SEED_URLS})
+    source = get_source("zenga")
+    run_id = start_run(source=source.name, metadata={"seed_urls": source.seed_urls})
+    discover_stage(run_id=run_id)
     extract_stage(run_id=run_id)
     load_stage(run_id=run_id)
     finish_run(run_id=run_id)

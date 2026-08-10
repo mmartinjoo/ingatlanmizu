@@ -155,3 +155,20 @@ def dequeue_run_items(run_id: int, status: str) -> list[dict[str, any]]:
         )).fetchall()
         
         return [{"id": r[0], "external_id": r[1]} for r in rows]
+    
+def fetch_run(run_id: int) -> dict[str, any]:
+    with connection() as conn:
+        row = conn.execute("""
+            select id, source, metadata
+            from ops.ingestion_runs
+            where id = %s 
+            limit 1            
+        """, (
+            run_id,
+        )).fetchone();
+        
+        return {
+            "id": row[0],
+            "source": row[1],
+            "metadata": row[2],
+        }
