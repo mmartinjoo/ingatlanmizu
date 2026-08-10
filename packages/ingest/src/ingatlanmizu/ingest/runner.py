@@ -16,7 +16,7 @@ def run_extract_item(source: Source, run_item_id: int):
         
         mark_extracted(
             run_item_id=run_item_id,
-            content_hash=listing_content.content_hashh,
+            content_hash=listing_content.content_hash,
         )
     except Exception as exc:
         mark_failed(run_item_id=run_item_id, error_message=str(exc))
