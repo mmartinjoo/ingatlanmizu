@@ -13,6 +13,8 @@ class ListingReference:
 class ListingContent:
     html: str
     content_hash: str
+    html_path: str
+    images_path: str
 
 @dataclass(frozen=True)
 class Source:

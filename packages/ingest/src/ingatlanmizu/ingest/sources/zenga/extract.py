@@ -1,7 +1,7 @@
 import hashlib
 
 from bs4 import BeautifulSoup
-from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image
+from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image, html_file_path_for, folder_for_images
 from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl
 import requests
 import json
@@ -61,6 +61,8 @@ def fetch_listing(listing_ref: ListingReference) -> ListingContent:
     return ListingContent(
         html=html,
         content_hash=_content_hash(html),
+        html_path=html_file_path_for(source="zenga", external_id=listing_ref.external_id),
+        images_path=folder_for_images(source="zenga", external_id=listing_ref.external_id),
     )
                 
 def fetch_listing_images(id: str) -> None:

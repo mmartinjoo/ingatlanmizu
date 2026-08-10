@@ -33,6 +33,8 @@ def parse(listing_content: ListingContent) -> SourceSpecificListingDict:
         "ingatlan_iroda_neve": _text(_by_cy(soup, "advertiser-contact-agency")),
         "tipus": None,
         "szintek_szama": None,
+        "html_path": listing_content.html_path,
+        "images_path": listing_content.images_path,
     }
 
     data.update(_highlight_params(soup))

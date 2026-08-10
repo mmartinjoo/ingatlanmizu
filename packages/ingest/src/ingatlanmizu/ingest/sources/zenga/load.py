@@ -50,11 +50,13 @@ def _insert(listing: SourceSpecificListingDict) -> None:
                 ingatlan_iroda_neve,
                 tipus,
                 szintek_szama,
-                raw_data
+                raw_data,
+                html_path,
+                images_path
             )         
             values
             (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )    
         """,
         (
@@ -80,6 +82,8 @@ def _insert(listing: SourceSpecificListingDict) -> None:
             listing.get("tipus"),
             listing.get("szintek_szama"),
             json.dumps(listing),
+            listing.get("html_path"),
+            listing.get("images_path"),
         ))
         conn.commit()
         
@@ -109,7 +113,9 @@ def _update(listing: dict[str, str|None]) -> None:
                 ingatlan_iroda_neve=%s,
                 tipus=%s,
                 szintek_szama=%s,
-                raw_data=%s
+                raw_data=%s,
+                html_path=%s,
+                images_path=%s
             where hirdeteskod = %s
         """,
         (
@@ -135,6 +141,9 @@ def _update(listing: dict[str, str|None]) -> None:
             listing.get("tipus"),
             listing.get("szintek_szama"),
             json.dumps(listing),
+            listing.get("html_path"),
+            listing.get("images_path"),
+            
             listing.get("hirdeteskod"),
         ))
         conn.commit()
