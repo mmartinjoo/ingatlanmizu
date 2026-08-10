@@ -1,0 +1,2 @@
+alter table bronze.zenga_listings
+drop constraint hirdeteskod_unique;

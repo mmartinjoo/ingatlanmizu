@@ -3,6 +3,7 @@ from typing import Callable, TypeAlias
 
 SourceSpecificListingDict: TypeAlias = dict[str, str|None]
 SeedUrl: TypeAlias = str
+IngestionRunId: TypeAlias = int
 
 @dataclass(frozen=True)
 class ListingReference:
@@ -24,5 +25,5 @@ class Source:
     discover: Callable[[list[SeedUrl]], list[ListingReference]]
     fetch_listing: Callable[[ListingReference], ListingContent]
     parse: Callable[[ListingContent], SourceSpecificListingDict]
-    load: Callable[SourceSpecificListingDict, None]
+    load: Callable[[SourceSpecificListingDict, IngestionRunId], None]
     

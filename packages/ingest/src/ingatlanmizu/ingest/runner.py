@@ -32,7 +32,7 @@ def run_load_item(source: Source, run_item: dict[str, any]):
             images_path=folder_for_images(source=source.name, external_id=run_item["external_id"]),
         )
         listing = source.parse(listing_content)
-        source.load(listing)
+        source.load(listing, run_item["ingestion_run_id"])
         mark_completed(run_item_id=run_item["id"])
     except Exception as exc:
         mark_failed(run_item_id=run_item["id"], error_message=str(exc))

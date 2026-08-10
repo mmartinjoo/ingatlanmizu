@@ -1,0 +1,1 @@
+drop trigger if exists zenga_listings_set_updated_at on bronze.zenga_listings;
