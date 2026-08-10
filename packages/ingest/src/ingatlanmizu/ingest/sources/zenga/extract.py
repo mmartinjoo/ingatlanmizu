@@ -38,12 +38,12 @@ def discover(seed_urls: list[str]) -> list[tuple[str, str]]:
             
     return results
 
-def fetch_listing(external_id: str, url: str) -> tuple[str, str]:
+def fetch_listing(external_id: str, url: str) -> str:
     html = _download_html(url)
     write_html(external_id=external_id, html=html)
     fetch_listing_images(external_id)
     
-    return (html, _content_hash(html))
+    return _content_hash(html)
                 
 def fetch_listing_images(id: str):
     print(f"etracting images for {id}")

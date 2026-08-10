@@ -6,12 +6,15 @@ def run_extract_item(run_item_id: int):
         run_item = fetch_run_item(run_item_id=run_item_id)
         mark_extracting(run_item_id=run_item_id)
         
-        fetch_listing(
+        content_hash = fetch_listing(
             external_id=run_item["external_id"],
             url=run_item["url"],
         )
         
-        mark_extracted(run_item_id=run_item_id)
+        mark_extracted(
+            run_item_id=run_item_id,
+            content_hash=content_hash,
+        )
     except Exception as exc:
         mark_failed(run_item_id=run_item_id, error_message=str(exc))
         raise exc
@@ -28,17 +31,22 @@ def mark_extracting(run_item_id: int) -> None:
         ))
         conn.commit()
         
-def mark_extracted(run_item_id: int) -> None:
+def mark_extracted(run_item_id: int, content_hash: str) -> None:
     with connection() as conn:
         conn.execute("""
             update ops.ingestion_run_items
-            set status = %s
+            set 
+                status = %s,
+                content_hash = %s
             where id = %s        
         """, (
             "extracted",
+            content_hash,
             run_item_id,
         ))
         conn.commit()
+        
+
         
 def mark_failed(run_item_id: int, error_message: str) -> None:
     with connection() as conn:

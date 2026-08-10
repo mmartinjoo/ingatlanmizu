@@ -2,6 +2,7 @@ create table if not exists ops.ingestion_runs(
     id serial primary key,
     source varchar(100) not null,
     started_at timestamptz not null default now(),
+    completed_at timestamptz,
     metadata jsonb,
 
     status varchar(50) not null default "running"

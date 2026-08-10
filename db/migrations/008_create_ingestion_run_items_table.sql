@@ -10,7 +10,6 @@ create table if not exists ops.ingestion_run_items (
     url varchar(100) not null,
     status varchar(100) not null default 'pending',
 
-    storage_folder text,
     content_hash text,
     error_message text,
 
