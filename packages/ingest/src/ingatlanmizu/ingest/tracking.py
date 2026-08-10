@@ -1,4 +1,5 @@
 from ingatlanmizu.core.db import connection
+from ingatlanmizu.ingest.sources.base import ListingReference
 import json
 
 def start_run(source: str, metadata: dict[str, any]) -> int:
@@ -109,7 +110,7 @@ def mark_completed(run_item_id: int) -> None:
         ))
         conn.commit()
         
-def enqueue_run_items(run_id: int, listings: list[tuple[str, str]]):
+def enqueue_run_items(run_id: int, listings: list[ListingReference]):
     with connection() as conn:
         for listing in listings:
             conn.execute("""
@@ -135,8 +136,8 @@ def enqueue_run_items(run_id: int, listings: list[tuple[str, str]]):
                 )
             """, (
                 run_id,
-                listing[0],
-                listing[1],
+                listing.external_id,
+                listing.url,
                 'pending',
             ))
             

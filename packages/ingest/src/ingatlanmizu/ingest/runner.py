@@ -1,20 +1,22 @@
 from ingatlanmizu.ingest.storage import read_html
 from ingatlanmizu.ingest.tracking import fetch_run_item, mark_extracting, mark_extracted, mark_failed, mark_completed
-from ingatlanmizu.ingest.sources.base import Source
+from ingatlanmizu.ingest.sources.base import Source, ListingReference
 
 def run_extract_item(source: Source, run_item_id: int):
     try:
         run_item = fetch_run_item(run_item_id=run_item_id)
         mark_extracting(run_item_id=run_item_id)
         
-        content_hash = source.fetch_listing(
-            run_item["external_id"],
-            run_item["url"],
+        listing_content = source.fetch_listing(
+            ListingReference(
+                external_id=run_item["external_id"],
+                url=run_item["url"],
+            )
         )
         
         mark_extracted(
             run_item_id=run_item_id,
-            content_hash=content_hash,
+            content_hash=listing_content.content_hashh,
         )
     except Exception as exc:
         mark_failed(run_item_id=run_item_id, error_message=str(exc))

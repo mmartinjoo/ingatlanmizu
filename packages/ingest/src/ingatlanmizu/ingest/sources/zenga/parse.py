@@ -1,16 +1,11 @@
-from typing import Iterator
-
 from bs4 import BeautifulSoup
-from ingatlanmizu.core.file_utils import read_dir_folders
+from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, ListingContent
 
-def parse(html: str) -> dict[str, str|None]:
+def parse(listing_content: ListingContent) -> SourceSpecificListingDict:
     """
     zenga.hu hirdetés HTML-ből dict-et készít.
-
-    :param html: a hirdetésoldal HTML tartalma stringként
-    :return: dict, minden hiányzó mező None
     """
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(listing_content.html, "lxml")
 
     data = {
         "megnevezes": _text(_by_cy(soup, "advert-details-title")),

@@ -1,13 +1,14 @@
 from ingatlanmizu.core.db import connection
+from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict
 import json
 
-def load(listing: dict[str, str|None]):
+def load(listing: SourceSpecificListingDict):
     if _exists(listing):
         _update(listing)
     else:
         _insert(listing)
         
-def _exists(listing: dict[str, str|None]) -> bool:
+def _exists(listing: SourceSpecificListingDict) -> bool:
     if listing.get("hirdeteskod") is None:
         raise ValueError(f"hirdeteskod is missing: {json.dumps(listing)}")
     
@@ -23,7 +24,7 @@ def _exists(listing: dict[str, str|None]) -> bool:
         )).fetchone()
         return row is not None
     
-def _insert(listing: dict[str, str|None]) -> None:
+def _insert(listing: SourceSpecificListingDict) -> None:
     with connection() as conn:
         conn.execute(f"""
             insert into bronze.zenga_listings

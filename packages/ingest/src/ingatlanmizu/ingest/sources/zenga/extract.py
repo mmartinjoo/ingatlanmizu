@@ -2,6 +2,7 @@ import hashlib
 
 from bs4 import BeautifulSoup
 from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image
+from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl
 import requests
 import json
 
@@ -16,10 +17,10 @@ def extract() -> None:
             urls.append(f"{url}?page={page_num}")
             
     listings = discover(urls)
-    for external_id, url in listings:
-        fetch_listing(external_id=external_id, url=url)
+    for listing in listings:
+        fetch_listing(listing=listing)
         
-def discover(seed_urls: list[str]) -> list[tuple[str, str]]:
+def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
     results = []
     for url in seed_urls:
         resp = requests.get(url)
@@ -34,19 +35,25 @@ def discover(seed_urls: list[str]) -> list[tuple[str, str]]:
                 continue
             
             external_id = listing_href.split("/")[-1]
-            results.append((external_id, f"https://zenga.hu{listing_href}"))
+            results.append(ListingReference(
+                external_id=external_id,
+                url=f"https://zenga.hu{listing_href}",
+            ))
             
     return results
 
-def fetch_listing(external_id: str, url: str) -> str:
-    print(f"fetching {external_id} at {url}")
-    html = _download_html(url)
-    write_html(external_id=external_id, html=html)
-    fetch_listing_images(external_id)
+def fetch_listing(listing_ref: ListingReference) -> ListingContent:
+    print(f"fetching {listing_ref.external_id} at {listing_ref.url}")
+    html = _download_html(listing_ref.url)
+    write_html(external_id=listing_ref.external_id, html=html)
+    fetch_listing_images(listing_ref.external_id)
     
-    return _content_hash(html)
+    return ListingContent(
+        html=html,
+        content_hash=_content_hash(html),
+    )
                 
-def fetch_listing_images(id: str):
+def fetch_listing_images(id: str) -> None:
     if has_images(external_id=id):
         return
     
