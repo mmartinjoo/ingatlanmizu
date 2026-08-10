@@ -1,3 +1,4 @@
+from ingatlanmizu.ingest.runner import run_extract_item
 from ingatlanmizu.ingest.sources.zenga.extract import discover
 from ingatlanmizu.core.db import connection
 
@@ -5,6 +6,25 @@ def discover_stage(run_id: int, source: str, metadata: dict[str, any]):
     if source == "zenga":
         listings = discover(seed_urls=metadata.get("seed_urls"))
         enqueue_run_items(run_id=run_id, listings=listings)
+        
+def extract_stage(run_id: int):
+    run_item_ids = fetch_run_item_ids_by_status(run_id=run_id, status="pending")
+    for id in run_item_ids:
+        run_extract_item(run_item_id=id)
+
+def fetch_run_item_ids_by_status(run_id: int, status: str) -> list[int]:
+    with connection() as conn:
+        rows = conn.execute("""
+            select id
+            from ops.ingestion_run_items
+            where ingestion_run_id = %s
+            and status = %s
+        """, (
+            run_id,
+            status
+        )).fetchall()
+        
+        return [r[0] for r in rows]
         
 def enqueue_run_items(run_id: int, listings: list[tuple[str, str]]):
     with connection() as conn:
