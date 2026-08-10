@@ -1,11 +1,5 @@
 from pathlib import Path
 from typing import Iterator
-
-def read_file_paths(directory: str) -> Iterator[Path]:
-    path = Path(directory)
-    for file_path in path.iterdir():
-        if file_path.is_file():
-            yield file_path
             
 def write_html(external_id: str, html: str) -> None:
     folder = _folder_for(external_id)
@@ -19,7 +13,7 @@ def read_html(external_id: str) -> str:
         
 def has_images(external_id: str, ext: str = ".webp") -> bool:
     folder = _folder_for(external_id)
-    files = read_file_paths(folder)
+    files = _read_file_paths(folder)
     images = [f for f in files if f.name.endswith(ext)]
     
     return len(images) > 0
@@ -33,3 +27,9 @@ def _folder_for(external_id: str) -> str:
     path = f"/tmp/ingatlanmizu/listings/{external_id}"
     Path(path).mkdir(parents=True, exist_ok=True)
     return path
+
+def _read_file_paths(directory: str) -> Iterator[Path]:
+    path = Path(directory)
+    for file_path in path.iterdir():
+        if file_path.is_file():
+            yield file_path
