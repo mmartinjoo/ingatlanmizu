@@ -55,7 +55,7 @@ def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
 def fetch_listing(listing_ref: ListingReference) -> ListingContent:
     print(f"fetching {listing_ref.external_id} at {listing_ref.url}")
     html = _download_html(listing_ref.url)
-    write_html(external_id=listing_ref.external_id, html=html)
+    write_html(source="zenga", external_id=listing_ref.external_id, html=html)
     fetch_listing_images(listing_ref.external_id)
     
     return ListingContent(
@@ -64,10 +64,10 @@ def fetch_listing(listing_ref: ListingReference) -> ListingContent:
     )
                 
 def fetch_listing_images(id: str) -> None:
-    if has_images(external_id=id):
+    if has_images(source="zenga", external_id=id):
         return
     
-    html = read_html(external_id=id)
+    html = read_html(source="zenga", external_id=id)
     soup = BeautifulSoup(html, "lxml")
     
     urls = []
@@ -98,7 +98,7 @@ def fetch_listing_images(id: str) -> None:
         resp = _session().get(url, timeout=30)
         resp.raise_for_status()
         
-        write_image(external_id=id, image_url=url, data=resp.content)
+        write_image(source="zenga", external_id=id, image_url=url, data=resp.content)
         
 def _download_html(url: str) -> str:
     resp = _session().get(url, timeout=30)

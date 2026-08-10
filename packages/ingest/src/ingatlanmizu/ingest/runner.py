@@ -23,7 +23,7 @@ def run_extract_item(source: Source, run_item_id: int):
 
 def run_load_item(source: Source, run_item: dict[str, any]):
     try:
-        html = read_html(external_id=run_item["external_id"])
+        html = read_html(source=source.name, external_id=run_item["external_id"])
         listing_content = ListingContent(
             html=html,
             content_hash=run_item["content_hash"],
