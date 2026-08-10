@@ -8,34 +8,35 @@ from ingatlanmizu.ingest.storage import read_html
 def discover_stage(run_id: int, source: str, metadata: dict[str, any]):
     if source == "zenga":
         listings = discover(seed_urls=metadata.get("seed_urls"))
+        print("discovered_count", len(listings))
         enqueue_run_items(run_id=run_id, listings=listings)
         
 def extract_stage(run_id: int):
-    run_item_ids = fetch_run_item_ids_by_status(run_id=run_id, status="pending")
-    for id in run_item_ids:
-        run_extract_item(run_item_id=id)
+    run_items = fetch_run_items_by_status(run_id=run_id, status="pending")
+    for run_item in run_items:
+        run_extract_item(run_item_id=run_item["id"])
         
 def load_stage(run_id: int):
-    run_item_ids = fetch_run_item_ids_by_status(run_id=run_id, status="extracted")
-    for id in run_item_ids:
-        html = read_html(external_id=id)
+    run_items = fetch_run_items_by_status(run_id=run_id, status="extracted")
+    for run_item in run_items:
+        html = read_html(external_id=run_item["external_id"])
         listing = parse(html)
         load(listing)
-        mark_completed(run_item_id=id)
+        mark_completed(run_item_id=run_item["id"])
 
-def fetch_run_item_ids_by_status(run_id: int, status: str) -> list[int]:
+def fetch_run_items_by_status(run_id: int, status: str) -> list[dict[str, any]]:
     with connection() as conn:
         rows = conn.execute("""
-            select id
+            select id, external_id
             from ops.ingestion_run_items
             where ingestion_run_id = %s
             and status = %s
         """, (
             run_id,
-            status
+            status,
         )).fetchall()
         
-        return [r[0] for r in rows]
+        return [{"id": r[0], "external_id": r[1]} for r in rows]
     
 def mark_completed(run_item_id: int) -> None:
     with connection() as conn:

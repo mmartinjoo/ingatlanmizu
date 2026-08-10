@@ -30,10 +30,11 @@ def finish_run(run_id: int) -> None:
         conn.execute("""
             update ops.ingestion_runs
             set 
-                status = completed,
+                status = %s,
                 completed_at = now()
             where id = %s
         """, (
-            run_id
+            "completed",
+            run_id,
         ))
         conn.commit()

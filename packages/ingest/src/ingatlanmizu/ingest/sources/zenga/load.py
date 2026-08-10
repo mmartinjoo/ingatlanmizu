@@ -1,25 +1,29 @@
 from ingatlanmizu.core.db import connection
 import json
 
-def load(listing: dict[str, str|None], storage_folder: str):
+def load(listing: dict[str, str|None]):
     if _exists(listing):
-        _update(listing, storage_folder)
+        _update(listing)
     else:
-        _insert(listing, storage_folder)
+        _insert(listing)
         
 def _exists(listing: dict[str, str|None]) -> bool:
+    if listing.get("hirdeteskod") is None:
+        raise ValueError(f"hirdeteskod is missing: {json.dumps(listing)}")
+    
     with connection() as conn:
         row = conn.execute("""
-            select * 
+            select 1
             from bronze.zenga_listings 
             where hirdeteskod = %s
+            limit 1
         """, 
         (
             listing["hirdeteskod"],
         )).fetchone()
         return row is not None
     
-def _insert(listing: dict[str, str|None], storage_folder: str) -> None:
+def _insert(listing: dict[str, str|None]) -> None:
     with connection() as conn:
         conn.execute(f"""
             insert into bronze.zenga_listings
@@ -45,42 +49,40 @@ def _insert(listing: dict[str, str|None], storage_folder: str) -> None:
                 ingatlan_iroda_neve,
                 tipus,
                 szintek_szama,
-                raw_data,
-                storage_folder
+                raw_data
             )         
             values
             (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )    
         """,
         (
-            listing["megnevezes"],
-            listing["ar"],
-            listing["negyzetmeter_ar"],
-            listing["cim"],
-            listing["alapterulet"],
-            listing["telek"],
-            listing["emelet"],
-            listing["szobak_szama"],
-            listing["leiras"],
-            listing["hirdeteskod"],
-            listing["referenciaszam"],
-            listing["frissitve"],
-            listing["allapot"],
-            listing["futes"],
-            listing["epites_eve"],
-            listing["terasz"],
-            listing["energetikai_besorolas"],
-            listing["hirdeto_neve"],
-            listing["ingatlan_iroda_neve"],
-            listing["tipus"],
-            listing["szintek_szama"],
+            listing.get("megnevezes"),
+            listing.get("ar"),
+            listing.get("negyzetmeter_ar"),
+            listing.get("cim"),
+            listing.get("alapterulet"),
+            listing.get("telek"),
+            listing.get("emelet"),
+            listing.get("szobak_szama"),
+            listing.get("leiras"),
+            listing.get("hirdeteskod"),
+            listing.get("referenciaszam"),
+            listing.get("frissitve"),
+            listing.get("allapot"),
+            listing.get("futes"),
+            listing.get("epites_eve"),
+            listing.get("terasz"),
+            listing.get("energetikai_besorolas"),
+            listing.get("hirdeto_neve"),
+            listing.get("ingatlan_iroda_neve"),
+            listing.get("tipus"),
+            listing.get("szintek_szama"),
             json.dumps(listing),
-            storage_folder
         ))
         conn.commit()
         
-def _update(listing: dict[str, str|None], storage_folder: str) -> None:
+def _update(listing: dict[str, str|None]) -> None:
     with connection() as conn:
         conn.execute(f"""
             update bronze.zenga_listings
@@ -106,34 +108,32 @@ def _update(listing: dict[str, str|None], storage_folder: str) -> None:
                 ingatlan_iroda_neve=%s,
                 tipus=%s,
                 szintek_szama=%s,
-                raw_data=%s,
-                storage_folder=%s
+                raw_data=%s
             where hirdeteskod = %s
         """,
         (
-            listing["megnevezes"],
-            listing["ar"],
-            listing["negyzetmeter_ar"],
-            listing["cim"],
-            listing["alapterulet"],
-            listing["telek"],
-            listing["emelet"],
-            listing["szobak_szama"],
-            listing["leiras"],
-            listing["hirdeteskod"],
-            listing["referenciaszam"],
-            listing["frissitve"],
-            listing["allapot"],
-            listing["futes"],
-            listing["epites_eve"],
-            listing["terasz"],
-            listing["energetikai_besorolas"],
-            listing["hirdeto_neve"],
-            listing["ingatlan_iroda_neve"],
-            listing["tipus"],
-            listing["szintek_szama"],
+            listing.get("megnevezes"),
+            listing.get("ar"),
+            listing.get("negyzetmeter_ar"),
+            listing.get("cim"),
+            listing.get("alapterulet"),
+            listing.get("telek"),
+            listing.get("emelet"),
+            listing.get("szobak_szama"),
+            listing.get("leiras"),
+            listing.get("hirdeteskod"),
+            listing.get("referenciaszam"),
+            listing.get("frissitve"),
+            listing.get("allapot"),
+            listing.get("futes"),
+            listing.get("epites_eve"),
+            listing.get("terasz"),
+            listing.get("energetikai_besorolas"),
+            listing.get("hirdeto_neve"),
+            listing.get("ingatlan_iroda_neve"),
+            listing.get("tipus"),
+            listing.get("szintek_szama"),
             json.dumps(listing),
-            storage_folder,
-            listing["hirdeteskod"],
+            listing.get("hirdeteskod"),
         ))
         conn.commit()

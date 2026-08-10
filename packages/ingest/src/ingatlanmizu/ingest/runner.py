@@ -46,8 +46,6 @@ def mark_extracted(run_item_id: int, content_hash: str) -> None:
         ))
         conn.commit()
         
-
-        
 def mark_failed(run_item_id: int, error_message: str) -> None:
     with connection() as conn:
         conn.execute("""

@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS bronze.zenga_listings (
     id serial primary key,
     megnevezes varchar(255),
-    ar varchar(50) not null,
+    ar varchar(50),
     negyzetmeter_ar varchar(50),
     cim varchar(255),
     alapterulet varchar(50),
