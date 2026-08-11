@@ -12,9 +12,24 @@ models:
       - name: price
         data_tests:
           - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false
+      - name: price_per_square_meter
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 100000
+                max_value: 5000000
       - name: area
         data_tests:
           - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                max_value: 10000
       - name: type
         data_tests:
           - accepted_values:
@@ -37,3 +52,16 @@ models:
         data_tests:
           - accepted_values:
               values: ['J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'A+', 'A++', 'A+++']
+      - name: city
+        data_tests:
+          - not_null
+          - not_empty
+      - name: location_detail
+        data_tests:
+          - not_empty
+      - name: year_of_building
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1800
+                max_value: 2100

@@ -27,3 +27,6 @@ dbt-test:
 
 dbt-build:
 	@$(DBT_ENV) && uv run dbt build
+
+dbt-deps: 
+	@$(DBT_ENV) && uv run dbt deps
