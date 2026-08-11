@@ -8,7 +8,7 @@ def run_extract_item(source: Source, run_item_id: int):
         run_item = fetch_run_item(run_item_id=run_item_id)
         mark_extracting(run_item_id=run_item_id)
         
-        listing_content = source.fetch_listing(
+        source.fetch_listing(
             ListingReference(
                 external_id=run_item["external_id"],
                 url=run_item["url"],
