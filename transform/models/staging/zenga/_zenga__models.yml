@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_zenga__listings
+    description: "One row per zenga.hu listings"
+    columns:
+      - name: listing_code
+        description: "Natural key from hirdeteskod"
+        data_tests:
+          - unique
+          - not_null
+      - name: price
+        data_tests:
+          - not_null
+      - name: area
+        data_tests:
+          - not_null
+      - name: type
+        data_tests:
+          - accepted_values:
+              values: ['Ikerház', 'Házrész', 'Sorház', 'Családi ház', 'Lakás']
+              config:
+                severity: warn
+      - name: condition
+        data_tests:
+          - accepted_values:
+              values: ['Új építésű', 'Átlagos', 'Felújított', 'Jó állapotú']
+              config:
+                severity: warn
+      - name: heating
+        data_tests:
+          - accepted_values:
+              values: ['Hőszivattyú', 'Gázkazán', 'Elektromos', 'Gáz (konvektor)', 'Gáz', 'Fa', 'Klíma']
+              config:
+                severity: warn
+      - name: energy_rating
+        data_tests:
+          - accepted_values:
+              values: ['J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'A+', 'A++', 'A+++']
