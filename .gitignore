@@ -33,3 +33,8 @@ pip-wheel-metadata/
 .env
 .env.*
 !.env.example
+
+# dbt
+transform/target/
+transform/dbt_packages
+transform/logs

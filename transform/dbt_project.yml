@@ -1,0 +1,20 @@
+name: ingatlanmizu
+version: 0.1.0
+
+profile: ingatlanmizu
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  ingatlanmizu:
+    staging:
+      +materialized: view
+      +schema: silver
+    marts:
+      +materialized: table
+      +schema: gold
