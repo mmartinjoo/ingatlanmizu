@@ -20,3 +20,11 @@ sources:
             description: "sha256 over the important columns of the record"
             data_tests:
               - not_null
+          - name: ar
+            description: "Unformatted"
+            data_tests:
+              - not_empty
+          - name: alapterulet
+            description: "Area in square meter, unformatted"
+            data_tests:
+              - not_empty
