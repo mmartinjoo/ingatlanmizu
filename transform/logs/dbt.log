@@ -52696,3 +52696,53 @@ parsing.
 [0m22:24:13.190733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112d8b0b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1143c06b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1127b0470>]}
 [0m22:24:13.191152 [debug] [MainThread]: Flushing usage events
 [0m22:24:15.418325 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:28:21.596444 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1052b4200>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106267b30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062676b0>]}
+
+
+============================== 22:28:21.602463 | f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5 ==============================
+[0m22:28:21.602463 [info ] [MainThread]: Running with dbt=1.12.0
+[0m22:28:21.603152 [debug] [MainThread]: running dbt with arguments {'no_print': 'None', 'printer_width': '80', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_colors': 'True', 'log_format': 'default', 'debug': 'False', 'indirect_selection': 'eager', 'quiet': 'False', 'warn_error': 'None', 'target_path': 'None', 'profiles_dir': 'transform', 'maximum_seed_size_mib': '1', 'fail_fast': 'False', 'static_parser': 'True', 'hints_enabled': 'True', 'log_cache_events': 'False', 'introspect': 'True', 'partial_parse': 'True', 'write_json': 'True', 'invocation_command': 'dbt ls --resource-type test', 'cache_selected_only': 'False', 'log_path': 'transform/logs', 'version_check': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m22:28:21.885631 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105685d90>]}
+[0m22:28:21.983673 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107203f80>]}
+[0m22:28:21.985769 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m22:28:22.135950 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m22:28:22.393169 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:28:22.393701 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:28:22.394042 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:28:22.404943 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10694d580>]}
+[0m22:28:22.621941 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m22:28:22.626431 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m22:28:22.652291 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m22:28:22.752305 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1077d0380>]}
+[0m22:28:22.753057 [info ] [MainThread]: Found 6 models, 25 data tests, 1 source, 600 macros
+[0m22:28:22.753530 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f03260c6-da1e-4ca9-be24-a3a4fcf0c6d5', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103598d10>]}
+[0m22:28:22.754870 [info ] [MainThread]: ingatlanmizu.intermediate.accepted_values_int_listings__current_source__zenga
+[0m22:28:22.755289 [info ] [MainThread]: ingatlanmizu.intermediate.accepted_values_int_listings__unioned_source__zenga
+[0m22:28:22.755644 [info ] [MainThread]: ingatlanmizu.marts.accepted_values_mart_market_monthly_main_type__H_z__Lak_s
+[0m22:28:22.755979 [info ] [MainThread]: ingatlanmizu.marts.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key
+[0m22:28:22.756316 [info ] [MainThread]: ingatlanmizu.marts.dbt_utils_unique_combination_of_columns_mart_market_monthly_month_start__city__main_type__sub_type
+[0m22:28:22.756641 [info ] [MainThread]: ingatlanmizu.marts.not_empty_mart_market_monthly_city
+[0m22:28:22.756962 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__current_listing_key
+[0m22:28:22.757281 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__current_source
+[0m22:28:22.757601 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__price_changes_listing_key
+[0m22:28:22.758978 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__price_changes_price_delta_huf
+[0m22:28:22.759567 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__unioned_listing_key
+[0m22:28:22.759987 [info ] [MainThread]: ingatlanmizu.intermediate.not_null_int_listings__unioned_source
+[0m22:28:22.760550 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_listings_current_listing_key
+[0m22:28:22.760976 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_listings_current_original_price_huf
+[0m22:28:22.761357 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_listings_current_price_change_pct
+[0m22:28:22.761729 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_listings_current_price_delta_huf
+[0m22:28:22.762074 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_market_monthly_city
+[0m22:28:22.762403 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_market_monthly_main_type
+[0m22:28:22.762739 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_market_monthly_month_start
+[0m22:28:22.763074 [info ] [MainThread]: ingatlanmizu.marts.not_null_mart_market_monthly_sub_type
+[0m22:28:22.763405 [info ] [MainThread]: ingatlanmizu.staging.zenga.source_not_empty_bronze_zenga_listings_alapterulet
+[0m22:28:22.763747 [info ] [MainThread]: ingatlanmizu.staging.zenga.source_not_empty_bronze_zenga_listings_ar
+[0m22:28:22.764193 [info ] [MainThread]: ingatlanmizu.staging.zenga.source_not_null_bronze_zenga_listings_hirdeteskod
+[0m22:28:22.764668 [info ] [MainThread]: ingatlanmizu.staging.zenga.source_not_null_bronze_zenga_listings_payload_hash
+[0m22:28:22.765083 [info ] [MainThread]: ingatlanmizu.intermediate.unique_int_listings__current_listing_key
+[0m22:28:22.768221 [debug] [MainThread]: Resource report: {"command_name": "list", "command_success": true, "command_wall_clock_time": 1.3107216, "process_in_blocks": "0", "process_kernel_time": 0.412143, "process_mem_max_rss": "132022272", "process_out_blocks": "0", "process_user_time": 2.949587}
+[0m22:28:22.768972 [debug] [MainThread]: Command `dbt ls` succeeded at 22:28:22.768829 after 1.31 seconds
+[0m22:28:22.769553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105ad2480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1033f08f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1035f4410>]}
+[0m22:28:22.770144 [debug] [MainThread]: Flushing usage events
+[0m22:28:24.482693 [debug] [MainThread]: An error was encountered while trying to flush usage events
