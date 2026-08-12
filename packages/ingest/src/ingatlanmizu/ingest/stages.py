@@ -8,7 +8,7 @@ from ingatlanmizu.ingest.sources import get_source
 def discover_stage(run_id: int):
     source, metadata = _source_for(run_id)
     listings = source.discover(metadata.get("seed_urls"))
-    enqueue_run_items(run_id=run_id, listings=listings)
+    enqueue_run_items(source=source, run_id=run_id, listings=listings)
         
 def extract_stage(run_id: int):
     source, _ = _source_for(run_id)
