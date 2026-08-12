@@ -1,13 +1,13 @@
 with 
     source as (
-        select * from {{ ref('stg_zenga__listing_versions') }}
+        select * from {{ ref('int_listings__unioned') }}
     ),
 
     versioned as (
         select 
             *,
             row_number() over (
-                partition by listing_code
+                partition by listing_key
                 order by observed_at desc, bronze_id desc
             ) as version_rank
         from source

@@ -1,21 +1,21 @@
 with versions as (
-    select * from {{ ref('stg_zenga__listing_versions') }}
+    select * from {{ ref('int_listings__unioned') }}
 ),
 
 with_previous as (
     select
-        listing_code,
+        listing_key,
         observed_at,
         price_huf,
         lag(price_huf) over (
-            partition by listing_code
+            partition by listing_key
             order by observed_at, bronze_id
         ) as previous_price_huf
     from versions
 )
 
 select
-    listing_code,
+    listing_key,
     observed_at,
     previous_price_huf,
     price_huf as new_price_huf,

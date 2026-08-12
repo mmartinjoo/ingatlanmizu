@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: stg_zenga__listings
-    description: "One row per zenga.hu listings"
+  - name: stg_zenga__listings_versions
+    description: "zenga.hu listings. Each change is a dedicated record."
     columns:
       - name: listing_code
         description: "Natural key from hirdeteskod"
