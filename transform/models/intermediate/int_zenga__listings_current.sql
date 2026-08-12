@@ -8,7 +8,7 @@ with
             *,
             row_number() over (
                 partition by listing_code
-                order by created_at desc, id desc
+                order by observed_at desc, bronze_id desc
             ) as version_rank
         from source
     )

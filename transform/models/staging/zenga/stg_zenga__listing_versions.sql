@@ -5,7 +5,7 @@ with
 
     renamed as (
         select
-            id as id,
+            id as bronze_id,
             hirdeteskod as listing_code,
             megnevezes as title,
             ({{ hu_numeric('ar') }} * {{ price_magnitude('ar') }})::bigint as price_huf,
@@ -26,7 +26,7 @@ with
             energetikai_besorolas as energy_rating,
             tipus as type,
             szintek_szama as max_number_of_floors_in_building,
-            created_at as created_at,
+            created_at as observed_at,
             ingestion_run_id as ingestion_run_id,
             payload_hash as payload_hash,
             hirdeto_neve as seller_name,
