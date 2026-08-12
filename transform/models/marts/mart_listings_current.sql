@@ -8,20 +8,32 @@ with
 	),
 	
 	oldest_prices as (
-		select listing_key, previous_price_huf as oldest_price
-		from {{ ref('int_listings__price_changes') }}
-		order by observed_at asc
-		limit 1
+		select 
+			listing_key, 
+			previous_price_huf as oldest_price
+		from (
+			select 
+				*,
+				row_number() over (
+					partition by listing_key
+					order by observed_at desc
+				) as rn
+			from {{ ref('int_listings__price_changes') }}
+		)
+		where rn = 1
 	)
 	
 select 
 	listings.*,
-	price_change_counts.price_changes_count,
-	oldest_prices.oldest_price as original_price_huf,
-	oldest_prices.oldest_price - price_huf as price_delta_huf,
-	round(
-		((oldest_prices.oldest_price - price_huf)::numeric / oldest_prices.oldest_price)*100, 
-		2
+	coalesce(price_change_counts.price_changes_count, 0) as price_changes_count,
+	coalesce(oldest_prices.oldest_price, price_huf) as original_price_huf,
+	coalesce(price_huf - oldest_prices.oldest_price, 0) as price_delta_huf,
+	coalesce(
+		round(
+			((price_huf - oldest_prices.oldest_price)::numeric / oldest_prices.oldest_price)*100, 
+			2
+		),
+		0
 	) as price_change_pct
 from {{ ref('int_listings__current') }} as listings
 left join price_change_counts
