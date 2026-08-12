@@ -45138,3 +45138,2813 @@ drop table if exists "ingatlanmizu"."gold"."mart_listings_current__dbt_backup" c
 [0m20:05:17.757935 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113d4ca70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104bf2c60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11499f770>]}
 [0m20:05:17.758282 [debug] [MainThread]: Flushing usage events
 [0m20:05:18.594387 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:49:00.798952 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104e5a1e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ce56d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ce5220>]}
+
+
+============================== 20:49:00.803333 | 196ab327-f99d-43fb-884b-239788599ba8 ==============================
+[0m20:49:00.803333 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:49:00.803919 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'use_experimental_parser': 'False', 'version_check': 'True', 'maximum_seed_size_mib': '1', 'quiet': 'False', 'partial_parse': 'True', 'no_print': 'None', 'fail_fast': 'False', 'introspect': 'True', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'profiles_dir': 'transform', 'hints_enabled': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'static_parser': 'True', 'debug': 'False', 'invocation_command': 'dbt build', 'use_colors': 'True', 'empty': 'False', 'write_json': 'True', 'warn_error': 'None', 'log_path': 'transform/logs'}
+[0m20:49:00.991729 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '196ab327-f99d-43fb-884b-239788599ba8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107da7710>]}
+[0m20:49:01.048113 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '196ab327-f99d-43fb-884b-239788599ba8', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107dd2900>]}
+[0m20:49:01.049612 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:49:01.146203 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:49:01.270907 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Parsing Error
+  The schema file at models/marts/mart_models.yml is invalid because the value of 'models' is not a list
+[0m20:49:01.273221 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 0.55746245, "process_in_blocks": "0", "process_kernel_time": 0.223097, "process_mem_max_rss": "129662976", "process_out_blocks": "0", "process_user_time": 1.654737}
+[0m20:49:01.273713 [debug] [MainThread]: Command `dbt build` failed at 20:49:01.273628 after 0.56 seconds
+[0m20:49:01.274110 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ce5520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b68c80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b69100>]}
+[0m20:49:01.274479 [debug] [MainThread]: Flushing usage events
+[0m20:49:02.809782 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:50:12.802577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108174560>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109339580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109339160>]}
+
+
+============================== 20:50:12.807595 | 57811d5f-51fd-4102-95c0-315462dcb7fc ==============================
+[0m20:50:12.807595 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:50:12.808242 [debug] [MainThread]: running dbt with arguments {'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'no_print': 'None', 'target_path': 'None', 'fail_fast': 'False', 'partial_parse': 'True', 'empty': 'None', 'profiles_dir': 'transform', 'warn_error': 'None', 'log_path': 'transform/logs', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'debug': 'False', 'introspect': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt test', 'version_check': 'True', 'use_colors': 'True', 'maximum_seed_size_mib': '1', 'quiet': 'False', 'write_json': 'True', 'log_format': 'default'}
+[0m20:50:13.027962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '57811d5f-51fd-4102-95c0-315462dcb7fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109b075f0>]}
+[0m20:50:13.095287 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '57811d5f-51fd-4102-95c0-315462dcb7fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109448200>]}
+[0m20:50:13.096618 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:50:13.210186 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:50:13.509593 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m20:50:13.510427 [debug] [MainThread]: Partial parsing: added file: ingatlanmizu://models/marts/mart_models.yml
+[0m20:50:13.857656 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Parsing Error
+  Invalid test config given in models/marts/mart_models.yml:
+  	test definition dictionary must have exactly one key, got [('db_utils.unique_combination_of_columns', None), ('combination_of_columns', ['listing_key'])] instead (2 keys)
+  	@: UnparsedModelUpdate(original_file_path='mode...ne)
+[0m20:50:13.860092 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 1.1517228, "process_in_blocks": "0", "process_kernel_time": 0.256757, "process_mem_max_rss": "132808704", "process_out_blocks": "0", "process_user_time": 2.105254}
+[0m20:50:13.860582 [debug] [MainThread]: Command `dbt test` failed at 20:50:13.860496 after 1.15 seconds
+[0m20:50:13.860968 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109339850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1093121e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3290d0>]}
+[0m20:50:13.861324 [debug] [MainThread]: Flushing usage events
+[0m20:50:15.234265 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:50:37.456653 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x102f16360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074415b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107441130>]}
+
+
+============================== 20:50:37.461226 | 71b8ef54-ed1a-4f08-a824-f0a81aa0cc51 ==============================
+[0m20:50:37.461226 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:50:37.461835 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'log_cache_events': 'False', 'profiles_dir': 'transform', 'cache_selected_only': 'False', 'invocation_command': 'dbt test', 'target_path': 'None', 'use_colors': 'True', 'maximum_seed_size_mib': '1', 'use_experimental_parser': 'False', 'log_format': 'default', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'partial_parse': 'True', 'empty': 'None', 'printer_width': '80', 'no_print': 'None', 'static_parser': 'True', 'version_check': 'True', 'debug': 'False', 'write_json': 'True', 'hints_enabled': 'True', 'quiet': 'False', 'log_path': 'transform/logs', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'indirect_selection': 'eager'}
+[0m20:50:37.638917 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '71b8ef54-ed1a-4f08-a824-f0a81aa0cc51', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107416840>]}
+[0m20:50:37.695549 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '71b8ef54-ed1a-4f08-a824-f0a81aa0cc51', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10672dfa0>]}
+[0m20:50:37.696569 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:50:37.793316 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:50:37.956061 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m20:50:37.956659 [debug] [MainThread]: Partial parsing: added file: ingatlanmizu://models/marts/mart_models.yml
+[0m20:50:38.260954 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Parsing Error
+  Invalid test config given in models/marts/mart_models.yml:
+  	test arguments must be a dict, got <class 'list'> (value [{'combination_of_columns': ['listing_key']}])
+  	@: UnparsedModelUpdate(original_file_path='mode...ne)
+[0m20:50:38.263249 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 0.88814986, "process_in_blocks": "0", "process_kernel_time": 0.215493, "process_mem_max_rss": "131481600", "process_out_blocks": "0", "process_user_time": 1.974977}
+[0m20:50:38.263729 [debug] [MainThread]: Command `dbt test` failed at 20:50:38.263653 after 0.89 seconds
+[0m20:50:38.264104 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1082d84a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074f94f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c06d20>]}
+[0m20:50:38.264459 [debug] [MainThread]: Flushing usage events
+[0m20:50:39.581254 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:51:19.639243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce7c380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2c5730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2c51f0>]}
+
+
+============================== 20:51:19.643693 | e31f9704-e29a-4235-9739-6f188232a06c ==============================
+[0m20:51:19.643693 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:51:19.644299 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'static_parser': 'True', 'warn_error': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'write_json': 'True', 'profiles_dir': 'transform', 'indirect_selection': 'eager', 'fail_fast': 'False', 'version_check': 'True', 'quiet': 'False', 'debug': 'False', 'hints_enabled': 'True', 'maximum_seed_size_mib': '1', 'introspect': 'True', 'empty': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'invocation_command': 'dbt test', 'partial_parse': 'True', 'log_path': 'transform/logs', 'use_colors': 'True', 'printer_width': '80'}
+[0m20:51:19.837159 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d10a660>]}
+[0m20:51:19.894033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d314c80>]}
+[0m20:51:19.895171 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:51:19.992812 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:51:20.160774 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 1 files added, 0 files changed.
+[0m20:51:20.161405 [debug] [MainThread]: Partial parsing: added file: ingatlanmizu://models/marts/mart_models.yml
+[0m20:51:20.462652 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `db_utils.unique_combination_of_columns`
+defined on 'mart_listings_current' in package 'ingatlanmizu'
+(models/marts/mart_models.yml). Arguments to generic tests should be nested
+under the `arguments` property.
+[0m20:51:20.463211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ba955b0>]}
+[0m20:51:20.550151 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e45be30>]}
+[0m20:51:20.661264 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:51:20.664430 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:51:20.683084 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:51:20.703073 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fb28950>]}
+[0m20:51:20.703551 [info ] [MainThread]: Found 5 models, 18 data tests, 1 source, 600 macros
+[0m20:51:20.703903 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e0bbce0>]}
+[0m20:51:20.706153 [info ] [MainThread]: 
+[0m20:51:20.706507 [info ] [MainThread]: Concurrency: 4 threads (target='local')
+[0m20:51:20.706794 [info ] [MainThread]: 
+[0m20:51:20.707260 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m20:51:20.711171 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_gold'
+[0m20:51:20.711820 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_silver'
+[0m20:51:20.758479 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_gold"
+[0m20:51:20.758894 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_silver"
+[0m20:51:20.759339 [debug] [ThreadPool]: On list_ingatlanmizu_gold: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_gold"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'gold'
+  
+[0m20:51:20.759765 [debug] [ThreadPool]: On list_ingatlanmizu_silver: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_silver"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'silver'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'silver'
+  
+[0m20:51:20.760128 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:20.760437 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:20.909594 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.149 seconds
+[0m20:51:20.910242 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.150 seconds
+[0m20:51:20.913043 [debug] [ThreadPool]: On list_ingatlanmizu_gold: ROLLBACK
+[0m20:51:20.914416 [debug] [ThreadPool]: On list_ingatlanmizu_silver: ROLLBACK
+[0m20:51:20.916042 [debug] [ThreadPool]: On list_ingatlanmizu_gold: Close
+[0m20:51:20.916737 [debug] [ThreadPool]: On list_ingatlanmizu_silver: Close
+[0m20:51:20.928376 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:20.929111 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m20:51:20.929774 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:51:20.954837 [debug] [MainThread]: SQL status: SELECT 4 in 0.025 seconds
+[0m20:51:20.957236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e31f9704-e29a-4235-9739-6f188232a06c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d3b03b0>]}
+[0m20:51:20.957701 [debug] [MainThread]: On master: ROLLBACK
+[0m20:51:20.958548 [debug] [MainThread]: On master: COMMIT
+[0m20:51:20.959071 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:20.959459 [debug] [MainThread]: On master: COMMIT
+[0m20:51:20.960717 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m20:51:20.961074 [debug] [MainThread]: On master: Close
+[0m20:51:20.965188 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:20.965619 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:20.966035 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f
+[0m20:51:20.966395 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:20.968057 [info ] [Thread-1 (]: 1 of 18 START test accepted_values_int_listings__current_source__zenga ......... [RUN]
+[0m20:51:20.968505 [info ] [Thread-2 (]: 2 of 18 START test accepted_values_int_listings__unioned_source__zenga ......... [RUN]
+[0m20:51:20.969000 [info ] [Thread-3 (]: 3 of 18 START test db_utils_unique_combination_of_columns_mart_listings_current_listing_key  [RUN]
+[0m20:51:20.969446 [info ] [Thread-4 (]: 4 of 18 START test not_null_int_listings__current_listing_key .................. [RUN]
+[0m20:51:20.970159 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_gold, now test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00)
+[0m20:51:20.970612 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_silver, now test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1)
+[0m20:51:20.971126 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f'
+[0m20:51:20.971624 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d'
+[0m20:51:20.972022 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:20.972450 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:20.972825 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f
+[0m20:51:20.973176 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:20.990134 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:20.996044 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:21.011401 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:21.013397 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:21.020184 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:21.027371 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:21.035646 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:21.037304 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:21.038705 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:21.039623 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:21.040046 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:21.040389 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:21.040807 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__unioned"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.041303 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__current"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.041777 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.042177 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:21.042590 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:21.042928 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m20:51:21.047203 [debug] [Thread-3 (]: Compilation Error in test db_utils_unique_combination_of_columns_mart_listings_current_listing_key (models/marts/mart_models.yml)
+  'db_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m20:51:21.047776 [error] [Thread-3 (]: 3 of 18 ERROR db_utils_unique_combination_of_columns_mart_listings_current_listing_key  [[31mERROR[0m in 0.08s]
+[0m20:51:21.050357 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f
+[0m20:51:21.051952 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:21.053163 [info ] [Thread-3 (]: 5 of 18 START test not_null_int_listings__current_source ....................... [RUN]
+[0m20:51:21.053807 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f, now test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576)
+[0m20:51:21.054197 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:21.063546 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.db_utils_unique_combination_of_columns_mart_listings_current_listing_key.11074f5c4f' to be skipped because of status 'error'.  Reason: Compilation Error in test db_utils_unique_combination_of_columns_mart_listings_current_listing_key (models/marts/mart_models.yml)
+  'db_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps"..
+[0m20:51:21.064507 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:21.066399 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:21.067872 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:21.069018 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:21.069453 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__current"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.069834 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m20:51:21.071515 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.029 seconds
+[0m20:51:21.077008 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: ROLLBACK
+[0m20:51:21.077627 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.035 seconds
+[0m20:51:21.078258 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.036 seconds
+[0m20:51:21.079914 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: ROLLBACK
+[0m20:51:21.080396 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: Close
+[0m20:51:21.081951 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: ROLLBACK
+[0m20:51:21.085603 [info ] [Thread-2 (]: 2 of 18 PASS accepted_values_int_listings__unioned_source__zenga ............... [[32mPASS[0m in 0.11s]
+[0m20:51:21.086606 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: Close
+[0m20:51:21.087205 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: Close
+[0m20:51:21.087975 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:21.088681 [info ] [Thread-1 (]: 1 of 18 PASS accepted_values_int_listings__current_source__zenga ............... [[32mPASS[0m in 0.12s]
+[0m20:51:21.089400 [info ] [Thread-4 (]: 4 of 18 PASS not_null_int_listings__current_listing_key ........................ [[32mPASS[0m in 0.12s]
+[0m20:51:21.090136 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:21.091127 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:21.091621 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:21.092152 [info ] [Thread-2 (]: 6 of 18 START test not_null_int_listings__price_changes_listing_key ............ [RUN]
+[0m20:51:21.092762 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:21.093113 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.023 seconds
+[0m20:51:21.093504 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:21.093943 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1, now test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b)
+[0m20:51:21.097026 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:21.094404 [info ] [Thread-1 (]: 7 of 18 START test not_null_int_listings__price_changes_price_delta_huf ........ [RUN]
+[0m20:51:21.096547 [info ] [Thread-4 (]: 8 of 18 START test not_null_int_listings__unioned_listing_key .................. [RUN]
+[0m20:51:21.096130 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: ROLLBACK
+[0m20:51:21.106375 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:21.106890 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00, now test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12)
+[0m20:51:21.112299 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:21.107483 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d, now test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d)
+[0m20:51:21.109211 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: Close
+[0m20:51:21.121765 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:21.108505 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:21.122282 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:21.122953 [info ] [Thread-3 (]: 5 of 18 PASS not_null_int_listings__current_source ............................. [[32mPASS[0m in 0.07s]
+[0m20:51:21.124825 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:21.130662 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:21.131305 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:21.131701 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:21.132402 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:21.132858 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:21.133200 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:21.134535 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:21.134965 [info ] [Thread-3 (]: 9 of 18 START test not_null_int_listings__unioned_source ....................... [RUN]
+[0m20:51:21.135627 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.137158 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:21.137712 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576, now test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949)
+[0m20:51:21.138184 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:21.138594 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:21.139086 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:21.139713 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:21.140092 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.146375 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:21.146904 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.147409 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:21.148098 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:21.148806 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:21.150067 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:21.150677 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:21.151060 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.151918 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:21.161185 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.023 seconds
+[0m20:51:21.163320 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: ROLLBACK
+[0m20:51:21.164303 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: Close
+[0m20:51:21.164894 [info ] [Thread-2 (]: 6 of 18 PASS not_null_int_listings__price_changes_listing_key .................. [[32mPASS[0m in 0.07s]
+[0m20:51:21.165439 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:21.165923 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:21.166750 [info ] [Thread-2 (]: 10 of 18 START test not_null_mart_listings_current_listing_key ................. [RUN]
+[0m20:51:21.167254 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b, now test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35)
+[0m20:51:21.167637 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:21.173628 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:21.175054 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:21.176505 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:21.177142 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.025 seconds
+[0m20:51:21.178952 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: ROLLBACK
+[0m20:51:21.179363 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.031 seconds
+[0m20:51:21.179784 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:21.180173 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.033 seconds
+[0m20:51:21.181570 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: ROLLBACK
+[0m20:51:21.181968 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."gold"."mart_listings_current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.182338 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: Close
+[0m20:51:21.183814 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: ROLLBACK
+[0m20:51:21.184294 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:21.184655 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: Close
+[0m20:51:21.185741 [info ] [Thread-3 (]: 9 of 18 PASS not_null_int_listings__unioned_source ............................. [[32mPASS[0m in 0.05s]
+[0m20:51:21.186342 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: Close
+[0m20:51:21.187244 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:21.187839 [info ] [Thread-4 (]: 8 of 18 PASS not_null_int_listings__unioned_listing_key ........................ [[32mPASS[0m in 0.08s]
+[0m20:51:21.189805 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:21.189199 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:21.190218 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:21.188550 [info ] [Thread-1 (]: 7 of 18 PASS not_null_int_listings__price_changes_price_delta_huf .............. [[32mPASS[0m in 0.08s]
+[0m20:51:21.190625 [info ] [Thread-3 (]: 11 of 18 START test not_null_mart_listings_current_original_price_huf .......... [RUN]
+[0m20:51:21.191126 [info ] [Thread-4 (]: 12 of 18 START test not_null_mart_listings_current_price_change_pct ............ [RUN]
+[0m20:51:21.191633 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:21.192045 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949, now test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e)
+[0m20:51:21.192434 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d, now test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb)
+[0m20:51:21.193695 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:21.193318 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:21.192825 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:21.210227 [info ] [Thread-1 (]: 13 of 18 START test not_null_mart_listings_current_price_delta_huf ............. [RUN]
+[0m20:51:21.210736 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12, now test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce)
+[0m20:51:21.211112 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:21.202005 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:21.216891 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:21.217487 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.033 seconds
+[0m20:51:21.209733 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:21.219176 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: ROLLBACK
+[0m20:51:21.219811 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:21.220560 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:21.222003 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:21.222496 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: Close
+[0m20:51:21.224322 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:21.225156 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:21.235092 [info ] [Thread-2 (]: 10 of 18 PASS not_null_mart_listings_current_listing_key ....................... [[32mPASS[0m in 0.06s]
+[0m20:51:21.238859 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:21.238235 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:21.235988 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:21.239312 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:21.239766 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:21.240519 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:21.240965 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_change_pct
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_change_pct is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.242806 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:21.241510 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.243384 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:21.241931 [info ] [Thread-2 (]: 14 of 18 START test source_not_empty_bronze_zenga_listings_alapterulet ......... [RUN]
+[0m20:51:21.253522 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94)
+[0m20:51:21.242422 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select original_price_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where original_price_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.254480 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:21.255016 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:21.263754 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:21.264590 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:21.266001 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:21.266853 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:21.267295 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(alapterulet) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.267674 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:21.271560 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m20:51:21.273149 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: ROLLBACK
+[0m20:51:21.273879 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.031 seconds
+[0m20:51:21.276099 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: ROLLBACK
+[0m20:51:21.276572 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: Close
+[0m20:51:21.278550 [info ] [Thread-1 (]: 13 of 18 PASS not_null_mart_listings_current_price_delta_huf ................... [[32mPASS[0m in 0.07s]
+[0m20:51:21.281064 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:21.281605 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:21.281982 [info ] [Thread-1 (]: 15 of 18 START test source_not_empty_bronze_zenga_listings_ar .................. [RUN]
+[0m20:51:21.282435 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: Close
+[0m20:51:21.282932 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128)
+[0m20:51:21.283358 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:21.289544 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:21.290488 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.035 seconds
+[0m20:51:21.290142 [info ] [Thread-4 (]: 12 of 18 PASS not_null_mart_listings_current_price_change_pct .................. [[32mPASS[0m in 0.10s]
+[0m20:51:21.292321 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: ROLLBACK
+[0m20:51:21.292736 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.025 seconds
+[0m20:51:21.293233 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:21.293576 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:21.294933 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: ROLLBACK
+[0m20:51:21.295273 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: Close
+[0m20:51:21.295657 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:21.297017 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:21.298307 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: Close
+[0m20:51:21.297674 [info ] [Thread-3 (]: 11 of 18 PASS not_null_mart_listings_current_original_price_huf ................ [[32mPASS[0m in 0.11s]
+[0m20:51:21.299860 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:21.300274 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:21.297963 [info ] [Thread-4 (]: 16 of 18 START test source_not_null_bronze_zenga_listings_hirdeteskod .......... [RUN]
+[0m20:51:21.300846 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:21.299284 [info ] [Thread-2 (]: 14 of 18 PASS source_not_empty_bronze_zenga_listings_alapterulet ............... [[32mPASS[0m in 0.05s]
+[0m20:51:21.301346 [info ] [Thread-3 (]: 17 of 18 START test source_not_null_bronze_zenga_listings_payload_hash ......... [RUN]
+[0m20:51:21.301777 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264)
+[0m20:51:21.302173 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(ar) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.302690 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:21.303087 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc)
+[0m20:51:21.303455 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:21.303808 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:21.304170 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:21.304535 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:21.310649 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:21.311188 [info ] [Thread-2 (]: 18 of 18 START test unique_int_listings__current_listing_key ................... [RUN]
+[0m20:51:21.316957 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:21.317650 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94, now test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca)
+[0m20:51:21.318342 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:21.324382 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:21.331393 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:21.331824 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m20:51:21.332206 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:21.330168 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:21.333866 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: ROLLBACK
+[0m20:51:21.335412 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:21.335945 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:21.336839 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payload_hash
+from "ingatlanmizu"."bronze"."zenga_listings"
+where payload_hash is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.337226 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: Close
+[0m20:51:21.337616 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:21.337959 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:21.338337 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:21.338834 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hirdeteskod
+from "ingatlanmizu"."bronze"."zenga_listings"
+where hirdeteskod is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.339377 [info ] [Thread-1 (]: 15 of 18 PASS source_not_empty_bronze_zenga_listings_ar ........................ [[32mPASS[0m in 0.06s]
+[0m20:51:21.340818 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:21.341329 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:21.341829 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:21.342897 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:21.343395 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    listing_key as unique_field,
+    count(*) as n_records
+
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is not null
+group by listing_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:21.343902 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:21.354321 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.016 seconds
+[0m20:51:21.355945 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: ROLLBACK
+[0m20:51:21.356349 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.015 seconds
+[0m20:51:21.357914 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: ROLLBACK
+[0m20:51:21.358322 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: Close
+[0m20:51:21.358732 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: Close
+[0m20:51:21.359543 [info ] [Thread-3 (]: 17 of 18 PASS source_not_null_bronze_zenga_listings_payload_hash ............... [[32mPASS[0m in 0.06s]
+[0m20:51:21.360320 [info ] [Thread-4 (]: 16 of 18 PASS source_not_null_bronze_zenga_listings_hirdeteskod ................ [[32mPASS[0m in 0.06s]
+[0m20:51:21.360919 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:21.361277 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.017 seconds
+[0m20:51:21.361837 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:21.363223 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: ROLLBACK
+[0m20:51:21.363933 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: Close
+[0m20:51:21.364495 [info ] [Thread-2 (]: 18 of 18 PASS unique_int_listings__current_listing_key ......................... [[32mPASS[0m in 0.05s]
+[0m20:51:21.365131 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:21.367826 [debug] [MainThread]: On master: COMMIT
+[0m20:51:21.369716 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:21.370265 [debug] [MainThread]: On master: COMMIT
+[0m20:51:21.372577 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:51:21.391616 [debug] [MainThread]: SQL status: COMMIT in 0.020 seconds
+[0m20:51:21.392107 [debug] [MainThread]: On master: Close
+[0m20:51:21.392701 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:51:21.393054 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128' was properly closed.
+[0m20:51:21.393416 [debug] [MainThread]: Connection 'test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca' was properly closed.
+[0m20:51:21.393687 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc' was properly closed.
+[0m20:51:21.394370 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264' was properly closed.
+[0m20:51:21.394755 [info ] [MainThread]: 
+[0m20:51:21.395248 [info ] [MainThread]: Finished running 18 data tests in 0 hours 0 minutes and 0.69 seconds (0.69s).
+[0m20:51:21.397642 [debug] [MainThread]: Command end result
+[0m20:51:21.455819 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:51:21.458385 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:51:21.460884 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:51:21.469104 [debug] [MainThread]: Wrote artifact RunExecutionResult to transform/target/run_results.json
+[0m20:51:21.469478 [info ] [MainThread]: 
+[0m20:51:21.469847 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m20:51:21.470278 [info ] [MainThread]: 
+[0m20:51:21.470670 [error] [MainThread]: [[31mERROR[0m]: in test db_utils_unique_combination_of_columns_mart_listings_current_listing_key (models/marts/mart_models.yml)
+[0m20:51:21.471062 [error] [MainThread]:   Compilation Error in test db_utils_unique_combination_of_columns_mart_listings_current_listing_key (models/marts/mart_models.yml)
+  'db_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m20:51:21.471374 [info ] [MainThread]: 
+[0m20:51:21.471691 [info ] [MainThread]: Done. PASS=17 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=18
+[0m20:51:21.472163 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m20:51:21.474236 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": false, "command_wall_clock_time": 1.9164314, "process_in_blocks": "0", "process_kernel_time": 0.30916, "process_mem_max_rss": "149487616", "process_out_blocks": "0", "process_user_time": 2.738586}
+[0m20:51:21.475046 [debug] [MainThread]: Command `dbt test` failed at 20:51:21.474915 after 1.92 seconds
+[0m20:51:21.475702 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c3127b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2c4c80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d2c5700>]}
+[0m20:51:21.476266 [debug] [MainThread]: Flushing usage events
+[0m20:51:22.657067 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:51:45.601962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x123502630>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1255c5700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1255c50a0>]}
+
+
+============================== 20:51:45.606320 | cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a ==============================
+[0m20:51:45.606320 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:51:45.606930 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'partial_parse': 'True', 'debug': 'False', 'version_check': 'True', 'printer_width': '80', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'fail_fast': 'False', 'invocation_command': 'dbt test', 'log_cache_events': 'False', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'log_format': 'default', 'static_parser': 'True', 'warn_error': 'None', 'empty': 'None', 'no_print': 'None', 'log_path': 'transform/logs', 'use_colors': 'True', 'profiles_dir': 'transform', 'use_experimental_parser': 'False', 'hints_enabled': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True'}
+[0m20:51:45.784183 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106e2f680>]}
+[0m20:51:45.840260 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1220cad80>]}
+[0m20:51:45.841401 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:51:45.936972 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:51:46.106618 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m20:51:46.107417 [debug] [MainThread]: Partial parsing: updated file: ingatlanmizu://models/marts/mart_models.yml
+[0m20:51:46.586050 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `dbt_utils.unique_combination_of_columns`
+defined on 'mart_listings_current' in package 'ingatlanmizu'
+(models/marts/mart_models.yml). Arguments to generic tests should be nested
+under the `arguments` property.
+[0m20:51:46.586633 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x125d18f80>]}
+[0m20:51:46.669078 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126b1fb00>]}
+[0m20:51:46.779642 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:51:46.782456 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:51:46.800338 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:51:46.818958 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126ebb710>]}
+[0m20:51:46.819400 [info ] [MainThread]: Found 5 models, 18 data tests, 1 source, 600 macros
+[0m20:51:46.819735 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x126871970>]}
+[0m20:51:46.821894 [info ] [MainThread]: 
+[0m20:51:46.822251 [info ] [MainThread]: Concurrency: 4 threads (target='local')
+[0m20:51:46.822532 [info ] [MainThread]: 
+[0m20:51:46.822975 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m20:51:46.826402 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_gold'
+[0m20:51:46.827682 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_silver'
+[0m20:51:46.870773 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_gold"
+[0m20:51:46.871157 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_silver"
+[0m20:51:46.871581 [debug] [ThreadPool]: On list_ingatlanmizu_gold: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_gold"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'gold'
+  
+[0m20:51:46.872018 [debug] [ThreadPool]: On list_ingatlanmizu_silver: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_silver"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'silver'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'silver'
+  
+[0m20:51:46.872368 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:46.872663 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:46.929868 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.057 seconds
+[0m20:51:46.930242 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.058 seconds
+[0m20:51:46.931474 [debug] [ThreadPool]: On list_ingatlanmizu_gold: ROLLBACK
+[0m20:51:46.932579 [debug] [ThreadPool]: On list_ingatlanmizu_silver: ROLLBACK
+[0m20:51:46.933330 [debug] [ThreadPool]: On list_ingatlanmizu_silver: Close
+[0m20:51:46.933662 [debug] [ThreadPool]: On list_ingatlanmizu_gold: Close
+[0m20:51:46.937595 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:46.938065 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m20:51:46.938485 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:51:46.961931 [debug] [MainThread]: SQL status: SELECT 4 in 0.023 seconds
+[0m20:51:46.963666 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'cbe4a82d-9c2d-4ad1-9683-5bcce0809d3a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1256ac3e0>]}
+[0m20:51:46.964103 [debug] [MainThread]: On master: ROLLBACK
+[0m20:51:46.964678 [debug] [MainThread]: On master: COMMIT
+[0m20:51:46.965065 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:46.965376 [debug] [MainThread]: On master: COMMIT
+[0m20:51:46.966192 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m20:51:46.966510 [debug] [MainThread]: On master: Close
+[0m20:51:46.969291 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:46.969681 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:46.970083 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:51:46.970440 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:46.970828 [info ] [Thread-1 (]: 1 of 18 START test accepted_values_int_listings__current_source__zenga ......... [RUN]
+[0m20:51:46.971150 [info ] [Thread-2 (]: 2 of 18 START test accepted_values_int_listings__unioned_source__zenga ......... [RUN]
+[0m20:51:46.971636 [info ] [Thread-3 (]: 3 of 18 START test dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key  [RUN]
+[0m20:51:46.972031 [info ] [Thread-4 (]: 4 of 18 START test not_null_int_listings__current_listing_key .................. [RUN]
+[0m20:51:46.972508 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_gold, now test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00)
+[0m20:51:46.972907 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_silver, now test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1)
+[0m20:51:46.973367 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea'
+[0m20:51:46.973802 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d'
+[0m20:51:46.974145 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:46.974484 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:46.974890 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:51:46.975207 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:46.998783 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:46.999401 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:47.005119 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:51:47.014329 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:47.015165 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:51:47.030725 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:51:47.031120 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:47.031459 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:47.031767 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:47.033104 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:47.034494 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:47.034921 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:51:47.036091 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:47.036662 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+
+    select
+        listing_key
+    from "ingatlanmizu"."gold"."mart_listings_current"
+    group by listing_key
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.037176 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:51:47.037555 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:51:47.037919 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m20:51:47.038412 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__current"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.038820 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:51:47.039190 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__unioned"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.039663 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:47.040075 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.040457 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:47.040868 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m20:51:47.062693 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.025 seconds
+[0m20:51:47.066473 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: ROLLBACK
+[0m20:51:47.066869 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m20:51:47.067207 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m20:51:47.067534 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m20:51:47.068837 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: ROLLBACK
+[0m20:51:47.069185 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: Close
+[0m20:51:47.070376 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: ROLLBACK
+[0m20:51:47.071522 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: ROLLBACK
+[0m20:51:47.072466 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: Close
+[0m20:51:47.072174 [info ] [Thread-3 (]: 3 of 18 PASS dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key  [[32mPASS[0m in 0.10s]
+[0m20:51:47.072906 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: Close
+[0m20:51:47.073467 [info ] [Thread-2 (]: 2 of 18 PASS accepted_values_int_listings__unioned_source__zenga ............... [[32mPASS[0m in 0.10s]
+[0m20:51:47.073814 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: Close
+[0m20:51:47.074259 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:51:47.074753 [info ] [Thread-1 (]: 1 of 18 PASS accepted_values_int_listings__current_source__zenga ............... [[32mPASS[0m in 0.10s]
+[0m20:51:47.075283 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:51:47.075835 [info ] [Thread-4 (]: 4 of 18 PASS not_null_int_listings__current_listing_key ........................ [[32mPASS[0m in 0.10s]
+[0m20:51:47.076234 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:47.076788 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:51:47.077193 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:47.077685 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:51:47.078044 [info ] [Thread-3 (]: 5 of 18 START test not_null_int_listings__current_source ....................... [RUN]
+[0m20:51:47.078428 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:47.078810 [info ] [Thread-2 (]: 6 of 18 START test not_null_int_listings__price_changes_listing_key ............ [RUN]
+[0m20:51:47.079208 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:47.079632 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea, now test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576)
+[0m20:51:47.080000 [info ] [Thread-1 (]: 7 of 18 START test not_null_int_listings__price_changes_price_delta_huf ........ [RUN]
+[0m20:51:47.080397 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1, now test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b)
+[0m20:51:47.080742 [info ] [Thread-4 (]: 8 of 18 START test not_null_int_listings__unioned_listing_key .................. [RUN]
+[0m20:51:47.081079 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:47.081456 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00, now test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12)
+[0m20:51:47.081791 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:47.082142 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d, now test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d)
+[0m20:51:47.087740 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:47.088118 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:47.093448 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:47.093837 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:47.099317 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:47.104935 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:47.105297 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:47.105739 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:47.107053 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:47.107410 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:47.108818 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:47.109175 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:47.110459 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:47.111933 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:47.112315 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:51:47.112850 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:51:47.113289 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__current"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.113698 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:51:47.114032 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:51:47.114397 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.114764 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:47.115120 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.115506 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.115853 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:47.116265 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:47.116589 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:47.135396 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.136856 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: ROLLBACK
+[0m20:51:47.137249 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.137620 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.022 seconds
+[0m20:51:47.137985 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.022 seconds
+[0m20:51:47.139244 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: ROLLBACK
+[0m20:51:47.139593 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: Close
+[0m20:51:47.140744 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: ROLLBACK
+[0m20:51:47.141879 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: ROLLBACK
+[0m20:51:47.142852 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: Close
+[0m20:51:47.142547 [info ] [Thread-3 (]: 5 of 18 PASS not_null_int_listings__current_source ............................. [[32mPASS[0m in 0.06s]
+[0m20:51:47.143312 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: Close
+[0m20:51:47.143948 [info ] [Thread-2 (]: 6 of 18 PASS not_null_int_listings__price_changes_listing_key .................. [[32mPASS[0m in 0.06s]
+[0m20:51:47.144321 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: Close
+[0m20:51:47.144784 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:51:47.145279 [info ] [Thread-4 (]: 8 of 18 PASS not_null_int_listings__unioned_listing_key ........................ [[32mPASS[0m in 0.06s]
+[0m20:51:47.145762 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:51:47.146236 [info ] [Thread-1 (]: 7 of 18 PASS not_null_int_listings__price_changes_price_delta_huf .............. [[32mPASS[0m in 0.06s]
+[0m20:51:47.146616 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:47.147162 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:51:47.147585 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:47.148072 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:51:47.148420 [info ] [Thread-3 (]: 9 of 18 START test not_null_int_listings__unioned_source ....................... [RUN]
+[0m20:51:47.148787 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:47.149161 [info ] [Thread-2 (]: 10 of 18 START test not_null_mart_listings_current_listing_key ................. [RUN]
+[0m20:51:47.149588 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:47.149989 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576, now test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949)
+[0m20:51:47.150349 [info ] [Thread-4 (]: 11 of 18 START test not_null_mart_listings_current_original_price_huf .......... [RUN]
+[0m20:51:47.150716 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b, now test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35)
+[0m20:51:47.151057 [info ] [Thread-1 (]: 12 of 18 START test not_null_mart_listings_current_price_change_pct ............ [RUN]
+[0m20:51:47.151392 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:47.151743 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d, now test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e)
+[0m20:51:47.152070 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:47.152412 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12, now test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb)
+[0m20:51:47.159001 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:47.159397 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:47.164791 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:47.165184 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:47.170689 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:47.176256 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:47.176631 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:47.178088 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:47.178450 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:47.178839 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:47.179210 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:47.180553 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:47.181778 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:47.182170 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:51:47.183317 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:47.183864 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.184346 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:51:47.184735 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:47.185110 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:51:47.185599 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."gold"."mart_listings_current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.185992 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:51:47.186479 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select original_price_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where original_price_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.186967 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:47.187327 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_change_pct
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_change_pct is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.187677 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:47.188117 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:47.207844 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.020 seconds
+[0m20:51:47.208281 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m20:51:47.208685 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.210080 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: ROLLBACK
+[0m20:51:47.210467 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.023 seconds
+[0m20:51:47.211750 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: ROLLBACK
+[0m20:51:47.212917 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: ROLLBACK
+[0m20:51:47.214207 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: ROLLBACK
+[0m20:51:47.214550 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: Close
+[0m20:51:47.215634 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: Close
+[0m20:51:47.216016 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: Close
+[0m20:51:47.216354 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: Close
+[0m20:51:47.215301 [info ] [Thread-4 (]: 11 of 18 PASS not_null_mart_listings_current_original_price_huf ................ [[32mPASS[0m in 0.06s]
+[0m20:51:47.217014 [info ] [Thread-2 (]: 10 of 18 PASS not_null_mart_listings_current_listing_key ....................... [[32mPASS[0m in 0.07s]
+[0m20:51:47.217508 [info ] [Thread-1 (]: 12 of 18 PASS not_null_mart_listings_current_price_change_pct .................. [[32mPASS[0m in 0.07s]
+[0m20:51:47.218329 [info ] [Thread-3 (]: 9 of 18 PASS not_null_int_listings__unioned_source ............................. [[32mPASS[0m in 0.07s]
+[0m20:51:47.218992 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:51:47.219479 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:51:47.220041 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:51:47.220516 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:51:47.220912 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:47.221345 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:47.221755 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:47.222162 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:47.222550 [info ] [Thread-4 (]: 13 of 18 START test not_null_mart_listings_current_price_delta_huf ............. [RUN]
+[0m20:51:47.222933 [info ] [Thread-2 (]: 14 of 18 START test source_not_empty_bronze_zenga_listings_alapterulet ......... [RUN]
+[0m20:51:47.223294 [info ] [Thread-1 (]: 15 of 18 START test source_not_empty_bronze_zenga_listings_ar .................. [RUN]
+[0m20:51:47.223653 [info ] [Thread-3 (]: 16 of 18 START test source_not_null_bronze_zenga_listings_hirdeteskod .......... [RUN]
+[0m20:51:47.224078 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e, now test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce)
+[0m20:51:47.224485 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94)
+[0m20:51:47.224865 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128)
+[0m20:51:47.225229 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264)
+[0m20:51:47.225588 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:47.225949 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:47.226290 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:47.226639 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:47.232533 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:47.238973 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:47.244502 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:47.250089 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:47.252286 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:47.253050 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:47.254600 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:47.255011 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:47.256489 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:47.256853 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:47.258129 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:47.259393 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:47.259778 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:51:47.260266 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:51:47.260872 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.261281 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:51:47.261688 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(alapterulet) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.262057 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:51:47.262388 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:47.262757 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(ar) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.263118 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:47.263479 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hirdeteskod
+from "ingatlanmizu"."bronze"."zenga_listings"
+where hirdeteskod is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.263978 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:51:47.264417 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:51:47.283729 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.284200 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.020 seconds
+[0m20:51:47.284583 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.284958 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.021 seconds
+[0m20:51:47.286360 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: ROLLBACK
+[0m20:51:47.287573 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: ROLLBACK
+[0m20:51:47.288863 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: ROLLBACK
+[0m20:51:47.290056 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: ROLLBACK
+[0m20:51:47.290791 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: Close
+[0m20:51:47.291141 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: Close
+[0m20:51:47.291470 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: Close
+[0m20:51:47.291780 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: Close
+[0m20:51:47.292367 [info ] [Thread-4 (]: 13 of 18 PASS not_null_mart_listings_current_price_delta_huf ................... [[32mPASS[0m in 0.07s]
+[0m20:51:47.293057 [info ] [Thread-2 (]: 14 of 18 PASS source_not_empty_bronze_zenga_listings_alapterulet ............... [[32mPASS[0m in 0.07s]
+[0m20:51:47.293570 [info ] [Thread-3 (]: 16 of 18 PASS source_not_null_bronze_zenga_listings_hirdeteskod ................ [[32mPASS[0m in 0.07s]
+[0m20:51:47.294180 [info ] [Thread-1 (]: 15 of 18 PASS source_not_empty_bronze_zenga_listings_ar ........................ [[32mPASS[0m in 0.07s]
+[0m20:51:47.294718 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:51:47.295203 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:51:47.295639 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:51:47.296063 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:51:47.296421 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:47.296825 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:47.297345 [info ] [Thread-4 (]: 17 of 18 START test source_not_null_bronze_zenga_listings_payload_hash ......... [RUN]
+[0m20:51:47.297719 [info ] [Thread-2 (]: 18 of 18 START test unique_int_listings__current_listing_key ................... [RUN]
+[0m20:51:47.298126 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc)
+[0m20:51:47.298501 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94, now test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca)
+[0m20:51:47.298841 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:47.299164 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:47.305825 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:47.313238 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:47.313969 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:47.314334 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:47.315724 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:47.317006 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:47.317612 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:51:47.318013 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payload_hash
+from "ingatlanmizu"."bronze"."zenga_listings"
+where payload_hash is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.318380 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:51:47.318750 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:51:47.319254 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    listing_key as unique_field,
+    count(*) as n_records
+
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is not null
+group by listing_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:51:47.319682 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:51:47.331711 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.013 seconds
+[0m20:51:47.333111 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: ROLLBACK
+[0m20:51:47.333485 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.014 seconds
+[0m20:51:47.334860 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: ROLLBACK
+[0m20:51:47.335237 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: Close
+[0m20:51:47.335836 [info ] [Thread-4 (]: 17 of 18 PASS source_not_null_bronze_zenga_listings_payload_hash ............... [[32mPASS[0m in 0.04s]
+[0m20:51:47.336218 [debug] [Thread-2 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: Close
+[0m20:51:47.336708 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:51:47.337283 [info ] [Thread-2 (]: 18 of 18 PASS unique_int_listings__current_listing_key ......................... [[32mPASS[0m in 0.04s]
+[0m20:51:47.337882 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:51:47.338878 [debug] [MainThread]: On master: COMMIT
+[0m20:51:47.339211 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:47.339489 [debug] [MainThread]: On master: COMMIT
+[0m20:51:47.339757 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:51:47.349877 [debug] [MainThread]: SQL status: COMMIT in 0.010 seconds
+[0m20:51:47.350221 [debug] [MainThread]: On master: Close
+[0m20:51:47.350612 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:51:47.350893 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128' was properly closed.
+[0m20:51:47.351159 [debug] [MainThread]: Connection 'test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca' was properly closed.
+[0m20:51:47.351412 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264' was properly closed.
+[0m20:51:47.351664 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc' was properly closed.
+[0m20:51:47.351954 [info ] [MainThread]: 
+[0m20:51:47.352241 [info ] [MainThread]: Finished running 18 data tests in 0 hours 0 minutes and 0.53 seconds (0.53s).
+[0m20:51:47.354376 [debug] [MainThread]: Command end result
+[0m20:51:47.395430 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:51:47.397782 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:51:47.400235 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:51:47.407630 [debug] [MainThread]: Wrote artifact RunExecutionResult to transform/target/run_results.json
+[0m20:51:47.407989 [info ] [MainThread]: 
+[0m20:51:47.408336 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:51:47.408640 [info ] [MainThread]: 
+[0m20:51:47.408955 [info ] [MainThread]: Done. PASS=18 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=18
+[0m20:51:47.409428 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 1 occurrence
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m20:51:47.411379 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 1.8924954, "process_in_blocks": "0", "process_kernel_time": 0.285608, "process_mem_max_rss": "154550272", "process_out_blocks": "0", "process_user_time": 2.856579}
+[0m20:51:47.411800 [debug] [MainThread]: Command `dbt test` succeeded at 20:51:47.411733 after 1.89 seconds
+[0m20:51:47.412150 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x124bf8d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1255019d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1255c5550>]}
+[0m20:51:47.412498 [debug] [MainThread]: Flushing usage events
+[0m20:51:48.571673 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m20:51:58.997025 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10698f0b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072f15b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1072f1160>]}
+
+
+============================== 20:51:59.001251 | fa553311-6b8f-4085-a4d2-6fd1d2a10d19 ==============================
+[0m20:51:59.001251 [info ] [MainThread]: Running with dbt=1.12.0
+[0m20:51:59.001862 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'empty': 'None', 'write_json': 'True', 'version_check': 'True', 'invocation_command': 'dbt test', 'fail_fast': 'False', 'log_format': 'default', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'partial_parse': 'True', 'quiet': 'False', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'log_path': 'transform/logs', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'profiles_dir': 'transform', 'introspect': 'True', 'static_parser': 'True', 'warn_error': 'None', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'log_cache_events': 'False'}
+[0m20:51:59.189620 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ae8c20>]}
+[0m20:51:59.246478 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10731c5c0>]}
+[0m20:51:59.247989 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m20:51:59.343380 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m20:51:59.509590 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m20:51:59.510036 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m20:51:59.510342 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m20:51:59.518986 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108159700>]}
+[0m20:51:59.658647 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:51:59.661400 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:51:59.679751 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:51:59.856493 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1081b7fb0>]}
+[0m20:51:59.857411 [info ] [MainThread]: Found 5 models, 18 data tests, 1 source, 600 macros
+[0m20:51:59.857991 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068f7a70>]}
+[0m20:51:59.860604 [info ] [MainThread]: 
+[0m20:51:59.861018 [info ] [MainThread]: Concurrency: 4 threads (target='local')
+[0m20:51:59.861319 [info ] [MainThread]: 
+[0m20:51:59.861814 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m20:51:59.866748 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_gold'
+[0m20:51:59.867557 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu_silver'
+[0m20:51:59.912906 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_gold"
+[0m20:51:59.913294 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_silver"
+[0m20:51:59.913720 [debug] [ThreadPool]: On list_ingatlanmizu_gold: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_gold"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'gold'
+  
+[0m20:51:59.914144 [debug] [ThreadPool]: On list_ingatlanmizu_silver: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_silver"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'silver'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'silver'
+  
+[0m20:51:59.914493 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:59.914886 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:51:59.972946 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.058 seconds
+[0m20:51:59.973341 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.059 seconds
+[0m20:51:59.974673 [debug] [ThreadPool]: On list_ingatlanmizu_silver: ROLLBACK
+[0m20:51:59.975714 [debug] [ThreadPool]: On list_ingatlanmizu_gold: ROLLBACK
+[0m20:51:59.976547 [debug] [ThreadPool]: On list_ingatlanmizu_silver: Close
+[0m20:51:59.976876 [debug] [ThreadPool]: On list_ingatlanmizu_gold: Close
+[0m20:51:59.980811 [debug] [MainThread]: Using postgres connection "master"
+[0m20:51:59.981297 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m20:51:59.981735 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:51:59.998038 [debug] [MainThread]: SQL status: SELECT 4 in 0.016 seconds
+[0m20:51:59.999681 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fa553311-6b8f-4085-a4d2-6fd1d2a10d19', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108453ef0>]}
+[0m20:52:00.000090 [debug] [MainThread]: On master: ROLLBACK
+[0m20:52:00.000716 [debug] [MainThread]: On master: COMMIT
+[0m20:52:00.001055 [debug] [MainThread]: Using postgres connection "master"
+[0m20:52:00.001350 [debug] [MainThread]: On master: COMMIT
+[0m20:52:00.002141 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m20:52:00.002434 [debug] [MainThread]: On master: Close
+[0m20:52:00.005368 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:52:00.005792 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:52:00.006200 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:52:00.006546 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:52:00.006925 [info ] [Thread-1 (]: 1 of 18 START test accepted_values_int_listings__current_source__zenga ......... [RUN]
+[0m20:52:00.007338 [info ] [Thread-2 (]: 2 of 18 START test accepted_values_int_listings__unioned_source__zenga ......... [RUN]
+[0m20:52:00.007747 [info ] [Thread-3 (]: 3 of 18 START test dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key  [RUN]
+[0m20:52:00.008126 [info ] [Thread-4 (]: 4 of 18 START test not_null_int_listings__current_listing_key .................. [RUN]
+[0m20:52:00.008566 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_gold, now test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00)
+[0m20:52:00.008984 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_silver, now test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1)
+[0m20:52:00.009459 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea'
+[0m20:52:00.009890 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d'
+[0m20:52:00.010227 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:52:00.010563 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:52:00.010879 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:52:00.011189 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:52:00.030855 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:52:00.036694 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:52:00.049795 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:52:00.058878 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:52:00.059897 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:52:00.066176 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:52:00.066542 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:52:00.075913 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:52:00.076326 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:52:00.077593 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:52:00.079453 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:52:00.080824 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:52:00.081620 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"
+[0m20:52:00.082050 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"
+[0m20:52:00.082398 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"
+[0m20:52:00.082781 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__unioned"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.083224 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        source as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."int_listings__current"
+    group by source
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'zenga'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.083640 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"
+[0m20:52:00.084010 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.084378 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:52:00.084700 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:52:00.085064 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+
+
+
+
+with validation_errors as (
+
+    select
+        listing_key
+    from "ingatlanmizu"."gold"."mart_listings_current"
+    group by listing_key
+    having count(*) > 1
+
+)
+
+select *
+from validation_errors
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.085411 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m20:52:00.085952 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m20:52:00.106725 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.022 seconds
+[0m20:52:00.110511 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: ROLLBACK
+[0m20:52:00.110914 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.025 seconds
+[0m20:52:00.111257 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m20:52:00.111726 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m20:52:00.113033 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: ROLLBACK
+[0m20:52:00.113394 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1: Close
+[0m20:52:00.114599 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: ROLLBACK
+[0m20:52:00.115768 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: ROLLBACK
+[0m20:52:00.116405 [info ] [Thread-2 (]: 2 of 18 PASS accepted_values_int_listings__unioned_source__zenga ............... [[32mPASS[0m in 0.11s]
+[0m20:52:00.116779 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea: Close
+[0m20:52:00.117129 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d: Close
+[0m20:52:00.117651 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m20:52:00.117994 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00: Close
+[0m20:52:00.118512 [info ] [Thread-3 (]: 3 of 18 PASS dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key  [[32mPASS[0m in 0.11s]
+[0m20:52:00.119032 [info ] [Thread-4 (]: 4 of 18 PASS not_null_int_listings__current_listing_key ........................ [[32mPASS[0m in 0.11s]
+[0m20:52:00.119407 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:52:00.120002 [info ] [Thread-1 (]: 1 of 18 PASS accepted_values_int_listings__current_source__zenga ............... [[32mPASS[0m in 0.11s]
+[0m20:52:00.120606 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m20:52:00.121117 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m20:52:00.121492 [info ] [Thread-2 (]: 5 of 18 START test not_null_int_listings__current_source ....................... [RUN]
+[0m20:52:00.121978 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m20:52:00.122351 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:52:00.122702 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:52:00.123127 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1, now test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576)
+[0m20:52:00.123492 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:52:00.123874 [info ] [Thread-3 (]: 6 of 18 START test not_null_int_listings__price_changes_listing_key ............ [RUN]
+[0m20:52:00.124262 [info ] [Thread-4 (]: 7 of 18 START test not_null_int_listings__price_changes_price_delta_huf ........ [RUN]
+[0m20:52:00.124612 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:52:00.124977 [info ] [Thread-1 (]: 8 of 18 START test not_null_int_listings__unioned_listing_key .................. [RUN]
+[0m20:52:00.125375 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea, now test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b)
+[0m20:52:00.125744 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d, now test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12)
+[0m20:52:00.131340 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:52:00.131753 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00, now test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d)
+[0m20:52:00.132109 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:52:00.132438 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:52:00.132840 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:52:00.138363 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:52:00.143911 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:52:00.144286 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:52:00.149654 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:52:00.151085 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:52:00.151441 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:52:00.151859 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:52:00.153286 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:52:00.153647 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:52:00.154818 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:52:00.155266 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"
+[0m20:52:00.156557 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:52:00.157012 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"
+[0m20:52:00.157389 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__current"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.157899 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.158310 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"
+[0m20:52:00.158640 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:52:00.158974 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:52:00.159338 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"
+[0m20:52:00.159702 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."silver"."int_listings__price_changes"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.160281 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.160661 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:52:00.161007 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:52:00.182801 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.022 seconds
+[0m20:52:00.184096 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: ROLLBACK
+[0m20:52:00.184462 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.025 seconds
+[0m20:52:00.184812 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m20:52:00.185127 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m20:52:00.186352 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: ROLLBACK
+[0m20:52:00.186690 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d: Close
+[0m20:52:00.187810 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: ROLLBACK
+[0m20:52:00.188915 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: ROLLBACK
+[0m20:52:00.189797 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b: Close
+[0m20:52:00.189516 [info ] [Thread-1 (]: 8 of 18 PASS not_null_int_listings__unioned_listing_key ........................ [[32mPASS[0m in 0.06s]
+[0m20:52:00.190209 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576: Close
+[0m20:52:00.191180 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m20:52:00.191491 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12: Close
+[0m20:52:00.190780 [info ] [Thread-3 (]: 6 of 18 PASS not_null_int_listings__price_changes_listing_key .................. [[32mPASS[0m in 0.07s]
+[0m20:52:00.192481 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:52:00.192192 [info ] [Thread-2 (]: 5 of 18 PASS not_null_int_listings__current_source ............................. [[32mPASS[0m in 0.07s]
+[0m20:52:00.193118 [info ] [Thread-4 (]: 7 of 18 PASS not_null_int_listings__price_changes_price_delta_huf .............. [[32mPASS[0m in 0.07s]
+[0m20:52:00.193617 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m20:52:00.193988 [info ] [Thread-1 (]: 9 of 18 START test not_null_int_listings__unioned_source ....................... [RUN]
+[0m20:52:00.194521 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m20:52:00.194970 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m20:52:00.195331 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:52:00.195749 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d, now test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949)
+[0m20:52:00.196136 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:52:00.196524 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:52:00.196903 [info ] [Thread-3 (]: 10 of 18 START test not_null_mart_listings_current_listing_key ................. [RUN]
+[0m20:52:00.197267 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:52:00.197610 [info ] [Thread-2 (]: 11 of 18 START test not_null_mart_listings_current_original_price_huf .......... [RUN]
+[0m20:52:00.197980 [info ] [Thread-4 (]: 12 of 18 START test not_null_mart_listings_current_price_change_pct ............ [RUN]
+[0m20:52:00.198380 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b, now test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35)
+[0m20:52:00.203963 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:52:00.204381 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576, now test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e)
+[0m20:52:00.204762 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12, now test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb)
+[0m20:52:00.205107 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:52:00.205551 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:52:00.205944 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:52:00.211389 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:52:00.216789 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:52:00.217156 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:52:00.222439 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:52:00.223897 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:52:00.224327 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:52:00.224770 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:52:00.226982 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:52:00.227373 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:52:00.228552 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:52:00.228918 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"
+[0m20:52:00.230236 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:52:00.230710 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"
+[0m20:52:00.231101 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select source
+from "ingatlanmizu"."silver"."int_listings__unioned"
+where source is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.231727 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"
+[0m20:52:00.232070 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_key
+from "ingatlanmizu"."gold"."mart_listings_current"
+where listing_key is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.232463 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:52:00.232820 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"
+[0m20:52:00.233189 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select original_price_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where original_price_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.233557 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:52:00.234014 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_change_pct
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_change_pct is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.234372 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:52:00.234776 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:52:00.262691 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m20:52:00.263049 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.031 seconds
+[0m20:52:00.264462 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: ROLLBACK
+[0m20:52:00.264838 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.030 seconds
+[0m20:52:00.265174 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.032 seconds
+[0m20:52:00.266411 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: ROLLBACK
+[0m20:52:00.267679 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: ROLLBACK
+[0m20:52:00.268022 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e: Close
+[0m20:52:00.269139 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: ROLLBACK
+[0m20:52:00.269768 [info ] [Thread-2 (]: 11 of 18 PASS not_null_mart_listings_current_original_price_huf ................ [[32mPASS[0m in 0.07s]
+[0m20:52:00.270263 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m20:52:00.270615 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:52:00.271003 [info ] [Thread-2 (]: 13 of 18 START test not_null_mart_listings_current_price_delta_huf ............. [RUN]
+[0m20:52:00.271425 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e, now test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce)
+[0m20:52:00.271771 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:52:00.272088 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949: Close
+[0m20:52:00.272384 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb: Close
+[0m20:52:00.272703 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35: Close
+[0m20:52:00.278413 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:52:00.278988 [info ] [Thread-1 (]: 9 of 18 PASS not_null_int_listings__unioned_source ............................. [[32mPASS[0m in 0.08s]
+[0m20:52:00.279538 [info ] [Thread-4 (]: 12 of 18 PASS not_null_mart_listings_current_price_change_pct .................. [[32mPASS[0m in 0.07s]
+[0m20:52:00.280147 [info ] [Thread-3 (]: 10 of 18 PASS not_null_mart_listings_current_listing_key ....................... [[32mPASS[0m in 0.08s]
+[0m20:52:00.280674 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m20:52:00.281167 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m20:52:00.281480 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:52:00.281911 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m20:52:00.282260 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:52:00.282658 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:52:00.283931 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:52:00.284323 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:52:00.284696 [info ] [Thread-1 (]: 14 of 18 START test source_not_empty_bronze_zenga_listings_alapterulet ......... [RUN]
+[0m20:52:00.285071 [info ] [Thread-4 (]: 15 of 18 START test source_not_empty_bronze_zenga_listings_ar .................. [RUN]
+[0m20:52:00.285488 [info ] [Thread-3 (]: 16 of 18 START test source_not_null_bronze_zenga_listings_hirdeteskod .......... [RUN]
+[0m20:52:00.285923 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94)
+[0m20:52:00.286279 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"
+[0m20:52:00.286647 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128)
+[0m20:52:00.287016 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264)
+[0m20:52:00.287349 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:52:00.287702 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_delta_huf
+from "ingatlanmizu"."gold"."mart_listings_current"
+where price_delta_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.288051 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:52:00.288371 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:52:00.294769 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:52:00.295172 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:52:00.300596 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:52:00.305960 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:52:00.306708 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:52:00.308076 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:52:00.308532 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:52:00.308871 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:52:00.310210 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:52:00.311450 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:52:00.311838 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m20:52:00.312370 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(alapterulet) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.312742 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:52:00.313212 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m20:52:00.313591 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hirdeteskod
+from "ingatlanmizu"."bronze"."zenga_listings"
+where hirdeteskod is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.313974 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m20:52:00.314301 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:52:00.314655 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(ar) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.315081 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m20:52:00.319389 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m20:52:00.320694 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: ROLLBACK
+[0m20:52:00.321402 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce: Close
+[0m20:52:00.321932 [info ] [Thread-2 (]: 13 of 18 PASS not_null_mart_listings_current_price_delta_huf ................... [[32mPASS[0m in 0.05s]
+[0m20:52:00.322441 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m20:52:00.322805 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:52:00.323416 [info ] [Thread-2 (]: 17 of 18 START test source_not_null_bronze_zenga_listings_payload_hash ......... [RUN]
+[0m20:52:00.323899 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce, now test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc)
+[0m20:52:00.324269 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:52:00.330069 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:52:00.330842 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:52:00.332134 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:52:00.332516 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.018 seconds
+[0m20:52:00.332928 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.020 seconds
+[0m20:52:00.333320 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.018 seconds
+[0m20:52:00.334707 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: ROLLBACK
+[0m20:52:00.335983 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: ROLLBACK
+[0m20:52:00.336394 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m20:52:00.337614 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: ROLLBACK
+[0m20:52:00.338132 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payload_hash
+from "ingatlanmizu"."bronze"."zenga_listings"
+where payload_hash is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.338502 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: Close
+[0m20:52:00.338819 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: Close
+[0m20:52:00.339195 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m20:52:00.339528 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: Close
+[0m20:52:00.340064 [info ] [Thread-3 (]: 16 of 18 PASS source_not_null_bronze_zenga_listings_hirdeteskod ................ [[32mPASS[0m in 0.05s]
+[0m20:52:00.340594 [info ] [Thread-1 (]: 14 of 18 PASS source_not_empty_bronze_zenga_listings_alapterulet ............... [[32mPASS[0m in 0.05s]
+[0m20:52:00.341418 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m20:52:00.341983 [info ] [Thread-4 (]: 15 of 18 PASS source_not_empty_bronze_zenga_listings_ar ........................ [[32mPASS[0m in 0.06s]
+[0m20:52:00.342833 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m20:52:00.343268 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:52:00.343795 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m20:52:00.344301 [info ] [Thread-3 (]: 18 of 18 START test unique_int_listings__current_listing_key ................... [RUN]
+[0m20:52:00.344838 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264, now test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca)
+[0m20:52:00.345204 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:52:00.352970 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:52:00.353633 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:52:00.354931 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:52:00.355314 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.016 seconds
+[0m20:52:00.356656 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: ROLLBACK
+[0m20:52:00.357202 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"
+[0m20:52:00.357562 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: Close
+[0m20:52:00.357913 [debug] [Thread-3 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    listing_key as unique_field,
+    count(*) as n_records
+
+from "ingatlanmizu"."silver"."int_listings__current"
+where listing_key is not null
+group by listing_key
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m20:52:00.358466 [info ] [Thread-2 (]: 17 of 18 PASS source_not_null_bronze_zenga_listings_payload_hash ............... [[32mPASS[0m in 0.03s]
+[0m20:52:00.358845 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m20:52:00.359300 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m20:52:00.373664 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.015 seconds
+[0m20:52:00.374963 [debug] [Thread-3 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: ROLLBACK
+[0m20:52:00.375571 [debug] [Thread-3 (]: On test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca: Close
+[0m20:52:00.376098 [info ] [Thread-3 (]: 18 of 18 PASS unique_int_listings__current_listing_key ......................... [[32mPASS[0m in 0.03s]
+[0m20:52:00.376595 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m20:52:00.377674 [debug] [MainThread]: On master: COMMIT
+[0m20:52:00.377993 [debug] [MainThread]: Using postgres connection "master"
+[0m20:52:00.378271 [debug] [MainThread]: On master: COMMIT
+[0m20:52:00.378534 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:52:00.387982 [debug] [MainThread]: SQL status: COMMIT in 0.009 seconds
+[0m20:52:00.388323 [debug] [MainThread]: On master: Close
+[0m20:52:00.388713 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:52:00.389001 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94' was properly closed.
+[0m20:52:00.389281 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc' was properly closed.
+[0m20:52:00.389546 [debug] [MainThread]: Connection 'test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca' was properly closed.
+[0m20:52:00.389797 [debug] [MainThread]: Connection 'test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128' was properly closed.
+[0m20:52:00.390092 [info ] [MainThread]: 
+[0m20:52:00.390387 [info ] [MainThread]: Finished running 18 data tests in 0 hours 0 minutes and 0.53 seconds (0.53s).
+[0m20:52:00.392543 [debug] [MainThread]: Command end result
+[0m20:52:00.435825 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m20:52:00.438180 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m20:52:00.440495 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m20:52:00.449257 [debug] [MainThread]: Wrote artifact RunExecutionResult to transform/target/run_results.json
+[0m20:52:00.449613 [info ] [MainThread]: 
+[0m20:52:00.450076 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:52:00.450386 [info ] [MainThread]: 
+[0m20:52:00.450718 [info ] [MainThread]: Done. PASS=18 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=18
+[0m20:52:00.453224 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 1.53616, "process_in_blocks": "0", "process_kernel_time": 0.256491, "process_mem_max_rss": "143556608", "process_out_blocks": "0", "process_user_time": 2.405168}
+[0m20:52:00.453639 [debug] [MainThread]: Command `dbt test` succeeded at 20:52:00.453568 after 1.54 seconds
+[0m20:52:00.453984 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10850f710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10850f1a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10848be30>]}
+[0m20:52:00.454323 [debug] [MainThread]: Flushing usage events
+[0m20:52:01.845911 [debug] [MainThread]: An error was encountered while trying to flush usage events
