@@ -5,8 +5,8 @@ models:
     description: "Every unique listings"
     data_tests:   # grain = listing_key
       - dbt_utils.unique_combination_of_columns:
-        combination_of_columns:
-          - listing_key
+          combination_of_columns:
+            - listing_key
     columns:
       - name: listing_key
         data_tests:
@@ -18,5 +18,32 @@ models:
         data_tests:
           - not_null
       - name: price_change_pct
+        data_tests:
+          - not_null
+
+  - name: mart_market_monthly
+    description: "Monthly median prices"
+    data_tests:   # grain = month x city x main_type x sub_type
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - month_start
+            - city
+            - main_type
+            - sub_type
+    columns:
+      - name: month_start
+        data_tests:
+          - not_null
+      - name: city
+        data_tests:
+          - not_null
+          - not_empty
+      - name: main_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['Ház', 'Lakás']
+              severity: error
+      - name: sub_type
         data_tests:
           - not_null
