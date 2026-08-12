@@ -1,0 +1,1 @@
+select *, 'zenga' as source from {{ ref('int_zenga__listings_current') }}
