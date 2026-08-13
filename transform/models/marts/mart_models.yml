@@ -47,3 +47,22 @@ models:
       - name: sub_type
         data_tests:
           - not_null
+  - name: mark_average_time_on_market
+    description: "Average and median days on the market for sold listings"
+    columns:
+      - name: sold_listings
+        data_test:
+          - not_null
+          - dbt_utils.accepted_range:
+            min_value: 0
+            inclusive: true
+      - name: average_days_on_market
+        data_test:
+          - dbt_utils.accepted_range:
+            min_value: 1
+            inclusive: true
+      - name: median_days_on_market
+        data_test:
+          - dbt_utils.accepted_range:
+            min_value: 1
+            inclusive: true
