@@ -21,3 +21,6 @@ models:
     marts:
       +materialized: table
       +schema: gold
+
+vars:
+  time_on_market_active_tolerance_days: 3
