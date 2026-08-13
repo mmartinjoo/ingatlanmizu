@@ -17,7 +17,7 @@ select
 		order by price_huf::numeric / nullif(area_sqm, 0)
 	)::int as p75_median_price_per_sqm
 	
-from {{ ref('int_listings__unioned') }}
+from {{ ref('int_listing_versions__unioned') }}
 where price_huf is not null
 and area_sqm is not null
 group by 1, 2, 3, 4

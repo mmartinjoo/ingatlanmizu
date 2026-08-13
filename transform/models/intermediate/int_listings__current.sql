@@ -1,6 +1,6 @@
 with 
     source as (
-        select * from {{ ref('int_listings__unioned') }}
+        select * from {{ ref('int_listing_versions__unioned') }}
     ),
 
     versioned as (

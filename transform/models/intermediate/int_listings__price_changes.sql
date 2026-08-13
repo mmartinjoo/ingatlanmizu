@@ -1,5 +1,5 @@
 with versions as (
-    select * from {{ ref('int_listings__unioned') }}
+    select * from {{ ref('int_listing_versions__unioned') }}
 ),
 
 with_previous as (

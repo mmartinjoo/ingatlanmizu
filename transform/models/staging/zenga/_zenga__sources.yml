@@ -5,7 +5,7 @@ sources:
     schema: bronze
     description: "Append-only landing zone written by the ingestion pipeline."
     tables:
-      - name: zenga_listings
+      - name: zenga_listing_versions
         description: "Each change of a listing results in a new record. NOT unique."
         loaded_at_field: created_at
         freshness:
