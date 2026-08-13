@@ -7,11 +7,6 @@ import requests
 import json
 import threading
 
-SEED_URLS = [
-    "https://www.zenga.hu/szombathely+elado+haz",
-    "https://www.zenga.hu/zalaegerszeg+elado+haz",
-]
-
 _local = threading.local()
 
 def _session() -> requests.Session:
@@ -21,16 +16,6 @@ def _session() -> requests.Session:
         _local.session = session
     return session
 
-def extract() -> None:
-    urls = []
-    for page_num in range(1,2):
-        for url in SEED_URLS:
-            urls.append(f"{url}?page={page_num}")
-            
-    listings = discover(urls)
-    for listing in listings:
-        fetch_listing(listing=listing)
-        
 def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
     results = []
     for url in seed_urls:
