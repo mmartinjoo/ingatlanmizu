@@ -101,7 +101,7 @@ models:
                 min_value: 0
                 max_value: 500
 
-  - name: stg_zenga_observations
+  - name: stg_zenga__observations
     description: "zenga.hu listings. One row every time a listing was seen in an ingestion run, changed or not."
     loaded_at_field: observed_at
     data_tests:   # grain = listing_code+observed_at

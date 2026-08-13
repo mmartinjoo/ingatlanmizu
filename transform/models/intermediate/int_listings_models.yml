@@ -6,8 +6,7 @@ models:
     data_tests:   # grain = source+listing_code+payload_hash
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - source
-            - listing_code            
+            - listing_key           
             - payload_hash
     columns:
       - name: source
@@ -18,13 +17,12 @@ models:
         description: "Source + listing code"
         data_tests:
           - not_null
-          - unique
   - name: int_observations__unioned
     description: "All sources unified. Each listing per ingestion run is a dedicated row."    
     data_tests:   # grain = listing_code+observed_at
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
-            - listing_code
+            - listing_key
             - observed_at
     columns:
       - name: listing_code
