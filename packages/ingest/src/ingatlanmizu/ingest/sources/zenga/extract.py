@@ -1,5 +1,3 @@
-import hashlib
-
 from bs4 import BeautifulSoup
 from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image, html_file_path_for, folder_for_images
 from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl
