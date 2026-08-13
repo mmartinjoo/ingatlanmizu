@@ -1,6 +1,9 @@
 with 
     source as (
-        select * from {{ source('bronze', 'zenga_listing_versions') }}
+        select * 
+        from {{ source('bronze', 'zenga_listing_versions') }}
+        where ar is not null
+        and alapterulet is not null
     ),
 
     renamed as (
@@ -24,7 +27,8 @@ with
             futes as heating,
             {{ hu_numeric('epites_eve') }} as year_of_building,
             {{ hu_numeric('terasz') }} as balcony_area,
-            energetikai_besorolas as energy_rating,            
+            -- JJ (2016-2023-as besorolás) -> JJ
+            regexp_replace(energetikai_besorolas, '\s+\(.*', '') as energy_rating,            
             {{ hu_numeric('szintek_szama') }} as max_number_of_floors_in_building,
             created_at as observed_at,
             ingestion_run_id as ingestion_run_id,
