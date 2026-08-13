@@ -13,7 +13,8 @@ def run_extract_item(source: Source, run_item_id: int):
                 external_id=run_item["external_id"],
                 url=run_item["url"],
                 county=run_item["county"],
-            )
+            ),
+            run_id=run_item["ingestion_run_id"]
         )
         
         mark_extracted(
@@ -24,10 +25,17 @@ def run_extract_item(source: Source, run_item_id: int):
 
 def run_load_item(source: Source, run_item: dict[str, any]):
     try:
-        html = read_html(source=source.name, external_id=run_item["external_id"])
+        html = read_html(
+            source=source.name, 
+            external_id=run_item["external_id"], 
+            run_id=run_item["ingestion_run_id"],
+        )
+        
+        _, _, full_path = html_file_path_for(source=source.name, external_id=run_item["external_id"], run_id=run_item["ingestion_run_id"])
+        
         listing_content = ListingContent(
             html=html,
-            html_path=html_file_path_for(source=source.name, external_id=run_item["external_id"]),
+            html_path=full_path,
             images_path=folder_for_images(source=source.name, external_id=run_item["external_id"]),
             county=run_item["county"],
         )

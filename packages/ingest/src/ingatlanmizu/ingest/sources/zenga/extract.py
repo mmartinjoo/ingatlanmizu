@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
-from ingatlanmizu.ingest.storage import has_images, read_html, write_html, write_image, html_file_path_for, folder_for_images
-from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl
+from ingatlanmizu.ingest.storage import has_images, write_html, write_image, html_file_path_for, folder_for_images
+from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl, IngestionRunId
 import requests
 import json
 import threading
@@ -40,24 +40,33 @@ def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
             
     return results
 
-def fetch_listing(listing_ref: ListingReference) -> ListingContent:
+def fetch_listing(listing_ref: ListingReference, run_id: IngestionRunId) -> ListingContent:
     print(f"fetching {listing_ref.external_id} at {listing_ref.url}")
     html = _download_html(listing_ref.url)
-    write_html(source="zenga", external_id=listing_ref.external_id, html=html)
-    fetch_listing_images(listing_ref.external_id)
+    write_html(
+        source="zenga", 
+        external_id=listing_ref.external_id, 
+        html=html,
+        run_id=run_id,
+    )
     
+    fetch_listing_images(
+        external_id=listing_ref.external_id, 
+        html=html,
+    )
+
+    _, _, full_path = html_file_path_for(source="zenga", external_id=listing_ref.external_id, run_id=run_id)    
     return ListingContent(
         html=html,
-        html_path=html_file_path_for(source="zenga", external_id=listing_ref.external_id),
+        html_path=full_path,
         images_path=folder_for_images(source="zenga", external_id=listing_ref.external_id),
         county=listing_ref.county,
     )
                 
-def fetch_listing_images(id: str) -> None:
-    if has_images(source="zenga", external_id=id):
+def fetch_listing_images(external_id: str, html: str) -> None:
+    if has_images(source="zenga", external_id=external_id):
         return
     
-    html = read_html(source="zenga", external_id=id)
     soup = BeautifulSoup(html, "lxml")
     
     urls = []
@@ -82,13 +91,13 @@ def fetch_listing_images(id: str) -> None:
     for url in urls_dedup:
         if url.startswith("https://images.zenga.hu") is False:
             continue
-        if id not in url:
+        if external_id not in url:
             continue
         
         resp = _session().get(url, timeout=30)
         resp.raise_for_status()
         
-        write_image(source="zenga", external_id=id, image_url=url, data=resp.content)
+        write_image(source="zenga", external_id=external_id, image_url=url, data=resp.content)
         
 def _download_html(url: str) -> str:
     resp = _session().get(url, timeout=30)

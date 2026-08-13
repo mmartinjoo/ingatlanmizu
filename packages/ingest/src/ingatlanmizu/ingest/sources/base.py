@@ -55,7 +55,7 @@ class Source:
     seed_urls: list[SeedUrl]
     
     discover: Callable[[list[SeedUrl]], list[ListingReference]]
-    fetch_listing: Callable[[ListingReference], ListingContent]
+    fetch_listing: Callable[[ListingReference, IngestionRunId], ListingContent]
     parse: Callable[[ListingContent], SourceSpecificListingDict]
     load: Callable[[SourceSpecificListingDict, IngestionRunId, PayloadHash], NewRecordCreated]
     

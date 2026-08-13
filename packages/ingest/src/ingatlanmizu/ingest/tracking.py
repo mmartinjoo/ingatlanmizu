@@ -83,7 +83,7 @@ def mark_failed(run_item_id: int, error_message: str) -> None:
 def fetch_run_item(run_item_id: int) -> dict[str, any]:
     with connection() as conn:
         row = conn.execute("""
-            select external_id, url, county
+            select external_id, url, county, ingestion_run_id
             from ops.ingestion_run_items
             where id = %s             
         """, (
@@ -95,6 +95,7 @@ def fetch_run_item(run_item_id: int) -> dict[str, any]:
             "external_id": row[0],
             "url": row[1],
             "county": row[2],
+            "ingestion_run_id": row[3],
         }
     
 def mark_completed(run_item_id: int, new_record_created: bool) -> None:
