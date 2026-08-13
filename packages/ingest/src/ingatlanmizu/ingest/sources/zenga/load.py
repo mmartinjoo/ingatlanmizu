@@ -43,11 +43,12 @@ def load(
                 html_path,
                 images_path,
                 ingestion_run_id,
-                payload_hash
+                payload_hash,
+                megye
             )         
             values
             (
-                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
             )    
         """,
         (
@@ -77,6 +78,7 @@ def load(
             listing.get("images_path"),
             ingestion_run_id,
             payload_hash,
+            listing.get("megye"),
         ))
         conn.commit()
         

@@ -12,6 +12,7 @@ def run_extract_item(source: Source, run_item_id: int):
             ListingReference(
                 external_id=run_item["external_id"],
                 url=run_item["url"],
+                county=run_item["county"],
             )
         )
         
@@ -28,6 +29,7 @@ def run_load_item(source: Source, run_item: dict[str, any]):
             html=html,
             html_path=html_file_path_for(source=source.name, external_id=run_item["external_id"]),
             images_path=folder_for_images(source=source.name, external_id=run_item["external_id"]),
+            county=run_item["county"],
         )
         listing = source.parse(listing_content)
         payload_hash = source.hash_payload(listing)

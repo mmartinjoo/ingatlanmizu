@@ -83,7 +83,7 @@ def mark_failed(run_item_id: int, error_message: str) -> None:
 def fetch_run_item(run_item_id: int) -> dict[str, any]:
     with connection() as conn:
         row = conn.execute("""
-            select external_id, url
+            select external_id, url, county
             from ops.ingestion_run_items
             where id = %s             
         """, (
@@ -94,6 +94,7 @@ def fetch_run_item(run_item_id: int) -> dict[str, any]:
             "run_item_id": run_item_id,
             "external_id": row[0],
             "url": row[1],
+            "county": row[2],
         }
     
 def mark_completed(run_item_id: int, new_record_created: bool) -> None:
@@ -129,17 +130,19 @@ def enqueue_run_items(source: Source, run_id: int, listings: list[ListingReferen
                     ingestion_run_id,
                     external_id,
                     url,
-                    status
+                    status,
+                    county
                 )
                 values
                 (
-                    %s, %s, %s, %s
+                    %s, %s, %s, %s, %s
                 )
             """, (
                 run_id,
                 listing.external_id,
                 listing.url,
                 'pending',
+                listing.county,
             ))
             
             source.record_observation(listing, run_id)
@@ -149,7 +152,7 @@ def enqueue_run_items(source: Source, run_id: int, listings: list[ListingReferen
 def dequeue_run_items(run_id: int, status: str) -> list[dict[str, any]]:
     with connection() as conn:
         rows = conn.execute("""
-            select id, external_id, ingestion_run_id
+            select id, external_id, ingestion_run_id, county
             from ops.ingestion_run_items
             where ingestion_run_id = %s
             and status = %s
@@ -158,7 +161,7 @@ def dequeue_run_items(run_id: int, status: str) -> list[dict[str, any]]:
             status,
         )).fetchall()
         
-        return [{"id": r[0], "external_id": r[1], "ingestion_run_id": r[2]} for r in rows]
+        return [{"id": r[0], "external_id": r[1], "ingestion_run_id": r[2], "county": r[3]} for r in rows]
     
 def fetch_run(run_id: int) -> dict[str, any]:
     with connection() as conn:

@@ -35,6 +35,7 @@ def parse(listing_content: ListingContent) -> SourceSpecificListingDict:
         "szintek_szama": None,
         "html_path": listing_content.html_path,
         "images_path": listing_content.images_path,
+        "megye": listing_content.county,
     }
 
     data.update(_highlight_params(soup))

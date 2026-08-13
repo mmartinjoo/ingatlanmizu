@@ -4,6 +4,7 @@ from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, S
 import requests
 import json
 import threading
+import random
 
 _local = threading.local()
 
@@ -16,7 +17,9 @@ def _session() -> requests.Session:
 
 def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
     results = []
-    for url in seed_urls:
+    for seed_url in seed_urls:
+        url = f"{seed_url.url}?page={random.randint(1, 10)}"
+        print(url)
         resp = _session().get(url, timeout=30)
         resp.raise_for_status()
         
@@ -32,6 +35,7 @@ def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
             results.append(ListingReference(
                 external_id=external_id,
                 url=f"https://zenga.hu{listing_href}",
+                county=seed_url.county,
             ))
             
     return results
@@ -46,6 +50,7 @@ def fetch_listing(listing_ref: ListingReference) -> ListingContent:
         html=html,
         html_path=html_file_path_for(source="zenga", external_id=listing_ref.external_id),
         images_path=folder_for_images(source="zenga", external_id=listing_ref.external_id),
+        county=listing_ref.county,
     )
                 
 def fetch_listing_images(id: str) -> None:

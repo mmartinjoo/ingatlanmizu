@@ -31,12 +31,12 @@ def html_file_path_for(source: str, external_id: str) -> str:
 def _folder_for(source: str, external_id: str) -> str:
     date = datetime.now().strftime("%Y%m%d")
     timestamp = datetime.now().strftime("%H%M")
-    path = f"/tmp/ingatlanmizu/{source}/{date}/{timestamp}/{external_id}"
+    path = f"/Users/joomartin/ingatlanmizu/{source}/{date}/{timestamp}/{external_id}"
     Path(path).mkdir(parents=True, exist_ok=True)
     return path
 
 def folder_for_images(source: str, external_id: str) -> str:
-    path = f"/tmp/ingatlanmizu/{source}/images/{external_id}"
+    path = f"/Users/joomartin/ingatlanmizu/{source}/images/{external_id}"
     Path(path).mkdir(parents=True, exist_ok=True)
     return path
 
