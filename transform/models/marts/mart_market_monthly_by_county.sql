@@ -1,8 +1,7 @@
 select
 	listings.month_start as month_start,
-	listings.city as city,
+	listings.county as county,
 	listings.main_type as main_type,
-	listings.sub_type as sub_type,
 	count(*) as listing_count,
 	
 	percentile_cont(0.5) within group (
@@ -20,4 +19,4 @@ select
 from {{ ref('int_listings__monthly') }} as listings
 where listings.price_huf is not null
 and listings.area_sqm is not null
-group by 1, 2, 3, 4
+group by 1, 2, 3

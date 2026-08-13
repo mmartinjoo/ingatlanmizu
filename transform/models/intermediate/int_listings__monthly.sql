@@ -8,6 +8,7 @@ with listing_months as (
 select distinct on (listing_months.listing_key, listing_months.month_start)
     listing_months.month_start,
     listing_months.listing_key,
+    versions.county,
     versions.city,
     versions.main_type,
     versions.sub_type,

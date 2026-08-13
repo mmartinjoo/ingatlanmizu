@@ -4,6 +4,8 @@ with
         from {{ source('bronze', 'zenga_listing_versions') }}
         where ar is not null
         and alapterulet is not null
+        and tipus is not null
+        and tipus != 'Villa, kastély'
     ),
 
     renamed as (
@@ -36,11 +38,10 @@ with
             hirdeto_neve as seller_name,
             ingatlan_iroda_neve as real_estate_office_name,
             tipus as sub_type,
+            megye as county,
             case
                 when tipus ilike '%ház%'     then 'Ház'
                 when tipus ilike '%lakás%'   then 'Lakás'
-                when tipus ilike '%villa%'   then 'Villa, kastély'
-                when tipus ilike '%kastély%' then 'Villa, kastély'
                 else null       -- this will cause a data test error
             end as main_type,
             case

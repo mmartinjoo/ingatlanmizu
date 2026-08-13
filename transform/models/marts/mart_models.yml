@@ -21,15 +21,15 @@ models:
         data_tests:
           - not_null
 
-  - name: mart_market_monthly
-    description: "Monthly median prices"
-    data_tests:   # grain = month x city x main_type x sub_type
+  - name: mart_market_monthly_by_city
+    description: "Monthly median prices by cities"
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - month_start
+            - county
             - city
             - main_type
-            - sub_type
     columns:
       - name: month_start
         data_tests:
@@ -44,9 +44,26 @@ models:
           - accepted_values:
               values: ['Ház', 'Lakás']
               severity: error
-      - name: sub_type
+
+  - name: mart_market_monthly_by_county
+    description: "Monthly median prices by counties"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - month_start
+            - county
+            - main_type
+    columns:
+      - name: month_start
         data_tests:
           - not_null
+      - name: main_type
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['Ház', 'Lakás']
+              severity: error
+
   - name: mark_average_time_on_market
     description: "Average and median days on the market for sold listings"
     columns:
