@@ -16,7 +16,7 @@ def load(
     
     with connection() as conn:
         conn.execute(f"""
-            insert into bronze.zenga_listings
+            insert into bronze.zenga_listing_versions
             (
                 megnevezes,
                 ar,
@@ -97,7 +97,7 @@ def _has_changed(listing: SourceSpecificListingDict, payload_hash: PayloadHash) 
     with connection() as conn:
         row = conn.execute("""
             select payload_hash
-            from bronze.zenga_listings
+            from bronze.zenga_listing_versions
             where hirdeteskod = %s
             order by created_at desc
             limit 1             

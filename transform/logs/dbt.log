@@ -59436,3 +59436,1534 @@ having count(*) > 1
 [0m23:10:18.473609 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105665790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1056654c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105665430>]}
 [0m23:10:18.474295 [debug] [MainThread]: Flushing usage events
 [0m23:10:20.136487 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:24:08.056890 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d01bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105dc5850>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105dc5400>]}
+
+
+============================== 23:24:08.062229 | 6f24e24c-107d-4368-8d7b-54e717883516 ==============================
+[0m23:24:08.062229 [info ] [MainThread]: Running with dbt=1.12.0
+[0m23:24:08.062947 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'use_experimental_parser': 'False', 'quiet': 'False', 'introspect': 'True', 'debug': 'False', 'hints_enabled': 'True', 'invocation_command': 'dbt build', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'printer_width': '80', 'warn_error': 'None', 'log_path': 'transform/logs', 'use_colors': 'True', 'partial_parse': 'True', 'profiles_dir': 'transform', 'fail_fast': 'False', 'write_json': 'True', 'version_check': 'True', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'log_format': 'default', 'empty': 'False', 'maximum_seed_size_mib': '1', 'no_print': 'None'}
+[0m23:24:08.323730 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105eb0e60>]}
+[0m23:24:08.404272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10643bdd0>]}
+[0m23:24:08.406259 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m23:24:08.539513 [debug] [MainThread]: checksum: 63303165495155cf70de5895742d8bdb211a382d266dccdb4c547ed748c8f641, vars: {}, profile: ingatlanmizu, target: local, version: 1.12.0
+[0m23:24:08.849318 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m23:24:08.850638 [debug] [MainThread]: Partial parsing: updated file: ingatlanmizu://models/staging/zenga/stg_zenga__listing_versions.sql
+[0m23:24:09.553515 [warn ] [MainThread]: [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'stg_zenga__listing_versions' in package 'ingatlanmizu'
+(models/staging/zenga/_zenga__models.yml). Arguments to generic tests should be
+nested under the `arguments` property.
+[0m23:24:09.554553 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d56090>]}
+[0m23:24:09.737344 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10751a7b0>]}
+[0m23:24:09.879740 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m23:24:09.882950 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m23:24:09.904461 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m23:24:09.934512 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106e10410>]}
+[0m23:24:09.935087 [info ] [MainThread]: Found 7 models, 43 data tests, 2 sources, 600 macros
+[0m23:24:09.940003 [info ] [MainThread]: 
+[0m23:24:09.940436 [info ] [MainThread]: Concurrency: 4 threads (target='local')
+[0m23:24:09.940777 [info ] [MainThread]: 
+[0m23:24:09.941319 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m23:24:09.945441 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu'
+[0m23:24:09.946033 [debug] [ThreadPool]: Acquiring new postgres connection 'list_ingatlanmizu'
+[0m23:24:10.003573 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu"
+[0m23:24:10.004115 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu"
+[0m23:24:10.004509 [debug] [ThreadPool]: On list_ingatlanmizu: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:24:10.004913 [debug] [ThreadPool]: On list_ingatlanmizu: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m23:24:10.005752 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:24:10.006160 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:24:10.060282 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.054 seconds
+[0m23:24:10.060756 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.055 seconds
+[0m23:24:10.062245 [debug] [ThreadPool]: On list_ingatlanmizu: Close
+[0m23:24:10.063420 [debug] [ThreadPool]: On list_ingatlanmizu: Close
+[0m23:24:10.065186 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ingatlanmizu, now list_ingatlanmizu_silver)
+[0m23:24:10.065752 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_ingatlanmizu, now list_ingatlanmizu_gold)
+[0m23:24:10.071197 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_silver"
+[0m23:24:10.072582 [debug] [ThreadPool]: Using postgres connection "list_ingatlanmizu_gold"
+[0m23:24:10.073026 [debug] [ThreadPool]: On list_ingatlanmizu_silver: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_silver"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'silver'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'silver'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'silver'
+  
+[0m23:24:10.073487 [debug] [ThreadPool]: On list_ingatlanmizu_gold: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "list_ingatlanmizu_gold"} */
+select
+      'ingatlanmizu' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'ingatlanmizu' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+    union all
+    select distinct
+     'ingatlanmizu' as database,
+     proname as name,
+     ns.nspname as schema,
+     'function' as type
+    from pg_proc
+     join pg_namespace as ns on pronamespace = ns.oid
+    where ns.nspname ilike 'gold'
+  
+[0m23:24:10.073868 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:24:10.074178 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:24:10.107034 [debug] [ThreadPool]: SQL status: SELECT 2 in 0.033 seconds
+[0m23:24:10.107631 [debug] [ThreadPool]: SQL status: SELECT 5 in 0.034 seconds
+[0m23:24:10.109793 [debug] [ThreadPool]: On list_ingatlanmizu_gold: ROLLBACK
+[0m23:24:10.118122 [debug] [ThreadPool]: On list_ingatlanmizu_silver: ROLLBACK
+[0m23:24:10.121059 [debug] [ThreadPool]: On list_ingatlanmizu_gold: Close
+[0m23:24:10.121570 [debug] [ThreadPool]: On list_ingatlanmizu_silver: Close
+[0m23:24:10.128787 [debug] [MainThread]: Using postgres connection "master"
+[0m23:24:10.129369 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m23:24:10.129845 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:24:10.152864 [debug] [MainThread]: SQL status: SELECT 5 in 0.023 seconds
+[0m23:24:10.155284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1076af6b0>]}
+[0m23:24:10.155953 [debug] [MainThread]: On master: ROLLBACK
+[0m23:24:10.156813 [debug] [MainThread]: On master: COMMIT
+[0m23:24:10.157244 [debug] [MainThread]: Using postgres connection "master"
+[0m23:24:10.157626 [debug] [MainThread]: On master: COMMIT
+[0m23:24:10.158702 [debug] [MainThread]: SQL status: COMMIT in 0.001 seconds
+[0m23:24:10.159321 [debug] [MainThread]: On master: Close
+[0m23:24:10.163486 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m23:24:10.164072 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m23:24:10.165003 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m23:24:10.164605 [info ] [Thread-1 (]: 1 of 50 START test source_not_empty_bronze_zenga_listings_alapterulet .......... [RUN]
+[0m23:24:10.165610 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m23:24:10.166112 [info ] [Thread-2 (]: 2 of 50 START test source_not_empty_bronze_zenga_listings_ar ................... [RUN]
+[0m23:24:10.166614 [info ] [Thread-3 (]: 3 of 50 START test source_not_null_bronze_zenga_listings_hirdeteskod ........... [RUN]
+[0m23:24:10.167199 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_silver, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94)
+[0m23:24:10.167672 [info ] [Thread-4 (]: 4 of 50 START test source_not_null_bronze_zenga_listings_payload_hash .......... [RUN]
+[0m23:24:10.168234 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_ingatlanmizu_gold, now test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128)
+[0m23:24:10.168885 [debug] [Thread-3 (]: Acquiring new postgres connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264'
+[0m23:24:10.169381 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m23:24:10.170068 [debug] [Thread-4 (]: Acquiring new postgres connection 'test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc'
+[0m23:24:10.170630 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m23:24:10.171163 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m23:24:10.189729 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m23:24:10.190480 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m23:24:10.199512 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m23:24:10.213864 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m23:24:10.221298 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m23:24:10.223218 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m23:24:10.223767 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m23:24:10.224254 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m23:24:10.224698 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m23:24:10.245277 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m23:24:10.246992 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m23:24:10.248575 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m23:24:10.250251 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m23:24:10.251532 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"
+[0m23:24:10.252153 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"
+[0m23:24:10.252790 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(alapterulet) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.253468 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hirdeteskod
+from "ingatlanmizu"."bronze"."zenga_listings"
+where hirdeteskod is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.253998 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"
+[0m23:24:10.254480 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:10.254921 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"
+[0m23:24:10.255288 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m23:24:10.255705 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."bronze"."zenga_listings"
+where trim(ar) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.256280 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select payload_hash
+from "ingatlanmizu"."bronze"."zenga_listings"
+where payload_hash is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.256797 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:10.257183 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m23:24:10.281364 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m23:24:10.281819 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m23:24:10.288236 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.031 seconds
+[0m23:24:10.293088 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: ROLLBACK
+[0m23:24:10.294102 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: ROLLBACK
+[0m23:24:10.294535 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.037 seconds
+[0m23:24:10.295975 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: ROLLBACK
+[0m23:24:10.297422 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: ROLLBACK
+[0m23:24:10.297836 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264: Close
+[0m23:24:10.298243 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94: Close
+[0m23:24:10.298983 [info ] [Thread-3 (]: 3 of 50 PASS source_not_null_bronze_zenga_listings_hirdeteskod ................. [[32mPASS[0m in 0.13s]
+[0m23:24:10.299512 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc: Close
+[0m23:24:10.299891 [debug] [Thread-2 (]: On test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128: Close
+[0m23:24:10.300451 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264
+[0m23:24:10.301090 [info ] [Thread-1 (]: 1 of 50 PASS source_not_empty_bronze_zenga_listings_alapterulet ................ [[32mPASS[0m in 0.13s]
+[0m23:24:10.301811 [info ] [Thread-4 (]: 4 of 50 PASS source_not_null_bronze_zenga_listings_payload_hash ................ [[32mPASS[0m in 0.13s]
+[0m23:24:10.302436 [info ] [Thread-2 (]: 2 of 50 PASS source_not_empty_bronze_zenga_listings_ar ......................... [[32mPASS[0m in 0.13s]
+[0m23:24:10.302874 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768
+[0m23:24:10.303499 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94
+[0m23:24:10.304029 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc
+[0m23:24:10.304537 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128
+[0m23:24:10.304935 [info ] [Thread-3 (]: 5 of 50 START test source_not_null_bronze_zenga_observations_ingestion_run_id .. [RUN]
+[0m23:24:10.305378 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477
+[0m23:24:10.305826 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce
+[0m23:24:10.306497 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_listings_hirdeteskod.d1adf5c264, now test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768)
+[0m23:24:10.306890 [debug] [Thread-2 (]: Began running node model.ingatlanmizu.stg_zenga__listing_versions
+[0m23:24:10.307281 [info ] [Thread-1 (]: 6 of 50 START test source_not_null_bronze_zenga_observations_listing_code ...... [RUN]
+[0m23:24:10.307688 [info ] [Thread-4 (]: 7 of 50 START test source_not_null_bronze_zenga_observations_observed_at ....... [RUN]
+[0m23:24:10.308089 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768
+[0m23:24:10.308596 [info ] [Thread-2 (]: 8 of 50 START sql view model silver.stg_zenga__listing_versions ................ [RUN]
+[0m23:24:10.309186 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_empty_bronze_zenga_listings_alapterulet.8db114ca94, now test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477)
+[0m23:24:10.309723 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_listings_payload_hash.e38742c9bc, now test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce)
+[0m23:24:10.316906 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768"
+[0m23:24:10.317458 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_empty_bronze_zenga_listings_ar.28124f5128, now model.ingatlanmizu.stg_zenga__listing_versions)
+[0m23:24:10.318297 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477
+[0m23:24:10.318832 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce
+[0m23:24:10.319386 [debug] [Thread-2 (]: Began compiling node model.ingatlanmizu.stg_zenga__listing_versions
+[0m23:24:10.326428 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477"
+[0m23:24:10.333640 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce"
+[0m23:24:10.334139 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768
+[0m23:24:10.339091 [debug] [Thread-2 (]: Writing injected SQL for node "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.341329 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768"
+[0m23:24:10.341878 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477
+[0m23:24:10.342496 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce
+[0m23:24:10.344417 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477"
+[0m23:24:10.346248 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce"
+[0m23:24:10.346916 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768"
+[0m23:24:10.347368 [debug] [Thread-2 (]: Began executing node model.ingatlanmizu.stg_zenga__listing_versions
+[0m23:24:10.347984 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477"
+[0m23:24:10.348434 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select ingestion_run_id
+from "ingatlanmizu"."bronze"."zenga_observations"
+where ingestion_run_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.355284 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce"
+[0m23:24:10.374810 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_code
+from "ingatlanmizu"."bronze"."zenga_observations"
+where listing_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.391279 [debug] [Thread-2 (]: Writing runtime sql for node "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.391769 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:10.392226 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select observed_at
+from "ingatlanmizu"."bronze"."zenga_observations"
+where observed_at is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.392648 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:10.393502 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m23:24:10.394465 [debug] [Thread-2 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.395220 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__listing_versions"} */
+
+  create view "ingatlanmizu"."silver"."stg_zenga__listing_versions__dbt_tmp"
+    
+    
+  as (
+    with 
+    source as (
+        select * from "ingatlanmizu"."bronze"."zenga_listings"
+    ),
+
+    renamed as (
+        select
+            id as bronze_id,
+            hirdeteskod as listing_code,
+            megnevezes as title,
+            (-- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(ar, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric * -- Returns the magnitude of a human-readable price
+-- "49,9 millió Ft" -> 1000000
+case
+    when ar ilike '%milliárd%'  then 1000000000
+    when ar ilike '%millió%'    then 1000000
+    when ar ilike '%ezer%'      then 1000
+    else 1
+end)::bigint as price_huf,
+            ((-- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(ar, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric * -- Returns the magnitude of a human-readable price
+-- "49,9 millió Ft" -> 1000000
+case
+    when ar ilike '%milliárd%'  then 1000000000
+    when ar ilike '%millió%'    then 1000000
+    when ar ilike '%ezer%'      then 1000
+    else 1
+end) / -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(alapterulet, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric)::int as price_per_square_meter,
+            btrim(split_part(cim, ',', 1))
+ as city,
+            nullif(btrim(split_part(cim, ',', 2)), '')
+ as location_detail,
+            -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(alapterulet, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric as area_sqm,
+            -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(telek, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric as plot_size,
+            -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(emelet, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric as floor,
+            emelet as floor_raw,
+            coalesce(substring(szobak_szama from '(^\d+)')::numeric, 0)
+    + (coalesce(substring(szobak_szama from '\+\s*(\d+)')::numeric, 0) * 0.5)
+ as number_of_rooms,
+            szobak_szama as number_of_rooms_raw,
+            leiras as description,
+            allapot as condition,
+            futes as heating,
+            -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(epites_eve, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric as year_of_building,
+            -- Converts human-readable numeric values to a number
+-- "49,9 millió Ft" -> 49.9 
+-- "65 m²" -> 65
+-- Non-breaking spaces (chr(160)) are replaced to spaces
+-- It returns NULL if the result is empty
+nullif(
+    replace(
+        regexp_replace(
+            replace(terasz, chr(160), ' '), 
+            '[^0-9,]', '', 'g'
+        ), ',', '.'
+    ), ''
+)::numeric as balcony_area,
+            energetikai_besorolas as energy_rating,
+            tipus as type,
+            szintek_szama as max_number_of_floors_in_building,
+            created_at as observed_at,
+            ingestion_run_id as ingestion_run_id,
+            payload_hash as payload_hash,
+            hirdeto_neve as seller_name,
+            ingatlan_iroda_neve as real_estate_office_name,
+            concat('zenga', ':', hirdeteskod) as listing_key
+        from source
+    )
+
+select * from renamed
+  );
+[0m23:24:10.395940 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:10.419823 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m23:24:10.420288 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.029 seconds
+[0m23:24:10.420698 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.027 seconds
+[0m23:24:10.422289 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477: ROLLBACK
+[0m23:24:10.423645 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768: ROLLBACK
+[0m23:24:10.424930 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce: ROLLBACK
+[0m23:24:10.425830 [debug] [Thread-2 (]: SQL status: CREATE VIEW in 0.030 seconds
+[0m23:24:10.426302 [debug] [Thread-3 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768: Close
+[0m23:24:10.426667 [debug] [Thread-1 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477: Close
+[0m23:24:10.427011 [debug] [Thread-4 (]: On test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce: Close
+[0m23:24:10.432306 [debug] [Thread-2 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.433002 [info ] [Thread-3 (]: 5 of 50 PASS source_not_null_bronze_zenga_observations_ingestion_run_id ........ [[32mPASS[0m in 0.13s]
+[0m23:24:10.433692 [info ] [Thread-1 (]: 6 of 50 PASS source_not_null_bronze_zenga_observations_listing_code ............ [[32mPASS[0m in 0.12s]
+[0m23:24:10.434474 [info ] [Thread-4 (]: 7 of 50 PASS source_not_null_bronze_zenga_observations_observed_at ............. [[32mPASS[0m in 0.12s]
+[0m23:24:10.435221 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__listing_versions"} */
+alter table "ingatlanmizu"."silver"."stg_zenga__listing_versions" rename to "stg_zenga__listing_versions__dbt_backup"
+[0m23:24:10.435816 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768
+[0m23:24:10.436323 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477
+[0m23:24:10.436832 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce
+[0m23:24:10.441538 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m23:24:10.442550 [debug] [Thread-3 (]: Began running node model.ingatlanmizu.stg_zenga__observations
+[0m23:24:10.446342 [debug] [Thread-2 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.447573 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__listing_versions"} */
+alter table "ingatlanmizu"."silver"."stg_zenga__listing_versions__dbt_tmp" rename to "stg_zenga__listing_versions"
+[0m23:24:10.447064 [info ] [Thread-3 (]: 9 of 50 START sql view model silver.stg_zenga__observations .................... [RUN]
+[0m23:24:10.448357 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_observations_ingestion_run_id.8d02e16768, now model.ingatlanmizu.stg_zenga__observations)
+[0m23:24:10.448844 [debug] [Thread-3 (]: Began compiling node model.ingatlanmizu.stg_zenga__observations
+[0m23:24:10.451452 [debug] [Thread-3 (]: Writing injected SQL for node "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.452256 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.004 seconds
+[0m23:24:10.477064 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: COMMIT
+[0m23:24:10.477633 [debug] [Thread-3 (]: Began executing node model.ingatlanmizu.stg_zenga__observations
+[0m23:24:10.478207 [debug] [Thread-2 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.481332 [debug] [Thread-3 (]: Writing runtime sql for node "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.481844 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: COMMIT
+[0m23:24:10.482720 [debug] [Thread-3 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.483207 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__observations"} */
+
+  create view "ingatlanmizu"."silver"."stg_zenga__observations__dbt_tmp"
+    
+    
+  as (
+    select 
+    id as bronze_id,
+    listing_code,
+    observed_at,
+    ingestion_run_id
+from "ingatlanmizu"."bronze"."zenga_observations"
+  );
+[0m23:24:10.483668 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:10.490581 [debug] [Thread-2 (]: SQL status: COMMIT in 0.008 seconds
+[0m23:24:10.497534 [debug] [Thread-2 (]: Applying DROP to: "ingatlanmizu"."silver"."stg_zenga__listing_versions__dbt_backup"
+[0m23:24:10.502960 [debug] [Thread-2 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__listing_versions"
+[0m23:24:10.503563 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__listing_versions"} */
+drop view if exists "ingatlanmizu"."silver"."stg_zenga__listing_versions__dbt_backup" cascade
+[0m23:24:10.508647 [debug] [Thread-2 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m23:24:10.509115 [debug] [Thread-3 (]: SQL status: CREATE VIEW in 0.025 seconds
+[0m23:24:10.510800 [debug] [Thread-2 (]: On model.ingatlanmizu.stg_zenga__listing_versions: Close
+[0m23:24:10.513548 [debug] [Thread-3 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.515503 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__observations"} */
+alter table "ingatlanmizu"."silver"."stg_zenga__observations" rename to "stg_zenga__observations__dbt_backup"
+[0m23:24:10.516315 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10753fec0>]}
+[0m23:24:10.516836 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m23:24:10.517514 [info ] [Thread-2 (]: 8 of 50 OK created sql view model silver.stg_zenga__listing_versions ........... [[32mCREATE VIEW[0m in 0.20s]
+[0m23:24:10.519917 [debug] [Thread-3 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.520579 [debug] [Thread-2 (]: Finished running node model.ingatlanmizu.stg_zenga__listing_versions
+[0m23:24:10.521059 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__observations"} */
+alter table "ingatlanmizu"."silver"."stg_zenga__observations__dbt_tmp" rename to "stg_zenga__observations"
+[0m23:24:10.521963 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f
+[0m23:24:10.522448 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd
+[0m23:24:10.522971 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m23:24:10.523507 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681
+[0m23:24:10.524000 [info ] [Thread-4 (]: 10 of 50 START test accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_  [RUN]
+[0m23:24:10.524550 [info ] [Thread-1 (]: 11 of 50 START test accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_  [RUN]
+[0m23:24:10.526397 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: COMMIT
+[0m23:24:10.526926 [info ] [Thread-2 (]: 12 of 50 START test accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n  [RUN]
+[0m23:24:10.527517 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_observations_observed_at.688ac514ce, now test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f)
+[0m23:24:10.528102 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.source_not_null_bronze_zenga_observations_listing_code.5da4ccf477, now test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd)
+[0m23:24:10.528583 [debug] [Thread-3 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.529099 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.ingatlanmizu.stg_zenga__listing_versions, now test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681)
+[0m23:24:10.529579 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f
+[0m23:24:10.530030 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd
+[0m23:24:10.530477 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: COMMIT
+[0m23:24:10.530938 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681
+[0m23:24:10.539183 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f"
+[0m23:24:10.546950 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd"
+[0m23:24:10.553858 [debug] [Thread-3 (]: SQL status: COMMIT in 0.006 seconds
+[0m23:24:10.555236 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681"
+[0m23:24:10.557213 [debug] [Thread-3 (]: Applying DROP to: "ingatlanmizu"."silver"."stg_zenga__observations__dbt_backup"
+[0m23:24:10.558309 [debug] [Thread-3 (]: Using postgres connection "model.ingatlanmizu.stg_zenga__observations"
+[0m23:24:10.558829 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f
+[0m23:24:10.559294 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd
+[0m23:24:10.559800 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.stg_zenga__observations"} */
+drop view if exists "ingatlanmizu"."silver"."stg_zenga__observations__dbt_backup" cascade
+[0m23:24:10.561743 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f"
+[0m23:24:10.562244 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681
+[0m23:24:10.563927 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd"
+[0m23:24:10.565819 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681"
+[0m23:24:10.566564 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f"
+[0m23:24:10.567314 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd"
+[0m23:24:10.567908 [debug] [Thread-4 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        condition as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+    group by condition
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Új építésű','Átlagos','Felújított','Jó állapotú','Újszerű','Felújítandó'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.568607 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681"
+[0m23:24:10.569087 [debug] [Thread-3 (]: SQL status: DROP VIEW in 0.005 seconds
+[0m23:24:10.569652 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        energy_rating as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+    group by energy_rating
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'J','I','H','G','F','E','D','C','B','A','A+','A++','A+++'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.570182 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m23:24:10.570730 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        heating as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+    group by heating
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Hőszivattyú','Gázkazán','Elektromos','Gáz (konvektor)','Gáz','Cserépkályha','Kandalló','Klíma','Egyéb','Egyéb kazán','Nincs fűtés','Padlófűtés','Vegyes tüzelésű kazán'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.572353 [debug] [Thread-3 (]: On model.ingatlanmizu.stg_zenga__observations: Close
+[0m23:24:10.572838 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:10.573486 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:10.574259 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1102ebf20>]}
+[0m23:24:10.575291 [info ] [Thread-3 (]: 9 of 50 OK created sql view model silver.stg_zenga__observations ............... [[32mCREATE VIEW[0m in 0.13s]
+[0m23:24:10.576108 [debug] [Thread-3 (]: Finished running node model.ingatlanmizu.stg_zenga__observations
+[0m23:24:10.576657 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd
+[0m23:24:10.577394 [info ] [Thread-3 (]: 13 of 50 START test accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s  [RUN]
+[0m23:24:10.578024 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.ingatlanmizu.stg_zenga__observations, now test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd)
+[0m23:24:10.578524 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd
+[0m23:24:10.587720 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd"
+[0m23:24:10.588575 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd
+[0m23:24:10.590272 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd"
+[0m23:24:10.591114 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd"
+[0m23:24:10.591666 [debug] [Thread-3 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        type as value_field,
+        count(*) as n_records
+
+    from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+    group by type
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Ikerház','Házrész','Sorház','Családi ház','Lakás'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.592280 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:10.621167 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.048 seconds
+[0m23:24:10.621857 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.052 seconds
+[0m23:24:10.622634 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.049 seconds
+[0m23:24:10.625126 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd: ROLLBACK
+[0m23:24:10.628494 [debug] [Thread-4 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f: ROLLBACK
+[0m23:24:10.630697 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681: ROLLBACK
+[0m23:24:10.631367 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.039 seconds
+[0m23:24:10.633906 [debug] [Thread-3 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd: ROLLBACK
+[0m23:24:10.634649 [debug] [Thread-2 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681: Close
+[0m23:24:10.635432 [debug] [Thread-4 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f: Close
+[0m23:24:10.636023 [debug] [Thread-1 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd: Close
+[0m23:24:10.637769 [debug] [Thread-3 (]: On test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd: Close
+[0m23:24:10.637108 [info ] [Thread-2 (]: 12 of 50 PASS accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n  [[32mPASS[0m in 0.11s]
+[0m23:24:10.639261 [info ] [Thread-4 (]: 10 of 50 PASS accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_  [[32mPASS[0m in 0.11s]
+[0m23:24:10.640936 [info ] [Thread-1 (]: 11 of 50 PASS accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_  [[32mPASS[0m in 0.11s]
+[0m23:24:10.642560 [info ] [Thread-3 (]: 13 of 50 PASS accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s  [[32mPASS[0m in 0.06s]
+[0m23:24:10.644016 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681
+[0m23:24:10.645018 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f
+[0m23:24:10.645898 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd
+[0m23:24:10.646663 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd
+[0m23:24:10.647286 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741
+[0m23:24:10.647900 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52
+[0m23:24:10.648462 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b
+[0m23:24:10.649021 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5
+[0m23:24:10.649587 [info ] [Thread-2 (]: 14 of 50 START test dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1  [RUN]
+[0m23:24:10.650133 [info ] [Thread-4 (]: 15 of 50 START test dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0  [RUN]
+[0m23:24:10.650637 [info ] [Thread-1 (]: 16 of 50 START test dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000  [RUN]
+[0m23:24:10.651321 [info ] [Thread-3 (]: 17 of 50 START test dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800  [RUN]
+[0m23:24:10.652691 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_heating__H_szivatty___G_zkaz_n__Elektromos__G_z_konvektor___G_z__Cser_pk_lyha__Kandall___Kl_ma__Egy_b__Egy_b_kaz_n__Nincs_f_t_s__Padl_f_t_s__Vegyes_t_zel_s_kaz_n.3467996681, now test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741)
+[0m23:24:10.653311 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_condition___j_p_t_s____tlagos__Fel_j_tott__J_llapot____jszer___Fel_j_tand_.e31036ed8f, now test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52)
+[0m23:24:10.653848 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_energy_rating__J__I__H__G__F__E__D__C__B__A__A___A___A_.98ff2d02cd, now test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b)
+[0m23:24:10.654381 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.accepted_values_stg_zenga__listing_versions_type__Ikerh_z__H_zr_sz__Sorh_z__Csal_di_h_z__Lak_s.9b4919bdfd, now test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5)
+[0m23:24:10.654869 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741
+[0m23:24:10.655323 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52
+[0m23:24:10.655791 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b
+[0m23:24:10.656550 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5
+[0m23:24:10.669101 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741"
+[0m23:24:10.678271 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52"
+[0m23:24:10.688804 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b"
+[0m23:24:10.698620 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5"
+[0m23:24:10.700700 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741
+[0m23:24:10.703765 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741"
+[0m23:24:10.704508 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52
+[0m23:24:10.705089 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b
+[0m23:24:10.705840 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5
+[0m23:24:10.707934 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52"
+[0m23:24:10.710302 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b"
+[0m23:24:10.710953 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741"
+[0m23:24:10.713063 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5"
+[0m23:24:10.714101 [debug] [Thread-2 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+with meet_condition as(
+  select *
+  from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+),
+
+validation_errors as (
+  select *
+  from meet_condition
+  where
+    -- never true, defaults to an empty result set. Exists to ensure any combo of the `or` clauses below succeeds
+    1 = 2
+    -- records with a value >= min_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not area_sqm >= 1
+    -- records with a value <= max_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not area_sqm <= 10000
+)
+
+select *
+from validation_errors
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.715093 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:10.716043 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b"
+[0m23:24:10.716968 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52"
+[0m23:24:10.718147 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5"
+[0m23:24:10.718863 [debug] [Thread-1 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+with meet_condition as(
+  select *
+  from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+),
+
+validation_errors as (
+  select *
+  from meet_condition
+  where
+    -- never true, defaults to an empty result set. Exists to ensure any combo of the `or` clauses below succeeds
+    1 = 2
+    -- records with a value >= min_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not price_per_square_meter >= 100000
+    -- records with a value <= max_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not price_per_square_meter <= 10000000
+)
+
+select *
+from validation_errors
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.719690 [debug] [Thread-4 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+with meet_condition as(
+  select *
+  from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+),
+
+validation_errors as (
+  select *
+  from meet_condition
+  where
+    -- never true, defaults to an empty result set. Exists to ensure any combo of the `or` clauses below succeeds
+    1 = 2
+    -- records with a value >= min_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not price_huf > 0
+)
+
+select *
+from validation_errors
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.720464 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+with meet_condition as(
+  select *
+  from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+),
+
+validation_errors as (
+  select *
+  from meet_condition
+  where
+    -- never true, defaults to an empty result set. Exists to ensure any combo of the `or` clauses below succeeds
+    1 = 2
+    -- records with a value >= min_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not year_of_building >= 1800
+    -- records with a value <= max_value are permitted. The `not` flips this to find records that don't meet the rule.
+    or not year_of_building <= 2100
+)
+
+select *
+from validation_errors
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.721129 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:10.721710 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m23:24:10.722477 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:10.739572 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.024 seconds
+[0m23:24:10.742989 [debug] [Thread-2 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741: ROLLBACK
+[0m23:24:10.744645 [debug] [Thread-2 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741: Close
+[0m23:24:10.746068 [info ] [Thread-2 (]: 14 of 50 PASS dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1  [[32mPASS[0m in 0.09s]
+[0m23:24:10.747646 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741
+[0m23:24:10.748770 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052
+[0m23:24:10.751807 [info ] [Thread-2 (]: 18 of 50 START test not_empty_stg_zenga__listing_versions_city ................. [RUN]
+[0m23:24:10.752715 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_area_sqm__10000__1.cbaa5a3741, now test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052)
+[0m23:24:10.753424 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052
+[0m23:24:10.761904 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.038 seconds
+[0m23:24:10.762610 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.041 seconds
+[0m23:24:10.776021 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.054 seconds
+[0m23:24:10.780867 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052"
+[0m23:24:10.785469 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5: ROLLBACK
+[0m23:24:10.798316 [debug] [Thread-1 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b: ROLLBACK
+[0m23:24:10.839826 [debug] [Thread-4 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52: ROLLBACK
+[0m23:24:10.847911 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052
+[0m23:24:10.851331 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052"
+[0m23:24:10.853555 [debug] [Thread-3 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5: Close
+[0m23:24:10.854191 [debug] [Thread-1 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b: Close
+[0m23:24:10.854688 [debug] [Thread-4 (]: On test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52: Close
+[0m23:24:10.855991 [info ] [Thread-1 (]: 16 of 50 PASS dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000  [[32mPASS[0m in 0.20s]
+[0m23:24:10.914609 [info ] [Thread-3 (]: 17 of 50 PASS dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800  [[32mPASS[0m in 0.20s]
+[0m23:24:10.918395 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b
+[0m23:24:10.920945 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052"
+[0m23:24:10.920195 [info ] [Thread-4 (]: 15 of 50 PASS dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0  [[32mPASS[0m in 0.27s]
+[0m23:24:10.922491 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5
+[0m23:24:10.923238 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d
+[0m23:24:10.924015 [debug] [Thread-2 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where trim(city) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.924893 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52
+[0m23:24:10.925541 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4
+[0m23:24:10.926584 [info ] [Thread-1 (]: 19 of 50 START test not_empty_stg_zenga__listing_versions_location_detail ...... [RUN]
+[0m23:24:10.927956 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:10.929193 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577
+[0m23:24:10.929925 [info ] [Thread-3 (]: 20 of 50 START test not_null_stg_zenga__listing_versions_area_sqm .............. [RUN]
+[0m23:24:10.931889 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_per_square_meter__10000000__100000.01a7d1164b, now test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d)
+[0m23:24:10.932932 [info ] [Thread-4 (]: 21 of 50 START test not_null_stg_zenga__listing_versions_city .................. [RUN]
+[0m23:24:10.933858 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_year_of_building__2100__1800.43a59557c5, now test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4)
+[0m23:24:10.934942 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d
+[0m23:24:10.936124 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.dbt_utils_accepted_range_stg_zenga__listing_versions_price_huf__False__0.4069239c52, now test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577)
+[0m23:24:10.937059 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4
+[0m23:24:10.952890 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d"
+[0m23:24:10.954393 [debug] [Thread-4 (]: Began compiling node test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577
+[0m23:24:10.961992 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.034 seconds
+[0m23:24:10.966576 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4"
+[0m23:24:10.980638 [debug] [Thread-4 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577"
+[0m23:24:10.983489 [debug] [Thread-2 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052: ROLLBACK
+[0m23:24:10.984707 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d
+[0m23:24:10.985936 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4
+[0m23:24:10.986553 [debug] [Thread-2 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052: Close
+[0m23:24:10.988728 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d"
+[0m23:24:10.989321 [debug] [Thread-4 (]: Began executing node test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577
+[0m23:24:10.991375 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4"
+[0m23:24:10.992534 [info ] [Thread-2 (]: 18 of 50 PASS not_empty_stg_zenga__listing_versions_city ....................... [[32mPASS[0m in 0.24s]
+[0m23:24:10.995567 [debug] [Thread-4 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577"
+[0m23:24:10.996556 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d"
+[0m23:24:10.997445 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052
+[0m23:24:10.998440 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4"
+[0m23:24:10.999243 [debug] [Thread-1 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+
+select *
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where trim(location_detail) = ''
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:10.999999 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b
+[0m23:24:11.000606 [debug] [Thread-4 (]: Using postgres connection "test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577"
+[0m23:24:11.001400 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select area_sqm
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where area_sqm is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:11.002157 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:11.002814 [info ] [Thread-2 (]: 22 of 50 START test not_null_stg_zenga__listing_versions_listing_code .......... [RUN]
+[0m23:24:11.003523 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select city
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where city is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:11.004152 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:11.004994 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_empty_stg_zenga__listing_versions_city.9fb88cb052, now test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b)
+[0m23:24:11.005570 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m23:24:11.006485 [debug] [Thread-2 (]: Began compiling node test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b
+[0m23:24:11.019830 [debug] [Thread-2 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b"
+[0m23:24:11.021242 [debug] [Thread-2 (]: Began executing node test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b
+[0m23:24:11.023822 [debug] [Thread-2 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b"
+[0m23:24:11.026371 [debug] [Thread-2 (]: Using postgres connection "test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b"
+[0m23:24:11.028337 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select listing_code
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where listing_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:11.029034 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m23:24:11.030663 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m23:24:11.033121 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4: ROLLBACK
+[0m23:24:11.033866 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.032 seconds
+[0m23:24:11.036764 [debug] [Thread-1 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d: ROLLBACK
+[0m23:24:11.037455 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4: Close
+[0m23:24:11.038575 [info ] [Thread-3 (]: 20 of 50 PASS not_null_stg_zenga__listing_versions_area_sqm .................... [[32mPASS[0m in 0.10s]
+[0m23:24:11.039539 [debug] [Thread-4 (]: SQL status: SELECT 1 in 0.034 seconds
+[0m23:24:11.040542 [debug] [Thread-1 (]: On test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d: Close
+[0m23:24:11.041779 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4
+[0m23:24:11.044377 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577: ROLLBACK
+[0m23:24:11.045393 [info ] [Thread-1 (]: 19 of 50 PASS not_empty_stg_zenga__listing_versions_location_detail ............ [[32mPASS[0m in 0.11s]
+[0m23:24:11.046322 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955
+[0m23:24:11.047825 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d
+[0m23:24:11.048477 [debug] [Thread-4 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577: Close
+[0m23:24:11.049147 [info ] [Thread-3 (]: 23 of 50 START test not_null_stg_zenga__listing_versions_price_huf ............. [RUN]
+[0m23:24:11.050032 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29
+[0m23:24:11.051096 [info ] [Thread-4 (]: 21 of 50 PASS not_null_stg_zenga__listing_versions_city ........................ [[32mPASS[0m in 0.12s]
+[0m23:24:11.052169 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_stg_zenga__listing_versions_area_sqm.9319e521c4, now test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955)
+[0m23:24:11.052951 [info ] [Thread-1 (]: 24 of 50 START test not_null_stg_zenga__listing_versions_price_per_square_meter  [RUN]
+[0m23:24:11.053835 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577
+[0m23:24:11.054394 [debug] [Thread-3 (]: Began compiling node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955
+[0m23:24:11.054980 [debug] [Thread-2 (]: SQL status: SELECT 1 in 0.026 seconds
+[0m23:24:11.055617 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_empty_stg_zenga__listing_versions_location_detail.8938ea0c2d, now test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29)
+[0m23:24:11.072152 [debug] [Thread-3 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955"
+[0m23:24:11.077306 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b: ROLLBACK
+[0m23:24:11.078760 [debug] [Thread-1 (]: Began compiling node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29
+[0m23:24:11.080669 [debug] [Thread-3 (]: Began executing node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955
+[0m23:24:11.089571 [debug] [Thread-2 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b: Close
+[0m23:24:11.095176 [debug] [Thread-1 (]: Writing injected SQL for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29"
+[0m23:24:11.097532 [debug] [Thread-3 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955"
+[0m23:24:11.098580 [info ] [Thread-2 (]: 22 of 50 PASS not_null_stg_zenga__listing_versions_listing_code ................ [[32mPASS[0m in 0.09s]
+[0m23:24:11.100334 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b
+[0m23:24:11.101246 [debug] [Thread-1 (]: Began executing node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29
+[0m23:24:11.103659 [debug] [Thread-1 (]: Writing runtime sql for node "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29"
+[0m23:24:11.104663 [debug] [Thread-3 (]: Using postgres connection "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955"
+[0m23:24:11.105315 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_huf
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where price_huf is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:11.106183 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m23:24:11.106985 [debug] [Thread-1 (]: Using postgres connection "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29"
+[0m23:24:11.107662 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select price_per_square_meter
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+where price_per_square_meter is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+[0m23:24:11.108278 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:24:11.136014 [debug] [Thread-3 (]: SQL status: SELECT 1 in 0.030 seconds
+[0m23:24:11.136792 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.028 seconds
+[0m23:24:11.139342 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955: ROLLBACK
+[0m23:24:11.141391 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29: ROLLBACK
+[0m23:24:11.142651 [debug] [Thread-1 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29: Close
+[0m23:24:11.143266 [debug] [Thread-3 (]: On test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955: Close
+[0m23:24:11.144272 [info ] [Thread-1 (]: 24 of 50 PASS not_null_stg_zenga__listing_versions_price_per_square_meter ...... [[32mPASS[0m in 0.09s]
+[0m23:24:11.145475 [info ] [Thread-3 (]: 23 of 50 PASS not_null_stg_zenga__listing_versions_price_huf ................... [[32mPASS[0m in 0.09s]
+[0m23:24:11.146619 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29
+[0m23:24:11.147727 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955
+[0m23:24:11.148890 [debug] [Thread-4 (]: Began running node model.ingatlanmizu.int_listings__unioned
+[0m23:24:11.149837 [info ] [Thread-4 (]: 25 of 50 START sql view model silver.int_listings__unioned ..................... [RUN]
+[0m23:24:11.150727 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.ingatlanmizu.not_null_stg_zenga__listing_versions_city.4a3002d577, now model.ingatlanmizu.int_listings__unioned)
+[0m23:24:11.151422 [debug] [Thread-4 (]: Began compiling node model.ingatlanmizu.int_listings__unioned
+[0m23:24:11.154314 [debug] [Thread-4 (]: Writing injected SQL for node "model.ingatlanmizu.int_listings__unioned"
+[0m23:24:11.155753 [debug] [Thread-4 (]: Began executing node model.ingatlanmizu.int_listings__unioned
+[0m23:24:11.160127 [debug] [Thread-4 (]: Writing runtime sql for node "model.ingatlanmizu.int_listings__unioned"
+[0m23:24:11.161172 [debug] [Thread-4 (]: Using postgres connection "model.ingatlanmizu.int_listings__unioned"
+[0m23:24:11.161805 [debug] [Thread-4 (]: On model.ingatlanmizu.int_listings__unioned: /* {"app": "dbt", "dbt_version": "1.12.0", "profile_name": "ingatlanmizu", "target_name": "local", "node_id": "model.ingatlanmizu.int_listings__unioned"} */
+
+  create view "ingatlanmizu"."silver"."int_listings__unioned__dbt_tmp"
+    
+    
+  as (
+    select 
+    *, 
+    'zenga' as source,
+    concat('zenga', ':', listing_code) as listing_key,
+    case
+        when type ilike '%ház%' then    'Ház'
+        else                            'Lakás'
+    end as main_type,
+    type as sub_type
+from "ingatlanmizu"."silver"."stg_zenga__listing_versions"
+  );
+[0m23:24:11.162520 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m23:24:11.185321 [debug] [Thread-4 (]: Postgres adapter: Postgres error: column "listing_key" specified more than once
+
+[0m23:24:11.186262 [debug] [Thread-4 (]: On model.ingatlanmizu.int_listings__unioned: ROLLBACK
+[0m23:24:11.187666 [debug] [Thread-4 (]: On model.ingatlanmizu.int_listings__unioned: Close
+[0m23:24:11.197939 [debug] [Thread-4 (]: Database Error in model int_listings__unioned (models/intermediate/int_listings__unioned.sql)
+  column "listing_key" specified more than once
+  compiled code at target/run/ingatlanmizu/models/intermediate/int_listings__unioned.sql
+[0m23:24:11.198682 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '6f24e24c-107d-4368-8d7b-54e717883516', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1103b4f80>]}
+[0m23:24:11.199517 [error] [Thread-4 (]: 25 of 50 ERROR creating sql view model silver.int_listings__unioned ............ [[31mERROR[0m in 0.05s]
+[0m23:24:11.200341 [debug] [Thread-4 (]: Finished running node model.ingatlanmizu.int_listings__unioned
+[0m23:24:11.200960 [debug] [Thread-7 (]: Marking all children of 'model.ingatlanmizu.int_listings__unioned' to be skipped because of status 'error'.  Reason: Database Error in model int_listings__unioned (models/intermediate/int_listings__unioned.sql)
+  column "listing_key" specified more than once
+  compiled code at target/run/ingatlanmizu/models/intermediate/int_listings__unioned.sql.
+[0m23:24:11.202531 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m23:24:11.203038 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m23:24:11.203536 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m23:24:11.204140 [info ] [Thread-1 (]: 26 of 50 SKIP test accepted_values_int_listings__unioned_source__zenga ......... [[33mSKIP[0m]
+[0m23:24:11.204724 [info ] [Thread-3 (]: 27 of 50 SKIP test not_null_int_listings__unioned_listing_key .................. [[33mSKIP[0m]
+[0m23:24:11.205252 [info ] [Thread-2 (]: 28 of 50 SKIP test not_null_int_listings__unioned_source ....................... [[33mSKIP[0m]
+[0m23:24:11.205831 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1
+[0m23:24:11.206303 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d
+[0m23:24:11.206786 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949
+[0m23:24:11.207257 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.accepted_values_int_listings__unioned_source__zenga.9afcaa68e1' to be skipped because of status 'skipped'. 
+[0m23:24:11.207860 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__unioned_listing_key.282519595d' to be skipped because of status 'skipped'. 
+[0m23:24:11.208336 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__unioned_source.1e72616949' to be skipped because of status 'skipped'. 
+[0m23:24:11.209230 [debug] [Thread-4 (]: Began running node model.ingatlanmizu.int_listings__current
+[0m23:24:11.209804 [debug] [Thread-1 (]: Began running node model.ingatlanmizu.int_listings__price_changes
+[0m23:24:11.210352 [debug] [Thread-3 (]: Began running node model.ingatlanmizu.mart_market_monthly
+[0m23:24:11.210813 [info ] [Thread-4 (]: 29 of 50 SKIP relation silver.int_listings__current ............................ [[33mSKIP[0m]
+[0m23:24:11.211396 [info ] [Thread-1 (]: 30 of 50 SKIP relation silver.int_listings__price_changes ...................... [[33mSKIP[0m]
+[0m23:24:11.211890 [info ] [Thread-3 (]: 31 of 50 SKIP relation gold.mart_market_monthly ................................ [[33mSKIP[0m]
+[0m23:24:11.212383 [debug] [Thread-4 (]: Finished running node model.ingatlanmizu.int_listings__current
+[0m23:24:11.212871 [debug] [Thread-1 (]: Finished running node model.ingatlanmizu.int_listings__price_changes
+[0m23:24:11.213331 [debug] [Thread-3 (]: Finished running node model.ingatlanmizu.mart_market_monthly
+[0m23:24:11.213776 [debug] [Thread-7 (]: Marking all children of 'model.ingatlanmizu.int_listings__current' to be skipped because of status 'skipped'. 
+[0m23:24:11.214380 [debug] [Thread-7 (]: Marking all children of 'model.ingatlanmizu.int_listings__price_changes' to be skipped because of status 'skipped'. 
+[0m23:24:11.214949 [debug] [Thread-7 (]: Marking all children of 'model.ingatlanmizu.mart_market_monthly' to be skipped because of status 'skipped'. 
+[0m23:24:11.215445 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m23:24:11.215942 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m23:24:11.216584 [info ] [Thread-2 (]: 32 of 50 SKIP test accepted_values_int_listings__current_source__zenga ......... [[33mSKIP[0m]
+[0m23:24:11.217240 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m23:24:11.218486 [info ] [Thread-4 (]: 33 of 50 SKIP test not_null_int_listings__current_listing_key .................. [[33mSKIP[0m]
+[0m23:24:11.219342 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m23:24:11.219831 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00
+[0m23:24:11.220326 [info ] [Thread-1 (]: 34 of 50 SKIP test not_null_int_listings__current_source ....................... [[33mSKIP[0m]
+[0m23:24:11.220843 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d
+[0m23:24:11.221318 [info ] [Thread-3 (]: 35 of 50 SKIP test unique_int_listings__current_listing_key .................... [[33mSKIP[0m]
+[0m23:24:11.221829 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.accepted_values_mart_market_monthly_main_type__H_z__Lak_s.04a0593e44
+[0m23:24:11.222228 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.accepted_values_int_listings__current_source__zenga.ec19bebd00' to be skipped because of status 'skipped'. 
+[0m23:24:11.222690 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576
+[0m23:24:11.223158 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_market_monthly_month_start__city__main_type__sub_type.878e12821e
+[0m23:24:11.223639 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca
+[0m23:24:11.224120 [info ] [Thread-2 (]: 36 of 50 SKIP test accepted_values_mart_market_monthly_main_type__H_z__Lak_s ... [[33mSKIP[0m]
+[0m23:24:11.224602 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__current_listing_key.ad61725a0d' to be skipped because of status 'skipped'. 
+[0m23:24:11.225073 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_empty_mart_market_monthly_city.e017525ac9
+[0m23:24:11.225589 [info ] [Thread-4 (]: 37 of 50 SKIP test dbt_utils_unique_combination_of_columns_mart_market_monthly_month_start__city__main_type__sub_type  [[33mSKIP[0m]
+[0m23:24:11.226296 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m23:24:11.227010 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.accepted_values_mart_market_monthly_main_type__H_z__Lak_s.04a0593e44
+[0m23:24:11.227536 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__current_source.0e111ad576' to be skipped because of status 'skipped'. 
+[0m23:24:11.228028 [info ] [Thread-1 (]: 38 of 50 SKIP test not_empty_mart_market_monthly_city .......................... [[33mSKIP[0m]
+[0m23:24:11.228614 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_market_monthly_month_start__city__main_type__sub_type.878e12821e
+[0m23:24:11.229193 [info ] [Thread-3 (]: 39 of 50 SKIP test not_null_int_listings__price_changes_listing_key ............ [[33mSKIP[0m]
+[0m23:24:11.229732 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m23:24:11.230208 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.unique_int_listings__current_listing_key.d6ebb9d6ca' to be skipped because of status 'skipped'. 
+[0m23:24:11.230680 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_empty_mart_market_monthly_city.e017525ac9
+[0m23:24:11.231261 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_market_monthly_city.db5751dbef
+[0m23:24:11.231748 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b
+[0m23:24:11.232239 [info ] [Thread-2 (]: 40 of 50 SKIP test not_null_int_listings__price_changes_price_delta_huf ........ [[33mSKIP[0m]
+[0m23:24:11.232741 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.accepted_values_mart_market_monthly_main_type__H_z__Lak_s.04a0593e44' to be skipped because of status 'skipped'. 
+[0m23:24:11.233243 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_mart_market_monthly_main_type.f2627789cf
+[0m23:24:11.233716 [info ] [Thread-4 (]: 41 of 50 SKIP test not_null_mart_market_monthly_city ........................... [[33mSKIP[0m]
+[0m23:24:11.234203 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_mart_market_monthly_month_start.614b9d0b7b
+[0m23:24:11.234666 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12
+[0m23:24:11.235217 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_market_monthly_month_start__city__main_type__sub_type.878e12821e' to be skipped because of status 'skipped'. 
+[0m23:24:11.235726 [info ] [Thread-1 (]: 42 of 50 SKIP test not_null_mart_market_monthly_main_type ...................... [[33mSKIP[0m]
+[0m23:24:11.236213 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_market_monthly_city.db5751dbef
+[0m23:24:11.236681 [info ] [Thread-3 (]: 43 of 50 SKIP test not_null_mart_market_monthly_month_start .................... [[33mSKIP[0m]
+[0m23:24:11.237176 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_market_monthly_sub_type.caa99de7b5
+[0m23:24:11.237602 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_empty_mart_market_monthly_city.e017525ac9' to be skipped because of status 'skipped'. 
+[0m23:24:11.238062 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_mart_market_monthly_main_type.f2627789cf
+[0m23:24:11.238578 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_mart_market_monthly_month_start.614b9d0b7b
+[0m23:24:11.239041 [info ] [Thread-2 (]: 44 of 50 SKIP test not_null_mart_market_monthly_sub_type ....................... [[33mSKIP[0m]
+[0m23:24:11.239541 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__price_changes_listing_key.758d0ea57b' to be skipped because of status 'skipped'. 
+[0m23:24:11.240178 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_market_monthly_sub_type.caa99de7b5
+[0m23:24:11.240629 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_int_listings__price_changes_price_delta_huf.56ccf3bb12' to be skipped because of status 'skipped'. 
+[0m23:24:11.241126 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_market_monthly_city.db5751dbef' to be skipped because of status 'skipped'. 
+[0m23:24:11.241662 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_market_monthly_main_type.f2627789cf' to be skipped because of status 'skipped'. 
+[0m23:24:11.242117 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_market_monthly_month_start.614b9d0b7b' to be skipped because of status 'skipped'. 
+[0m23:24:11.242584 [debug] [Thread-4 (]: Began running node model.ingatlanmizu.mart_listings_current
+[0m23:24:11.243031 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_market_monthly_sub_type.caa99de7b5' to be skipped because of status 'skipped'. 
+[0m23:24:11.243624 [info ] [Thread-4 (]: 45 of 50 SKIP relation gold.mart_listings_current .............................. [[33mSKIP[0m]
+[0m23:24:11.244227 [debug] [Thread-4 (]: Finished running node model.ingatlanmizu.mart_listings_current
+[0m23:24:11.244688 [debug] [Thread-7 (]: Marking all children of 'model.ingatlanmizu.mart_listings_current' to be skipped because of status 'skipped'. 
+[0m23:24:11.245498 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m23:24:11.246000 [debug] [Thread-2 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m23:24:11.246440 [info ] [Thread-3 (]: 46 of 50 SKIP test dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key  [[33mSKIP[0m]
+[0m23:24:11.246914 [debug] [Thread-1 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m23:24:11.247342 [debug] [Thread-4 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m23:24:11.247797 [info ] [Thread-2 (]: 47 of 50 SKIP test not_null_mart_listings_current_listing_key .................. [[33mSKIP[0m]
+[0m23:24:11.248288 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea
+[0m23:24:11.248747 [info ] [Thread-1 (]: 48 of 50 SKIP test not_null_mart_listings_current_original_price_huf ........... [[33mSKIP[0m]
+[0m23:24:11.249223 [info ] [Thread-4 (]: 49 of 50 SKIP test not_null_mart_listings_current_price_change_pct ............. [[33mSKIP[0m]
+[0m23:24:11.249694 [debug] [Thread-2 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35
+[0m23:24:11.250148 [debug] [Thread-3 (]: Began running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m23:24:11.250608 [debug] [Thread-1 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e
+[0m23:24:11.250962 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.dbt_utils_unique_combination_of_columns_mart_listings_current_listing_key.fc41e8e7ea' to be skipped because of status 'skipped'. 
+[0m23:24:11.251758 [debug] [Thread-4 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb
+[0m23:24:11.252339 [info ] [Thread-3 (]: 50 of 50 SKIP test not_null_mart_listings_current_price_delta_huf .............. [[33mSKIP[0m]
+[0m23:24:11.252862 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_listings_current_listing_key.369a2bce35' to be skipped because of status 'skipped'. 
+[0m23:24:11.253374 [debug] [Thread-3 (]: Finished running node test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce
+[0m23:24:11.253801 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_listings_current_original_price_huf.1cefc46f7e' to be skipped because of status 'skipped'. 
+[0m23:24:11.254322 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_listings_current_price_change_pct.b17c5467bb' to be skipped because of status 'skipped'. 
+[0m23:24:11.254781 [debug] [Thread-7 (]: Marking all children of 'test.ingatlanmizu.not_null_mart_listings_current_price_delta_huf.26a81ff6ce' to be skipped because of status 'skipped'. 
+[0m23:24:11.256014 [debug] [MainThread]: On master: COMMIT
+[0m23:24:11.256437 [debug] [MainThread]: Using postgres connection "master"
+[0m23:24:11.256824 [debug] [MainThread]: On master: COMMIT
+[0m23:24:11.257196 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:24:11.274466 [debug] [MainThread]: SQL status: COMMIT in 0.017 seconds
+[0m23:24:11.275058 [debug] [MainThread]: On master: Close
+[0m23:24:11.277109 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:24:11.277594 [debug] [MainThread]: Connection 'test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_per_square_meter.af4ff9ea29' was properly closed.
+[0m23:24:11.278410 [debug] [MainThread]: Connection 'test.ingatlanmizu.not_null_stg_zenga__listing_versions_listing_code.b87ae3642b' was properly closed.
+[0m23:24:11.279049 [debug] [MainThread]: Connection 'test.ingatlanmizu.not_null_stg_zenga__listing_versions_price_huf.b9a90c0955' was properly closed.
+[0m23:24:11.279437 [debug] [MainThread]: Connection 'model.ingatlanmizu.int_listings__unioned' was properly closed.
+[0m23:24:11.279937 [info ] [MainThread]: 
+[0m23:24:11.280395 [info ] [MainThread]: Finished running 2 table models, 43 data tests, 5 view models in 0 hours 0 minutes and 1.34 seconds (1.34s).
+[0m23:24:11.285714 [debug] [MainThread]: Command end result
+[0m23:24:11.349475 [debug] [MainThread]: Wrote artifact WritableManifest to transform/target/manifest.json
+[0m23:24:11.352261 [debug] [MainThread]: Wrote artifact SemanticManifest to transform/target/semantic_manifest.json
+[0m23:24:11.354801 [debug] [MainThread]: Wrote artifact OsiDocument to transform/target/osi_document.json
+[0m23:24:11.363971 [debug] [MainThread]: Wrote artifact RunExecutionResult to transform/target/run_results.json
+[0m23:24:11.364417 [info ] [MainThread]: 
+[0m23:24:11.364817 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m23:24:11.365167 [info ] [MainThread]: 
+[0m23:24:11.365584 [error] [MainThread]: [[31mERROR[0m]: in model int_listings__unioned (models/intermediate/int_listings__unioned.sql)
+[0m23:24:11.365991 [error] [MainThread]:   Database Error in model int_listings__unioned (models/intermediate/int_listings__unioned.sql)
+  column "listing_key" specified more than once
+  compiled code at target/run/ingatlanmizu/models/intermediate/int_listings__unioned.sql
+[0m23:24:11.366313 [info ] [MainThread]: 
+[0m23:24:11.366684 [info ] [MainThread]:   compiled code at target/compiled/ingatlanmizu/models/intermediate/int_listings__unioned.sql
+[0m23:24:11.367026 [info ] [MainThread]: 
+[0m23:24:11.367377 [info ] [MainThread]: Done. PASS=24 WARN=0 ERROR=1 SKIP=25 NO-OP=0 REUSED=0 TOTAL=50
+[0m23:24:11.367959 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 4 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m23:24:11.370099 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.4124172, "process_in_blocks": "0", "process_kernel_time": 0.414168, "process_mem_max_rss": "158236672", "process_out_blocks": "0", "process_user_time": 3.994807}
+[0m23:24:11.370547 [debug] [MainThread]: Command `dbt build` failed at 23:24:11.370474 after 3.41 seconds
+[0m23:24:11.370954 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ffcc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11034f230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107068dd0>]}
+[0m23:24:11.371347 [debug] [MainThread]: Flushing usage events
+[0m23:24:12.761157 [debug] [MainThread]: An error was encountered while trying to flush usage events
