@@ -1,5 +1,5 @@
 from ingatlanmizu.core.db import connection
-from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId, PayloadHash, NewRecordCreated
+from ingatlanmizu.ingest.sources.base import SourceSpecificListingDict, IngestionRunId, PayloadHash, NewRecordCreated, ListingReference
 import json
 import hashlib
 
@@ -16,7 +16,7 @@ def load(
     
     with connection() as conn:
         conn.execute(f"""
-            insert into bronze.zenga_listings
+            insert into bronze.zenga_listing_versions
             (
                 megnevezes,
                 ar,
@@ -81,12 +81,23 @@ def load(
         conn.commit()
         
         return True
+    
+def record_observation(listing: ListingReference, ingestion_run_id: IngestionRunId):
+    with connection() as conn:
+        conn.execute("""
+            insert into bronze.zenga_observations (listing_code, observed_at, ingestion_run_id) 
+            values (%s, NOW(), %s)            
+        """, (
+            listing.external_id,
+            ingestion_run_id
+        ))
+        conn.commit()
         
 def _has_changed(listing: SourceSpecificListingDict, payload_hash: PayloadHash) -> bool:
     with connection() as conn:
         row = conn.execute("""
             select payload_hash
-            from bronze.zenga_listings
+            from bronze.zenga_listing_versions
             where hirdeteskod = %s
             order by created_at desc
             limit 1             

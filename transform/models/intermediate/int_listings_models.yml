@@ -1,0 +1,133 @@
+version: 2
+
+models:
+  - name: int_listing_versions__unioned
+    description: "All sources unified. Each change is a dedicated row."    
+    data_tests:   # grain = source+listing_code+payload_hash
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_key           
+            - payload_hash
+    columns:
+      - name: source
+        description: "Where the listing comes from"
+        data_tests:
+          - not_null
+      - name: listing_key
+        description: "Source + listing code"
+        data_tests:
+          - not_null
+  - name: int_observations__unioned
+    description: "All sources unified. Each listing per ingestion run is a dedicated row."    
+    data_tests:   # grain = listing_code+observed_at
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_key
+            - observed_at
+    columns:
+      - name: listing_code
+        data_tests:
+          - not_null
+          - not_empty
+      - name: listing_key
+        description: "Surregate key from source and listing_code 'zenga:abc123'"
+        data_tests:
+          - not_null
+          - not_empty
+      - name: source
+        data_tests:
+          - not_null
+          - not_empty
+      - name: bronze_id
+        data_tests:
+          - not_null
+      - name: ingestion_run_id
+        data_tests:
+          - not_null
+  - name: int_listings__current
+    description: "Each listing has only the current, most-recent version"
+    data_tests:   # grain = source+listing_code+payload_hash
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_key
+    columns:
+      - name: source
+        description: "Where the listing comes from"
+        data_tests:
+          - not_null
+      - name: listing_key
+        description: "Source + listing code"
+        data_tests:
+          - not_null
+          - unique
+  - name: int_listings__price_changes
+    description: "Price changes for listings (if any)"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_key
+            - previous_price_huf
+            - new_price_huf
+    columns:
+      - name: listing_key
+        description: "Source + listing code"
+        data_tests:
+          - not_null
+      - name: previous_price_huf
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false
+      - name: new_price_huf
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false
+      - name: price_delta_huf
+        data_tests:
+          - not_null
+      - name: price_change_pct
+        data_tests:
+          - not_null
+  - name: int_listings__time_on_market
+    description: "Time on market for each listings"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_key
+      - dbt_utils.expression_is_true:
+          arguments:
+            expression: "first_seen_at <= last_seen_at"
+    columns:
+      - name: listing_key
+        data_tests:
+          - not_null
+          - not_empty
+          - unique
+      - name: source
+        data_tests:
+          - not_null
+          - not_empty
+      - name: first_seen_at
+        data_tests:
+          - not_null
+      - name: last_seen_at
+        data_tests:
+          - not_null
+      - name: times_observed
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 1000
+      - name: days_on_market
+        data_tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 1000
+      - name: is_active
+        data_tests:
+          - not_null

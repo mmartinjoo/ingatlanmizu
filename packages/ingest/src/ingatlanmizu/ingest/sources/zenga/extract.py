@@ -9,6 +9,7 @@ import threading
 
 SEED_URLS = [
     "https://www.zenga.hu/szombathely+elado+haz",
+    "https://www.zenga.hu/zalaegerszeg+elado+haz",
 ]
 
 _local = threading.local()

@@ -1,7 +1,7 @@
 from ingatlanmizu.ingest.sources.base import Source
 from ingatlanmizu.ingest.sources.zenga.extract import SEED_URLS, discover, fetch_listing
 from ingatlanmizu.ingest.sources.zenga.parse import parse
-from ingatlanmizu.ingest.sources.zenga.load import load, hash_payload
+from ingatlanmizu.ingest.sources.zenga.load import load, hash_payload, record_observation
 
 
 SOURCE = Source(
@@ -12,4 +12,5 @@ SOURCE = Source(
     parse=parse,
     load=load,
     hash_payload=hash_payload,
+    record_observation=record_observation,
 )

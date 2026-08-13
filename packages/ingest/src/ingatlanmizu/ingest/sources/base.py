@@ -29,4 +29,4 @@ class Source:
     load: Callable[[SourceSpecificListingDict, IngestionRunId, PayloadHash], NewRecordCreated]
     
     hash_payload: Callable[[SourceSpecificListingDict], str]
-    
+    record_observation: Callable[[ListingReference, IngestionRunId], None]

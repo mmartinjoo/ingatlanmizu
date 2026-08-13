@@ -1,0 +1,134 @@
+version: 2
+
+models:
+  - name: stg_zenga__listing_versions
+    description: "zenga.hu listings. Each change (version) is a dedicated record."
+    loaded_at_field: observed_at
+    data_tests:   # grain = listing_code+payload_hash
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_code
+            - payload_hash
+    columns:
+      - name: listing_code
+        description: "Natural key from hirdeteskod"
+        data_tests:
+          - not_null
+          - not_empty
+      - name: listing_key
+        description: "Surregate key from source and listing_code 'zenga:abc123'"
+        data_tests:
+          - not_null
+          - not_empty
+          - dbt_expectations.expect_column_values_to_match_like_pattern:
+              like_pattern: "zenga:%"
+      - name: price_huf
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: false
+      - name: price_per_square_meter
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 100000
+                max_value: 10000000
+      - name: area_sqm
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                max_value: 10000
+      - name: main_type
+        data_tests:
+          - not_null
+          - not_empty
+          - accepted_values:
+              values: ['Ház', 'Lakás']
+              config:
+                severity: error
+      - name: sub_type
+        data_tests:
+          - accepted_values:
+              values: ['Ikerház', 'Házrész', 'Sorház', 'Családi ház', 'Lakás']
+              config:
+                severity: warn
+      - name: condition
+        data_tests:
+          - not_null
+          - not_empty
+          - accepted_values:
+              values: ['Ismeretlen', 'Új építésű', 'Átlagos', 'Felújított', 'Jó állapotú', 'Újszerű', 'Felújítandó']
+              config:
+                severity: warn
+      - name: heating
+        data_tests:
+          - accepted_values:
+              values: ['Hőszivattyú', 'Gázkazán', 'Elektromos', 'Gáz (konvektor)', 'Gáz', 'Cserépkályha', 'Kandalló', 'Klíma', 'Egyéb', 'Egyéb kazán', 'Nincs fűtés', 'Padlófűtés', 'Vegyes tüzelésű kazán']
+              config:
+                severity: warn
+      - name: energy_rating
+        data_tests:
+          - accepted_values:
+              values: ['JJ', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'A+', 'A++', 'A+++']
+              severity: error
+      - name: city
+        data_tests:
+          - not_null
+          - not_empty
+      - name: location_detail
+        data_tests:
+          - not_empty
+      - name: year_of_building
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1800
+                max_value: 2100
+      - name: source
+        data_tests:
+          - accepted_values:
+              values: ['zenga']
+              severity: error
+      - name: max_number_of_floors_in_building
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 500
+
+  - name: stg_zenga__observations
+    description: "zenga.hu listings. One row every time a listing was seen in an ingestion run, changed or not."
+    loaded_at_field: observed_at
+    data_tests:   # grain = listing_code+observed_at
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - listing_code
+            - observed_at
+    columns:
+      - name: listing_code
+        data_tests:
+          - not_null
+          - not_empty
+      - name: listing_key
+        description: "Surregate key from source and listing_code 'zenga:abc123'"
+        data_tests:
+          - not_null
+          - not_empty
+          - dbt_expectations.expect_column_values_to_match_like_pattern:
+              like_pattern: "zenga:%"
+      - name: source
+        data_tests:
+          - accepted_values:
+              values: ['zenga']
+              severity: error
+      - name: bronze_id
+        data_tests:
+          - not_null
+      - name: ingestion_run_id
+        data_tests:
+          - not_null
