@@ -37,8 +37,10 @@ with
             ingatlan_iroda_neve as real_estate_office_name,
             tipus as sub_type,
             case
-                when tipus ilike '%ház%' then   'Ház'
-                when tipus ilike '%lakás%' then 'Lakás'
+                when tipus ilike '%ház%'     then 'Ház'
+                when tipus ilike '%lakás%'   then 'Lakás'
+                when tipus ilike '%villa%'   then 'Villa, kastély'
+                when tipus ilike '%kastély%' then 'Villa, kastély'
                 else null       -- this will cause a data test error
             end as main_type,
             case
