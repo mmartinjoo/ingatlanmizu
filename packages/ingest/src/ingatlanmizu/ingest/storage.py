@@ -1,6 +1,7 @@
 from pathlib import Path
 from typing import Iterator
 import boto3
+from botocore.exceptions import ClientError
 from ingatlanmizu.core.config import settings
 import mimetypes
 
@@ -10,6 +11,11 @@ s3 = boto3.client(
     aws_access_key_id=settings.s3_access_key,
     aws_secret_access_key=settings.s3_secret_key,
 )
+
+try:
+    s3.head_bucket(Bucket=settings.s3_bucket)
+except Exception:
+    s3.create_bucket(Bucket=settings.s3_bucket)
 
 def write_html(source: str, external_id: str, html: str, run_id: int) -> str:
     key = _html_file_path_for(source, external_id, run_id=run_id)

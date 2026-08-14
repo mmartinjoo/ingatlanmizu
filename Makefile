@@ -30,3 +30,7 @@ dbt-build:
 
 dbt-deps: 
 	@$(DBT_ENV) && uv run dbt deps
+
+dbt-docs:
+	@$(DBT_ENV) && uv run dbt docs generate
+	@$(DBT_ENV) && uv run dbt docs serve

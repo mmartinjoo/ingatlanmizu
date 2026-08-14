@@ -1,0 +1,40 @@
+# Git
+.git
+.gitignore
+.github
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+
+# dbt / project artifacts
+target/
+dbt_packages/
+logs/
+
+# Local runtime artifacts
+tmp/
+tmp/*
+.cache/
