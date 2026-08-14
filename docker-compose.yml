@@ -9,7 +9,7 @@ services:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages
       - ./transform:/usr/src/app/transform
-      - ./pyproject.tolm:/usr/src/app/pyproject.tolm
+      - ./pyproject.toml:/usr/src/app/pyproject.toml
       - ./Makefile:/usr/src/app/Makefile
       - ./.env:/usr/src/app/.env
     depends_on:
@@ -41,7 +41,7 @@ services:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages
       - ./transform:/usr/src/app/transform
-      - ./pyproject.tolm:/usr/src/app/pyproject.tolm
+      - ./pyproject.toml:/usr/src/app/pyproject.toml
       - ./Makefile:/usr/src/app/Makefile
       - ./.env:/usr/src/app/.env
     environment:
