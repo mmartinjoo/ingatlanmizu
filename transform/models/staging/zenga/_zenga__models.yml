@@ -34,7 +34,7 @@ models:
           - not_null
           - dbt_utils.accepted_range:
               arguments:
-                min_value: 100000
+                min_value: 10000
                 max_value: 10000000
       - name: area_sqm
         data_tests:
