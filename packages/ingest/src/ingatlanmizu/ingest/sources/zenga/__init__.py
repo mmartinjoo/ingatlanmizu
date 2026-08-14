@@ -4,8 +4,11 @@ from ingatlanmizu.ingest.sources.zenga.parse import parse
 from ingatlanmizu.ingest.sources.zenga.load import load, hash_payload, record_observation
 
 SEED_URLS = [
-    SeedUrl(county="Vas megye", main_type="Ház", url="https://www.zenga.hu/vas-megye+elado+haz"),
-    SeedUrl(county="Zala megye", main_type="Ház", url="https://www.zenga.hu/zala-megye+elado+haz"),
+    # SeedUrl(county="Vas megye", main_type="Lakás", url="https://www.zenga.hu/vas-megye+elado+lakas"),
+    # SeedUrl(county="Vas megye", main_type="Ház", url="https://www.zenga.hu/vas-megye+elado+haz"),
+    # SeedUrl(county="Zala megye", main_type="Lakás", url="https://www.zenga.hu/zala-megye+elado+lakas"),
+    # SeedUrl(county="Zala megye", main_type="Ház", url="https://www.zenga.hu/zala-megye+elado+haz"),
+    SeedUrl(county="Budapest", main_type="Lakás", url="https://www.zenga.hu/budapest-xiii-kerulet+elado+haz"),
 ]
 
 SOURCE = Source(

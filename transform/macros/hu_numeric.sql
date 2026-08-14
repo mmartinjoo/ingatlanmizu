@@ -24,3 +24,19 @@ case
     else 1
 end
 {%- endmacro %}
+
+{% macro floor(col) -%}
+    case
+        when {{ col }} ilike '%földszint%' then 0
+        else                                    {{ hu_numeric(col) }}
+    end
+{%- endmacro %}
+
+{% macro year_of_building(col) -%}
+    case
+        -- typos like "19" instead of "1997"
+        when {{ col }}::int < 1800 then null
+        when {{ col }}::int > 2100 then null
+        else                       {{ hu_numeric(col) }}
+    end
+{%- endmacro %}
