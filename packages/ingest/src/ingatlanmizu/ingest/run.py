@@ -1,7 +1,6 @@
 from ingatlanmizu.ingest.stages import discover_stage, extract_stage, load_stage
 from ingatlanmizu.ingest.tracking import start_run, finish_run
 from ingatlanmizu.ingest.sources import get_source
-from ingatlanmizu.ingest.storage import html_file_path_for
 
 def main():
     source = get_source("zenga")

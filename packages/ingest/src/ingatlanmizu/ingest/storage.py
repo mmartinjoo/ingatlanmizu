@@ -1,47 +1,66 @@
 from pathlib import Path
 from typing import Iterator
-            
-def write_html(source: str, external_id: str, html: str, run_id: int) -> None:
-    parent, _, full_path = html_file_path_for(source, external_id, run_id=run_id)
-    Path(parent).mkdir(parents=True, exist_ok=True)
-    with open(full_path, "w") as f:
-        f.write(html)
-        
-def read_html(source: str, external_id: str, run_id: int) -> str:
-    _, _, full_path = html_file_path_for(source, external_id, run_id=run_id)
-    with open(full_path, "r") as f:
-        return f.read()
-        
+import boto3
+from ingatlanmizu.core.config import settings
+import mimetypes
+
+s3 = boto3.client(
+    "s3",
+    endpoint_url=settings.s3_endpoint_url,
+    aws_access_key_id=settings.s3_access_key,
+    aws_secret_access_key=settings.s3_secret_key,
+)
+
+def write_html(source: str, external_id: str, html: str, run_id: int) -> str:
+    key = _html_file_path_for(source, external_id, run_id=run_id)
+    s3.put_object(
+        Bucket=settings.s3_bucket,
+        Key=key,
+        Body=html,
+        ContentType="text/plain"
+    )
+    return key
+    
+def read_html(source: str, external_id: str, run_id: int) -> tuple[str, str]:
+    key = _html_file_path_for(source, external_id, run_id=run_id)
+    resp = s3.get_object(
+        Bucket=settings.s3_bucket,
+        Key=key
+    )
+    
+    return key, resp["Body"].read().decode("utf-8")
+
 def has_images(source: str, external_id: str, ext: str = ".webp") -> bool:
     folder = folder_for_images(source, external_id)
-    if not Path(folder).exists():
-        return False
-    
-    files = _read_file_paths(folder)
-    images = [f for f in files if f.name.endswith(ext)]
+    files = _list_files(folder)
+    images = [f for f in files if f.endswith(ext)]
     
     return len(images) > 0
 
 def write_image(source: str, external_id: str, image_url: str, data: bytes) -> None:
     folder = folder_for_images(source, external_id)
-    Path(folder).mkdir(parents=True, exist_ok=True)
-    filename = Path(folder) / Path(image_url).name
-    filename.write_bytes(data)
-    
-def html_file_path_for(source: str, external_id: str, run_id: int) -> tuple[str, str, str]:
-    folder = _folder_for(source, external_id, run_id=run_id)
-    return folder, f"{external_id}.html", f"{folder}/{external_id}.html"
-    
-def _folder_for(source: str, external_id: str, run_id: int) -> str:
-    path = f"/Users/joomartin/ingatlanmizu/{source}/{run_id}/{external_id}"    
-    return path
+    image_name = Path(image_url).name
+    key = f"{folder}/{image_name}" 
+    content_type, _ = mimetypes.guess_type(image_name)
+    s3.put_object(
+        Bucket=settings.s3_bucket,
+        Key=key,
+        Body=data,
+        ContentType=content_type or "application/octet-stream"
+    )
 
 def folder_for_images(source: str, external_id: str) -> str:
-    path = f"/Users/joomartin/ingatlanmizu/{source}/images/{external_id}"
-    return path
+    return f"{source}/images/{external_id}"
 
-def _read_file_paths(directory: str) -> Iterator[Path]:
-    path = Path(directory)
-    for file_path in path.iterdir():
-        if file_path.is_file():
-            yield file_path
+def _html_file_path_for(source: str, external_id: str, run_id: int) -> str:
+    key = f"{source}/{run_id}/{external_id}/{external_id}.html"
+    return key
+
+def _list_files(directory: str) -> Iterator[str]:
+    resp = s3.list_objects_v2(
+        Bucket=settings.s3_bucket,
+        Prefix=directory,
+    )
+    
+    for obj in resp.get("Contents", []):
+        yield obj["Key"]

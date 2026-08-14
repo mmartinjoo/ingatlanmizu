@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ingatlanmizu.ingest.storage import has_images, write_html, write_image, html_file_path_for, folder_for_images
+from ingatlanmizu.ingest.storage import has_images, write_html, write_image, folder_for_images
 from ingatlanmizu.ingest.sources.base import ListingReference, ListingContent, SeedUrl, IngestionRunId
 import requests
 import json
@@ -43,7 +43,7 @@ def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
 def fetch_listing(listing_ref: ListingReference, run_id: IngestionRunId) -> ListingContent:
     print(f"fetching {listing_ref.external_id} at {listing_ref.url}")
     html = _download_html(listing_ref.url)
-    write_html(
+    path = write_html(
         source="zenga", 
         external_id=listing_ref.external_id, 
         html=html,
@@ -55,10 +55,9 @@ def fetch_listing(listing_ref: ListingReference, run_id: IngestionRunId) -> List
         html=html,
     )
 
-    _, _, full_path = html_file_path_for(source="zenga", external_id=listing_ref.external_id, run_id=run_id)    
     return ListingContent(
         html=html,
-        html_path=full_path,
+        html_path=path,
         images_path=folder_for_images(source="zenga", external_id=listing_ref.external_id),
         county=listing_ref.county,
     )

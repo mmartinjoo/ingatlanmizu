@@ -1,6 +1,6 @@
-from ingatlanmizu.ingest.storage import read_html, html_file_path_for, folder_for_images
+from ingatlanmizu.ingest.storage import read_html, folder_for_images
 from ingatlanmizu.ingest.tracking import fetch_run_item, mark_extracting, mark_extracted, mark_failed, mark_completed
-from ingatlanmizu.ingest.sources.base import Source, ListingReference, ListingContent, SourceSpecificListingDict
+from ingatlanmizu.ingest.sources.base import Source, ListingReference, ListingContent
 import traceback
 
 def run_extract_item(source: Source, run_item_id: int):
@@ -25,17 +25,15 @@ def run_extract_item(source: Source, run_item_id: int):
 
 def run_load_item(source: Source, run_item: dict[str, any]):
     try:
-        html = read_html(
+        path, html = read_html(
             source=source.name, 
             external_id=run_item["external_id"], 
             run_id=run_item["ingestion_run_id"],
         )
         
-        _, _, full_path = html_file_path_for(source=source.name, external_id=run_item["external_id"], run_id=run_item["ingestion_run_id"])
-        
         listing_content = ListingContent(
             html=html,
-            html_path=full_path,
+            html_path=path,
             images_path=folder_for_images(source=source.name, external_id=run_item["external_id"]),
             county=run_item["county"],
         )
