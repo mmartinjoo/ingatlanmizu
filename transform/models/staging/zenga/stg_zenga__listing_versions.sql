@@ -5,7 +5,10 @@ with
         where ar is not null
         and alapterulet is not null
         and tipus is not null
-        and tipus != 'Villa, kastély'
+        and tipus not ilike '%villa%'
+        and tipus not ilike '%kastély%'
+        and tipus not ilike '%kúria%'
+        and tipus not ilike '%apartman%'
     ),
 
     renamed as (
@@ -40,8 +43,9 @@ with
             tipus as sub_type,
             megye as county,
             case
-                when tipus ilike '%ház%'     then 'Ház'
-                when tipus ilike '%lakás%'   then 'Lakás'
+                when tipus ilike '%ház%'      then 'Ház'
+                when tipus ilike '%lakás%'    then 'Lakás'
+                when tipus ilike '%garzon%'   then 'Lakás'
                 else null       -- this will cause a data test error
             end as main_type,
             case
