@@ -35,5 +35,8 @@ dbt-docs:
 	@$(DBT_ENV) && uv run dbt docs generate
 	@$(DBT_ENV) && uv run dbt docs serve
 
+dbt-freshness: 
+	@$(DBT_ENV) && uv run dbt source freshness
+
 deploy:
 	./deploy.sh

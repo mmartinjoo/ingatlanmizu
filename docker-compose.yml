@@ -52,8 +52,8 @@ services:
     restart: always
     labels:
       ofelia.enabled: "true"
-      ofelia.job-exec.ingest.schedule: "0 4 * * *"
-      ofelia.job-exec.ingest.command: "make dbt-build"
+      ofelia.job-exec.transform.schedule: "0 4 * * *"
+      ofelia.job-exec.transform.command: "make dbt-build"
     volumes:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages
