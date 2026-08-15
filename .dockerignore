@@ -38,3 +38,7 @@ logs/
 tmp/
 tmp/*
 .cache/
+
+# data
+postgres/
+minio/
