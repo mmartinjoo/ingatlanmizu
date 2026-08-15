@@ -3,7 +3,9 @@ with
         select * 
         from {{ source('bronze', 'zenga_listing_versions') }}
         where ar is not null
+        and {{ hu_numeric('ar') }} != 0
         and alapterulet is not null
+        and {{ hu_numeric('alapterulet') }} != 0
         and tipus is not null
         and tipus not ilike '%villa%'
         and tipus not ilike '%kastély%'

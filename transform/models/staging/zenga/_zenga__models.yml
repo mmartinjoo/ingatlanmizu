@@ -74,7 +74,7 @@ models:
       - name: energy_rating
         data_tests:
           - accepted_values:
-              values: ['AA++', 'AA+', 'AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'JJ', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'A+', 'A++', 'A+++']
+              values: ['AA++', 'AA+', 'AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'JJ', 'II', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A', 'A+', 'A++', 'A+++']
               severity: error
       - name: city
         data_tests:
