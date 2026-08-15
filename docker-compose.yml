@@ -44,7 +44,7 @@ services:
       - migrate      
     environment: *env_vars
 
-  tansform:
+  transform:
     build:
       context: .
       dockerfile: Dockerfile
