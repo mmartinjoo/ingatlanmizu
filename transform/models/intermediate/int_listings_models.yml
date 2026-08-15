@@ -3,11 +3,11 @@ version: 2
 models:
   - name: int_listing_versions__unioned
     description: "All sources unified. Each change is a dedicated row."    
-    data_tests:   # grain = source+listing_code+payload_hash
+    data_tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - listing_key           
-            - payload_hash
+            - observed_at
     columns:
       - name: source
         description: "Where the listing comes from"

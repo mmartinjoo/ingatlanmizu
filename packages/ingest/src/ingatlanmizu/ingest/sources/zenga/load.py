@@ -115,7 +115,7 @@ def _has_changed(listing: SourceSpecificListingDict, payload_hash: PayloadHash) 
 def hash_payload(listing: SourceSpecificListingDict) -> str:
     payload = {}
     for key, value in listing.items():
-        if key in ["html_path", "images_path", "frissitve"]:
+        if key in ["html_path", "images_path", "frissitve", "hirdeto_neve", "ingatlan_iroda_neve"]:
             continue
         payload[key] = value
     js = json.dumps(payload, sort_keys=True, ensure_ascii=False)
