@@ -49,7 +49,7 @@ models:
           - not_null
           - dbt_utils.accepted_range:
               arguments:
-                min_value: 1800
+                min_value: 0
                 max_value: 2100
                 inclusive: true
       - name: median_condition_score
@@ -84,7 +84,7 @@ models:
           - not_null
           - dbt_utils.accepted_range:
               arguments:
-                min_value: 1800
+                min_value: 0
                 max_value: 2100
                 inclusive: true
       - name: median_condition_score

@@ -6,12 +6,14 @@ with
         and {{ hu_numeric('ar') }} != 0
         and alapterulet is not null
         -- typos like "7 m2"
-        and {{ hu_numeric('alapterulet') }} > 10
+        and {{ hu_numeric('alapterulet') }} >= 10
         and tipus is not null
         and tipus not ilike '%villa%'
         and tipus not ilike '%kastély%'
         and tipus not ilike '%kúria%'
         and tipus not ilike '%apartman%'
+        and (({{ hu_numeric('ar') }} * {{ price_magnitude('ar') }}) / {{ hu_numeric('alapterulet') }})
+            between 10000 and 10000000
     ),
 
     renamed as (

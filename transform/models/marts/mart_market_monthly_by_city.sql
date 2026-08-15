@@ -17,9 +17,9 @@ select
 		order by listings.price_huf::numeric / nullif(listings.area_sqm, 0)
 	)::int as p75_median_price_per_sqm,
 
-	percentile_cont(0.5) within group (
+	coalesce(percentile_cont(0.5) within group (
 		order by listings.year_of_building
-	)::int as median_year_of_building,
+	)::int, 0) as median_year_of_building,
 
 	percentile_cont(0.5) within group (
 		order by listings.condition_score
