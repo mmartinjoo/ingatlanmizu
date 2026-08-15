@@ -18,7 +18,7 @@ def _session() -> requests.Session:
 def discover(seed_urls: list[SeedUrl]) -> list[ListingReference]:
     results = []
     for seed_url in seed_urls:
-        url = f"{seed_url.url}?page={random.randint(1, 10)}"
+        url = f"{seed_url.url}?page={random.randint(1, 20)}"
         print(url)
         resp = _session().get(url, timeout=30)
         resp.raise_for_status()
