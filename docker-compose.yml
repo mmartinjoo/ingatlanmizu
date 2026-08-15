@@ -1,10 +1,57 @@
 services:
+  ofelia:
+    image: mcuadros/ofelia:latest
+    depends_on:
+      - ingest
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
   ingest:
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep 60 && make runingest"
+    command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
     restart: always
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.ingest.schedule: "@every 5m"
+      ofelia.job-exec.ingest.command: "make runingest"
+    volumes:
+      - ./db:/usr/src/app/db
+      - ./packages:/usr/src/app/packages
+      - ./transform:/usr/src/app/transform
+      - ./pyproject.toml:/usr/src/app/pyproject.toml
+      - ./Makefile:/usr/src/app/Makefile
+      - ./.env:/usr/src/app/.env
+    depends_on:
+      - minio
+      - postgres
+      - migrate      
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_DB: ${DATABASE_DB}
+      ENVIRONMENT: ${ENVIRONMENT}
+      LOG_LEVEL: ${LOG_LEVEL}
+      S3_ENDPOINT_URL: ${S3_ENDPOINT_URL}
+      S3_BUCKET: ${S3_BUCKET}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+
+  tansform:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
+    restart: always
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.ingest.schedule: "0 4 * * *"
+      ofelia.job-exec.ingest.command: "make dbt-build"
     volumes:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages
