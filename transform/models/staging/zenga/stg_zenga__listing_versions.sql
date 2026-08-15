@@ -5,7 +5,8 @@ with
         where ar is not null
         and {{ hu_numeric('ar') }} != 0
         and alapterulet is not null
-        and {{ hu_numeric('alapterulet') }} != 0
+        -- typos like "7 m2"
+        and {{ hu_numeric('alapterulet') }} > 10
         and tipus is not null
         and tipus not ilike '%villa%'
         and tipus not ilike '%kastély%'
