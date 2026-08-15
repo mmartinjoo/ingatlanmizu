@@ -14,7 +14,15 @@ select
 	
 	percentile_cont(0.75) within group (
 		order by listings.price_huf::numeric / nullif(listings.area_sqm, 0)
-	)::int as p75_median_price_per_sqm
+	)::int as p75_median_price_per_sqm,
+
+	percentile_cont(0.5) within group (
+		order by listings.year_of_building
+	)::int as median_year_of_building,
+
+	percentile_cont(0.5) within group (
+		order by listings.condition_score
+	)::int as median_condition_score
 	
 from {{ ref('int_listings__monthly') }} as listings
 where listings.price_huf is not null

@@ -38,6 +38,7 @@ pip-wheel-metadata/
 transform/target/
 transform/dbt_packages
 transform/logstransform/.user.yml
+transform/logs/
 
 # docker
 postgres

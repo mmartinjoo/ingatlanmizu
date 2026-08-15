@@ -17,6 +17,14 @@ models:
         description: "Source + listing code"
         data_tests:
           - not_null
+      - name: condition_score
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 1
+                max_value: 5
+                inclusive: true
   - name: int_observations__unioned
     description: "All sources unified. Each listing per ingestion run is a dedicated row."    
     data_tests:   # grain = listing_code+observed_at
@@ -59,7 +67,8 @@ models:
         description: "Source + listing code"
         data_tests:
           - not_null
-          - unique
+          - unique      
+                
   - name: int_listings__price_changes
     description: "Price changes for listings (if any)"
     data_tests:

@@ -13,7 +13,9 @@ select distinct on (listing_months.listing_key, listing_months.month_start)
     versions.main_type,
     versions.sub_type,
     versions.price_huf,
-    versions.area_sqm
+    versions.area_sqm,
+    versions.year_of_building,
+    versions.condition_score
 from listing_months
 join {{ ref('int_listing_versions__unioned') }} as versions
     on versions.listing_key = listing_months.listing_key
