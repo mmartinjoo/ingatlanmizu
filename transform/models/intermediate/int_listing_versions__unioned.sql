@@ -10,5 +10,10 @@ select
 		when condition = 'Építés alatt' 	then 5
 		when condition = 'Szerkezetkész' 	then 5
 		when condition = 'Ismeretlen'     	then 3
-	end as condition_score
+	end as condition_score,
+	case
+		when condition in ('Szerkezetkész', 'Építés alatt', 'Új építésű') 	then true
+		when condition is null or condition = 'Ismeretlen'					then null
+		else false
+	end as is_new_build
 from {{ ref('stg_zenga__listing_versions') }}
