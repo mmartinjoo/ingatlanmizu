@@ -37,7 +37,7 @@ select
 				/ 
 				nullif((count(*) filter (where listings.is_new_build) + count(*) filter (where not listings.is_new_build)), 0)
 			) * 100
-		, 2) 
+		, 2)
 	end as new_build_ratio
 	
 from {{ ref('int_listings__monthly') }} as listings
