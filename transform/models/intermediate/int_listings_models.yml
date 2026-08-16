@@ -25,6 +25,8 @@ models:
                 min_value: 1
                 max_value: 5
                 inclusive: true
+      - name: is_new_build
+
   - name: int_observations__unioned
     description: "All sources unified. Each listing per ingestion run is a dedicated row."    
     data_tests:   # grain = listing_code+observed_at
@@ -176,3 +178,4 @@ models:
       - name: area_sqm
         data_tests:
           - not_null
+      - name: is_new_build
