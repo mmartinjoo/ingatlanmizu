@@ -1,4 +1,6 @@
-from ingatlanmizu.indicators.sources.mnb.load import load
+from ingatlanmizu.indicators.sources.mnb.fetch import fetch
+from ingatlanmizu.indicators.sources.mnb.parse import parse
 
 def main():
-    load()
+    df = fetch()
+    parse(df)

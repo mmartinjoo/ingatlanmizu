@@ -16,10 +16,13 @@ try:
 except Exception:
     s3.create_bucket(Bucket=settings.s3_bucket)
     
-def write_mnb_excel(content: str):
+def write_mnb_excel(content: str) -> str:
+    key = "mnb/alapkamat.xlsx"
     s3.put_object(
         Bucket=settings.s3_bucket,
-        Key="mnb/alapkamat.xlsx",
+        Key=key,
         Body=content,
         ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+    
+    return key
