@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    tables:
+      - name: ksh_inflation_values
+        columns:
+          - name: month_start
+            data_tests:
+              - not_null
+          - name: inflation
+            data_tests:
+              - not_null
+              - dbt_utils.accepted_range:
+                  arguments:
+                    min_value: -100
+                    max_value: 100
+                    inclusive: true

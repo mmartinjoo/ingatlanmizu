@@ -152,7 +152,7 @@ models:
                 max_value: 100
                 inclusive: true
 
-  - name: mark_average_time_on_market
+  - name: mart_average_time_on_market
     description: "Average and median days on the market for sold listings"
     columns:
       - name: sold_listings
@@ -171,3 +171,74 @@ models:
           - dbt_utils.accepted_range:
             min_value: 1
             inclusive: true
+
+  - name: mart_market_indicators_monthly
+    desciption: "Inflation, base rate, loan affordability"
+    columns:
+      - name: month_start
+        data_tests:
+          - not_null
+      - name: base_rate
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+                inclusive: true
+      - name: inflation
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -100
+                max_value: 100
+                inclusive: true
+      - name: median_apr
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+                inclusive: true
+      - name: lowest_apr
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+                inclusive: true
+      - name: highest_apr
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 100
+                inclusive: true
+      - name: median_monthly_installment
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 1000000
+                inclusive: true
+      - name: lowest_monthly_installment
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 1000000
+                inclusive: true
+      - name: highest_monthly_installment
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                max_value: 1000000
+                inclusive: true
