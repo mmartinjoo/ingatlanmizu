@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 from ingatlanmizu.indicators.storage import write_mnb_excel
 
-def fetch() -> pd.DataFrame:
+def fetch() -> pd.DataFrame: 
     resp = requests.get("https://www.mnb.hu/root/BaseRate/BaseRateExcel/alapkamat.xlsx")
     resp.raise_for_status()
     
