@@ -1,8 +1,7 @@
-from pathlib import Path
-from typing import Iterator
+from datetime import date
 import boto3
 from ingatlanmizu.core.config import settings
-import mimetypes
+import json
 
 s3 = boto3.client(
     "s3",
@@ -25,4 +24,14 @@ def write_mnb_excel(content: str) -> str:
         ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
     
+    return key
+
+def write_bankmonitor_json(data: dict[str, any], now: date) -> str:    
+    key = f"bankmonitor/{now.strftime("%Y%m%d")}.json"
+    s3.put_object(
+        Bucket=settings.s3_bucket,
+        Key=key,
+        Body=json.dumps(data),
+        ContentType="application/json"
+    )
     return key
