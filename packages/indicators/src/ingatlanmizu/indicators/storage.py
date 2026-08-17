@@ -35,3 +35,14 @@ def write_bankmonitor_json(data: dict[str, any], now: date) -> str:
         ContentType="application/json"
     )
     return key
+
+def write_ksh_html(html: str, now: date) -> str:
+    key = f"ksh/inflacio_{now.strftime("%Y%m%d")}.html"
+    s3.put_object(
+        Bucket=settings.s3_bucket,
+        Key=key,
+        Body=html,
+        ContentType="plain/text"
+    )
+    
+    return key

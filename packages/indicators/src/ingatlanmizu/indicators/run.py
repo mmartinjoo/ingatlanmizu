@@ -7,10 +7,14 @@ from ingatlanmizu.indicators.sources.mnb.load import load as load_mnb
 from ingatlanmizu.indicators.sources.bankmonitor.extract import fetch as fetch_bankmonitor
 from ingatlanmizu.indicators.sources.bankmonitor.parse import parse as parse_bankmonitor
 from ingatlanmizu.indicators.sources.bankmonitor.load import load as load_bankmonitor
+from ingatlanmizu.indicators.sources.ksh.extract import fetch as fetch_ksh
+from ingatlanmizu.indicators.sources.ksh.parse import parse as parse_ksh
+from ingatlanmizu.indicators.sources.ksh.load import load as load_ksh
 
 def main():
     _ingest_bankmonitor_loans()
     _ingest_mnb_base_rates()
+    _ingest_ksh_inflation()
     
 def _ingest_mnb_base_rates():
     print("ingesting MNB base rates")
@@ -25,3 +29,10 @@ def _ingest_bankmonitor_loans():
     loans = parse_bankmonitor(data=data, now=datetime.now())
     load_bankmonitor(loans)
     print("ingested bankmonitor loans")
+    
+def _ingest_ksh_inflation():
+    print("ingesting KSH inflation")
+    html = fetch_ksh()
+    data = parse_ksh(html=html, year=datetime.now().year)
+    load_ksh(data)
+    print("ingested KSH inflation")
