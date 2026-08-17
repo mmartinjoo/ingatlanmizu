@@ -1,4 +1,4 @@
-create table if not exists bronze.loans(
+create table if not exists bronze.bankmonitor_loans(
     id serial primary key,
     name text default null,
     bank_name text not null,

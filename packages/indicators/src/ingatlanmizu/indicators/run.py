@@ -10,7 +10,7 @@ from ingatlanmizu.indicators.sources.bankmonitor.load import load as load_bankmo
 
 def main():
     _ingest_bankmonitor_loans()
-    # _ingest_mnb_base_rates()
+    _ingest_mnb_base_rates()
     
 def _ingest_mnb_base_rates():
     print("ingesting MNB base rates")
@@ -20,7 +20,8 @@ def _ingest_mnb_base_rates():
     print("ingested MNB base rates")
     
 def _ingest_bankmonitor_loans():
-    print("bankmonitor")
+    print("ingesting bankmonitor loans")
     data = fetch_bankmonitor()
     loans = parse_bankmonitor(data=data, now=datetime.now())
     load_bankmonitor(loans)
+    print("ingested bankmonitor loans")

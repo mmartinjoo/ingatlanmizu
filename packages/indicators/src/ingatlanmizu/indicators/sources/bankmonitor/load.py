@@ -4,7 +4,18 @@ def load(loans: list[dict[str, any]]):
     with connection() as conn:
         for loan in loans:
             conn.execute("""
-                insert into bronze.loans(
+                delete from bronze.bankmonitor_loans
+                where name = %s
+                and bank_name = %s
+                and available_at = %s             
+            """, (
+                loan["name"],  
+                loan["bank_name"],  
+                loan["available_at"],    
+            ))
+            
+            conn.execute("""
+                insert into bronze.bankmonitor_loans(
                     name, 
                     bank_name, 
                     available_at, 
