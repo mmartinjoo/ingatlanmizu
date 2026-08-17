@@ -1,7 +1,6 @@
 from pathlib import Path
 from typing import Iterator
 import boto3
-from botocore.exceptions import ClientError
 from ingatlanmizu.core.config import settings
 import mimetypes
 

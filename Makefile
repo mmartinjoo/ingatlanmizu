@@ -2,13 +2,21 @@ DBT_ENV := set -a && . ./.env && set +a && export DBT_PROFILES_DIR=transform DBT
 
 add:
 	@if [ -z "$(pkg)" ]; then \
-		echo "Usage: make add pkg=<pkg_name>"; \
+		echo "Usage: make add pkg=<package_name> dep=<dependency_name>"; \
 		exit 1; \
+
+	@if [ -z "$(dep)" ]; then \
+		echo "Usage: make add pkg=<package_name> dep=<dependency_name>"; \
+		exit 1; \
+
 	fi
-	uv add --package ingatlanmizu-ingest $(pkg)
+	uv add --package ingatlanmizu-$(pkg) $(dep)
 
 runingest:
 	uv run ingest
+
+runindicators:
+	uv run ingest-indicators
 
 runcore:
 	uv run core
