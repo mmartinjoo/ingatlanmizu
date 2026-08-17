@@ -29,7 +29,7 @@ services:
     restart: always
     labels:
       ofelia.enabled: "true"
-      ofelia.job-exec.ingest.schedule: "@every 5m"
+      ofelia.job-exec.ingest.schedule: ${INGESTION_SCHEDULE}
       ofelia.job-exec.ingest.command: "make runingest"
     volumes:
       - ./db:/usr/src/app/db
@@ -52,7 +52,7 @@ services:
     restart: always
     labels:
       ofelia.enabled: "true"
-      ofelia.job-exec.transform.schedule: "0 4 * * *"
+      ofelia.job-exec.transform.schedule: ${TRANSFORM_SCHEDULE}
       ofelia.job-exec.transform.command: "make dbt-build"
     volumes:
       - ./db:/usr/src/app/db
