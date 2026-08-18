@@ -16,18 +16,18 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./api/Dockerfile
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && make runapi"
     restart: always
     ports:
       - "${APP_PORT}:8000"
     volumes:
-      - ./db:/usr/src/app/db
-      - ./packages:/usr/src/app/packages
-      - ./transform:/usr/src/app/transform
-      - ./pyproject.toml:/usr/src/app/pyproject.toml
-      - ./Makefile:/usr/src/app/Makefile
-      - ./.env:/usr/src/app/.env
+      - ./api/db:/usr/src/app/db
+      - ./api/packages:/usr/src/app/packages
+      - ./api/transform:/usr/src/app/transform
+      - ./api/pyproject.toml:/usr/src/app/pyproject.toml
+      - ./api/Makefile:/usr/src/app/Makefile
+      - .env:/usr/src/app/.env
     depends_on:
       - postgres
       - migrate      
@@ -36,7 +36,7 @@ services:
   scheduler:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./api/Dockerfile
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
     restart: always
     labels:
@@ -73,12 +73,12 @@ services:
       ofelia.job-exec.indicators.mail-only-on-error: "true"
 
     volumes:
-      - ./db:/usr/src/app/db
-      - ./packages:/usr/src/app/packages
-      - ./transform:/usr/src/app/transform
-      - ./pyproject.toml:/usr/src/app/pyproject.toml
-      - ./Makefile:/usr/src/app/Makefile
-      - ./.env:/usr/src/app/.env
+      - ./api/db:/usr/src/app/db
+      - ./api/packages:/usr/src/app/packages
+      - ./api/transform:/usr/src/app/transform
+      - ./api/pyproject.toml:/usr/src/app/pyproject.toml
+      - ./api/Makefile:/usr/src/app/Makefile
+      - .env:/usr/src/app/.env
     depends_on:
       - minio
       - postgres
@@ -88,16 +88,16 @@ services:
   migrate:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./api/Dockerfile
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && make migrate"
     depends_on:
       - postgres
     volumes:
-      - ./db:/usr/src/app/db
-      - ./packages:/usr/src/app/packages
-      - ./transform:/usr/src/app/transform
-      - ./pyproject.toml:/usr/src/app/pyproject.toml
-      - ./Makefile:/usr/src/app/Makefile
+      - ./api/db:/usr/src/app/db
+      - ./api/packages:/usr/src/app/packages
+      - ./api/transform:/usr/src/app/transform
+      - ./api/pyproject.toml:/usr/src/app/pyproject.toml
+      - ./api/Makefile:/usr/src/app/Makefile
       - ./.env:/usr/src/app/.env
     environment: *env_vars
 
@@ -120,7 +120,7 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./postgres/data:/var/lib/postgresql/data/pgdata
-      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+      - ./deploy/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
     ports:
       - "${POSTGRES_PORT}:5432"
 
