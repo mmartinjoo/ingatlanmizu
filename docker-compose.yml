@@ -14,15 +14,20 @@ x-common-variables: &env_vars
 
 services:
   proxy:
-    image: nginx:1.31.1-alpine
+    image: caddy:2.11.4-alpine
     restart: unless-stopped
     depends_on:
       - frontend
       - api
     ports:
-      - "${FE_PORT}:80"
+      - "${APP_PORT_HTTPS}:443"
+      - "${APP_PORT_HTTP}:80"
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS}
     volumes:
-      - ./deploy/proxy.conf:/etc/nginx/nginx.conf
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
 
   frontend:
     build:
@@ -153,3 +158,5 @@ services:
 
 volumes:
   exclude:
+  caddy_data:
+  caddy_config:
