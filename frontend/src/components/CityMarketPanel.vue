@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { MarketMonthlyByCounty } from '@/api/types'
+import type { MarketMonthlyByCity } from '@/api/types'
 import type { County } from '@/data/counties'
 import { formatCount } from '@/utils/formatMarket'
 import MarketCards from './MarketCards.vue'
 
 const props = defineProps<{
-  county: County | null
-  rows: MarketMonthlyByCounty[]
+  city: string
+  county: County
+  rows: MarketMonthlyByCity[]
 }>()
 
 const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_count, 0))
@@ -15,18 +16,14 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
 
 <template>
   <section class="panel" aria-live="polite">
-    <p v-if="!county" class="hint">Válassz egy megyét a térképen a piaci adatok megtekintéséhez.</p>
+    <header class="panel-head">
+      <h2>{{ city }} <span class="scope">({{ county.label }} megye)</span></h2>
+      <p class="total">{{ formatCount(total) }} hirdetés</p>
+    </header>
 
-    <template v-else>
-      <header class="panel-head">
-        <h2>{{ county.label }} megyei ingatlanhirdetések</h2>
-        <p class="total">{{ formatCount(total) }} hirdetés</p>
-      </header>
+    <p v-if="rows.length === 0" class="hint">Ehhez a városhoz nincs adat erre a hónapra.</p>
 
-      <p v-if="rows.length === 0" class="hint">Ehhez a megyéhez nincs adat erre a hónapra.</p>
-
-      <MarketCards v-else :rows="rows" />
-    </template>
+    <MarketCards v-else :rows="rows" />
   </section>
 </template>
 
@@ -50,6 +47,12 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
 .panel-head h2 {
   margin: 0;
   font-size: 1.5rem;
+}
+
+.scope {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #6b6b6b;
 }
 
 .total {

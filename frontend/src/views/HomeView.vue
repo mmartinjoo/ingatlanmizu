@@ -3,6 +3,8 @@ import { computed, onMounted } from 'vue'
 import HungaryMap from '@/components/HungaryMap.vue'
 import MonthPicker from '@/components/MonthPicker.vue'
 import CountyMarketPanel from '@/components/CountyMarketPanel.vue'
+import CityPicker from '@/components/CityPicker.vue'
+import CityMarketPanel from '@/components/CityMarketPanel.vue'
 import { useCountyMarket } from '@/composables/useCountyMarket'
 import { formatMonth } from '@/utils/formatMonth'
 import { MAP_ATTRIBUTION } from '@/data/counties'
@@ -20,6 +22,10 @@ const {
   select,
   selectMonth,
   load,
+  cities,
+  selectedCity,
+  cityRows,
+  selectCity,
 } = useCountyMarket()
 
 const monthLabel = computed(() => formatMonth(monthStart.value))
@@ -54,6 +60,16 @@ onMounted(load)
     <MonthPicker :months="months" :selected="monthStart" @select="selectMonth" />
 
     <CountyMarketPanel :county="selectedCounty" :rows="selectedRows" />
+
+    <template v-if="selectedCounty && countiesWithData.has(selectedCounty.kshCode)">
+      <CityPicker :cities="cities" :selected="selectedCity" :county="selectedCounty.dbName" @select="selectCity" />
+      <CityMarketPanel
+        v-if="selectedCity"
+        :city="selectedCity"
+        :county="selectedCounty"
+        :rows="cityRows"
+      />
+    </template>
 
     <footer class="attribution">
       Megyehatárok:

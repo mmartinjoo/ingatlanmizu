@@ -1,6 +1,11 @@
 import { computed, ref, shallowRef } from 'vue'
-import { fetchMarketMonths, fetchMarketMonthlyByCounty } from '@/api/market'
-import type { MarketMonthlyByCounty } from '@/api/types'
+import {
+  fetchCitiesForCounty,
+  fetchMarketMonthlyByCity,
+  fetchMarketMonthlyByCounty,
+  fetchMarketMonths,
+} from '@/api/market'
+import type { MarketMonthlyByCity, MarketMonthlyByCounty } from '@/api/types'
 import { COUNTIES, type County } from '@/data/counties'
 
 export function useCountyMarket() {
@@ -17,6 +22,22 @@ export function useCountyMarket() {
 
   /** Only the newest request may write to `rows`. Guards against fast switching. */
   let requestId = 0
+
+  // --- City filter, scoped to whichever county is currently selected. ---
+
+  const cities = shallowRef<string[]>([])
+  const selectedCity = ref<string | null>(null)
+  const cityRows = shallowRef<MarketMonthlyByCity[]>([])
+  const cityLoading = ref(false)
+  const cityError = ref<string | null>(null)
+
+  /** City lists already fetched, keyed by county `dbName`. Not month-scoped. */
+  const citiesCache = new Map<string, string[]>()
+  /** City rows already fetched, keyed by `${month}|${county}|${city}`. */
+  const cityRowsCache = new Map<string, MarketMonthlyByCity[]>()
+
+  let citiesRequestId = 0
+  let cityRowsRequestId = 0
 
   /** All rows for a county, keyed by the API's `county` string. */
   const rowsByCounty = computed(() => {
@@ -53,8 +74,18 @@ export function useCountyMarket() {
 
   const isEmpty = computed(() => !loading.value && !error.value && rows.value.length === 0)
 
+  /** Select a county on the map. Resets any city filter - it belonged to the previous county. */
   function select(kshCode: number) {
-    selectedCode.value = selectedCode.value === kshCode ? null : kshCode
+    const next = selectedCode.value === kshCode ? null : kshCode
+    selectedCode.value = next
+
+    selectedCity.value = null
+    cityRows.value = []
+    cities.value = []
+    cityError.value = null
+
+    const county = next === null ? null : COUNTIES.find((c) => c.kshCode === next)
+    if (county) void loadCities(county.dbName)
   }
 
   async function loadRows(month: string) {
@@ -81,11 +112,70 @@ export function useCountyMarket() {
     }
   }
 
-  /** Switch months. The selected county is deliberately kept. */
+  async function loadCities(countyDbName: string) {
+    const cached = citiesCache.get(countyDbName)
+    if (cached) {
+      cities.value = cached
+      return
+    }
+
+    const id = ++citiesRequestId
+    try {
+      const fetched = await fetchCitiesForCounty(countyDbName)
+      if (id !== citiesRequestId) return // A different county was picked while this was in flight.
+      fetched.sort((a, b) => a.localeCompare(b, 'hu'))
+      citiesCache.set(countyDbName, fetched)
+      cities.value = fetched
+    } catch {
+      if (id !== citiesRequestId) return
+      // Fail soft: the filter just has no options. The county panel above still works.
+      cities.value = []
+    }
+  }
+
+  async function loadCityRows(month: string, county: string, city: string) {
+    const key = `${month}|${county}|${city}`
+    const cached = cityRowsCache.get(key)
+    if (cached) {
+      cityRows.value = cached
+      return
+    }
+
+    const id = ++cityRowsRequestId
+    cityLoading.value = true
+    cityError.value = null
+    try {
+      const fetched = await fetchMarketMonthlyByCity(month, county, city)
+      if (id !== cityRowsRequestId) return
+      cityRowsCache.set(key, fetched)
+      cityRows.value = fetched
+    } catch (cause) {
+      if (id !== cityRowsRequestId) return
+      cityError.value = cause instanceof Error ? cause.message : 'Ismeretlen hiba történt.'
+      cityRows.value = []
+    } finally {
+      if (id === cityRowsRequestId) cityLoading.value = false
+    }
+  }
+
+  /** Filter the selected county down to one city, or clear back to county-only with `null`. */
+  async function selectCity(city: string | null) {
+    selectedCity.value = city
+    if (!city || !selectedCounty.value) {
+      cityRows.value = []
+      return
+    }
+    await loadCityRows(monthStart.value, selectedCounty.value.dbName, city)
+  }
+
+  /** Switch months. The selected county - and city, if any - is deliberately kept. */
   async function selectMonth(month: string) {
     if (!month || month === monthStart.value) return
     monthStart.value = month
     await loadRows(month)
+    if (selectedCity.value && selectedCounty.value) {
+      await loadCityRows(month, selectedCounty.value.dbName, selectedCity.value)
+    }
   }
 
   async function load() {
@@ -125,5 +215,11 @@ export function useCountyMarket() {
     select,
     selectMonth,
     load,
+    cities,
+    selectedCity,
+    cityRows,
+    cityLoading,
+    cityError,
+    selectCity,
   }
 }
