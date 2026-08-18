@@ -49,7 +49,7 @@ const estimates = computed(() =>
 
     <p class="assumptions">
       Becslés: {{ REFERENCE_SIZE_SQM }} m², {{ TERM_YEARS }} éves futamidő,
-      {{ Math.round((1 - LTV) * 100) }}% -os önerő, a jelenlegi
+      {{ Math.round((1 - LTV) * 100) }}% -os önerő, a jelenlegi ÁTLAG
       {{ formatRate(indicators.median_apr) }}-os THM mellett. Nem ajánlat.
     </p>
   </section>

@@ -1,5 +1,3 @@
-const BASE_URL: string = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000'
-
 export class ApiError extends Error {
   constructor(
     message: string,
@@ -14,7 +12,7 @@ export class ApiError extends Error {
 }
 
 export async function get<T>(path: string, params: Record<string, string> = {}): Promise<T> {
-  const url = new URL(path, BASE_URL)
+  const url = new URL(path, window.location.origin)
   for (const [key, value] of Object.entries(params)) {
     url.searchParams.set(key, value)
   }
