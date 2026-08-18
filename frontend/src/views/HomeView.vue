@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
 import HungaryMap from '@/components/HungaryMap.vue'
+import MonthPicker from '@/components/MonthPicker.vue'
 import CountyMarketPanel from '@/components/CountyMarketPanel.vue'
 import { useCountyMarket } from '@/composables/useCountyMarket'
+import { formatMonth } from '@/utils/formatMonth'
 import { MAP_ATTRIBUTION } from '@/data/counties'
 
 const {
+  months,
   monthStart,
   loading,
   error,
@@ -15,14 +18,11 @@ const {
   selectedCounty,
   selectedRows,
   select,
+  selectMonth,
   load,
 } = useCountyMarket()
 
-const monthLabel = computed(() =>
-  new Intl.DateTimeFormat('hu-HU', { year: 'numeric', month: 'long' }).format(
-    new Date(`${monthStart.value}T00:00:00`),
-  ),
-)
+const monthLabel = computed(() => formatMonth(monthStart.value))
 
 onMounted(load)
 </script>
@@ -32,7 +32,7 @@ onMounted(load)
     <header class="intro">
       <h1>Ingatlanpiac megyénként</h1>
       <p>
-        Válassz egy megyét a térképen, és nézd meg a piaci adatait –
+        Válassz egy megyét a térképen, és nézd meg a piaci adatokat –
         <strong>{{ monthLabel }}</strong>
       </p>
     </header>
@@ -40,18 +40,29 @@ onMounted(load)
     <p v-if="error" class="notice notice-error" role="alert">{{ error }}</p>
     <p v-else-if="loading" class="notice">Adatok betöltése…</p>
     <p v-else-if="isEmpty" class="notice">
-      Erre a hónapra ({{ monthLabel }}) még nincs feldolgozott adat.
+      {{
+        monthLabel
+          ? `Erre a hónapra (${monthLabel}) még nincs feldolgozott adat.`
+          : 'Még nincs feldolgozott adat.'
+      }}
     </p>
 
     <div class="map-wrap" :class="{ 'is-dim': loading || isEmpty || !!error }">
       <HungaryMap :available="countiesWithData" :selected="selectedCode" @select="select" />
     </div>
 
-    <p class="attribution">
-      <a :href="MAP_ATTRIBUTION.href" target="_blank" rel="noopener noreferrer">geo-data-hungary</a>
-    </p>
+    <MonthPicker :months="months" :selected="monthStart" @select="selectMonth" />
 
     <CountyMarketPanel :county="selectedCounty" :rows="selectedRows" />
+
+    <footer class="attribution">
+      Megyehatárok:
+      <a :href="MAP_ATTRIBUTION.href" target="_blank" rel="noopener noreferrer">geo-data-hungary</a>
+      ·
+      <a :href="MAP_ATTRIBUTION.licenseHref" target="_blank" rel="noopener noreferrer"
+        >CC BY-SA 3.0</a
+      >
+    </footer>
   </main>
 </template>
 
@@ -86,7 +97,7 @@ onMounted(load)
 }
 
 .map-wrap {
-  margin: 1rem 0 0.25rem;
+  margin: 1rem 0 1.25rem;
   transition: opacity 150ms ease-out;
 }
 
@@ -95,8 +106,9 @@ onMounted(load)
 }
 
 .attribution {
-  margin: 0 0 1.75rem;
-  text-align: right;
+  margin: 3rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid #ece7e1;
   font-size: 0.75rem;
   color: #9a9a9a;
 }

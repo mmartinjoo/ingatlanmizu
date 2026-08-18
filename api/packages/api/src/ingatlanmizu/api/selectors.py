@@ -2,6 +2,17 @@ from datetime import date
 from ingatlanmizu.core.db import pool
 from ingatlanmizu.api.models import MarketMonthlyByCounty, MarketMonthlyByCity, MarketIndicatorsMonthly
 
+def fetch_market_months() -> list[date]:
+    """Months that actually have county data, newest first."""
+    with pool().connection() as conn:
+        rows = conn.execute("""
+            select distinct month_start
+            from gold.mart_market_monthly_by_county
+            order by month_start desc
+        """).fetchall()
+
+        return [row[0] for row in rows]
+
 def fetch_market_monthly_by_county(month_start: date) -> list[MarketMonthlyByCounty]:
     results = []
     with pool().connection() as conn:

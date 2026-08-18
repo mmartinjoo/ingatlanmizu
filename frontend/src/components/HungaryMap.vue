@@ -175,4 +175,17 @@ function onActivate(item: RenderedCounty) {
 .county.is-empty text {
   fill: #a3a3a3;
 }
+
+/* A county can stay selected while the user switches to a month where it has
+   no data. "No data" wins on colour, but keep an outline so the selection is
+   still findable on the map. */
+.county.is-empty.is-selected path {
+  fill: #dcdcdc;
+  stroke: #8a8a8a;
+  stroke-width: 12;
+}
+
+.county.is-empty.is-selected text {
+  fill: #6b6b6b;
+}
 </style>

@@ -35,7 +35,8 @@ function formatConditionScore(value: number): string {
       return 'Újszerű'
     case 5:
       return 'Új építésű'
-    
+    default:
+      return '–'
   }
 }
 
@@ -76,7 +77,7 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
             </div>
             <div>
               <dt>Meghirdetett ingatlanok állapota</dt>
-              <dd>{{ formatConditionScore(row.median_condition_score) ?? '–' }}</dd>
+              <dd>{{ formatConditionScore(row.median_condition_score) }}</dd>
             </div>
           </dl>
 

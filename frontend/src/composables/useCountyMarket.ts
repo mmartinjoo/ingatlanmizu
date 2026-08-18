@@ -1,21 +1,22 @@
 import { computed, ref, shallowRef } from 'vue'
-import { fetchMarketMonthlyByCounty } from '@/api/market'
+import { fetchMarketMonths, fetchMarketMonthlyByCounty } from '@/api/market'
 import type { MarketMonthlyByCounty } from '@/api/types'
 import { COUNTIES, type County } from '@/data/counties'
 
-/** First day of the current month, as `YYYY-MM-DD`. */
-export function currentMonthStart(today = new Date()): string {
-  const year = today.getFullYear()
-  const month = String(today.getMonth() + 1).padStart(2, '0')
-  return `${year}-${month}-01`
-}
-
 export function useCountyMarket() {
-  const monthStart = ref(currentMonthStart())
+  const months = shallowRef<string[]>([])
+  /** Empty until the API tells us which months exist. */
+  const monthStart = ref('')
   const rows = shallowRef<MarketMonthlyByCounty[]>([])
   const loading = ref(false)
   const error = ref<string | null>(null)
   const selectedCode = ref<number | null>(null)
+
+  /** Rows already fetched, keyed by month. Switching back is instant and silent. */
+  const cache = new Map<string, MarketMonthlyByCounty[]>()
+
+  /** Only the newest request may write to `rows`. Guards against fast switching. */
+  let requestId = 0
 
   /** All rows for a county, keyed by the API's `county` string. */
   const rowsByCounty = computed(() => {
@@ -35,7 +36,7 @@ export function useCountyMarket() {
     return grouped
   })
 
-  /** Counties that actually have data this month. Drives the map's disabled state. */
+  /** Counties with data in the selected month. Drives the map's disabled state. */
   const countiesWithData = computed(
     () => new Set(COUNTIES.filter((c) => rowsByCounty.value.has(c.dbName)).map((c) => c.kshCode)),
   )
@@ -56,20 +57,61 @@ export function useCountyMarket() {
     selectedCode.value = selectedCode.value === kshCode ? null : kshCode
   }
 
+  async function loadRows(month: string) {
+    const cached = cache.get(month)
+    if (cached) {
+      rows.value = cached
+      return
+    }
+
+    const id = ++requestId
+    loading.value = true
+    error.value = null
+    try {
+      const fetched = await fetchMarketMonthlyByCounty(month)
+      if (id !== requestId) return // A newer month was picked while this was in flight.
+      cache.set(month, fetched)
+      rows.value = fetched
+    } catch (cause) {
+      if (id !== requestId) return
+      error.value = cause instanceof Error ? cause.message : 'Ismeretlen hiba történt.'
+      rows.value = []
+    } finally {
+      if (id === requestId) loading.value = false
+    }
+  }
+
+  /** Switch months. The selected county is deliberately kept. */
+  async function selectMonth(month: string) {
+    if (!month || month === monthStart.value) return
+    monthStart.value = month
+    await loadRows(month)
+  }
+
   async function load() {
     loading.value = true
     error.value = null
     try {
-      rows.value = await fetchMarketMonthlyByCounty(monthStart.value)
+      months.value = await fetchMarketMonths()
     } catch (cause) {
       error.value = cause instanceof Error ? cause.message : 'Ismeretlen hiba történt.'
-      rows.value = []
-    } finally {
       loading.value = false
+      return
     }
+
+    const latest = months.value[0]
+    if (!latest) {
+      // No months at all - let the empty state speak for itself.
+      loading.value = false
+      return
+    }
+
+    monthStart.value = latest
+    await loadRows(latest)
   }
 
   return {
+    months,
     monthStart,
     rows,
     loading,
@@ -81,6 +123,7 @@ export function useCountyMarket() {
     selectedCounty,
     selectedRows,
     select,
+    selectMonth,
     load,
   }
 }
