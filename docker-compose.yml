@@ -13,14 +13,36 @@ x-common-variables: &env_vars
   S3_SECRET_KEY: ${S3_SECRET_KEY}
 
 services:
+  proxy:
+    image: nginx:1.31.1-alpine
+    restart: unless-stopped
+    depends_on:
+      - frontend
+      - api
+    ports:
+      - "${FE_PORT}:80"
+    volumes:
+      - ./deploy/proxy.conf:/etc/nginx/nginx.conf
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/usr/src/app
+      - exclude:/usr/src/app/node_modules
+    environment:
+      VITE_API_BASE_URL: http://proxy
+
   api:
     build:
       context: .
       dockerfile: ./api/Dockerfile
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && make runapi"
-    restart: always
+    restart: unless-stopped
     ports:
-      - "${APP_PORT}:8000"
+      - "${API_PORT}:80"
     volumes:
       - ./api/db:/usr/src/app/db
       - ./api/packages:/usr/src/app/packages
@@ -38,7 +60,7 @@ services:
       context: .
       dockerfile: ./api/Dockerfile
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
-    restart: always
+    restart: unless-stopped
     labels:
       ofelia.enabled: "true"
       ofelia.job-exec.ingest.schedule: ${INGESTION_SCHEDULE}
@@ -131,3 +153,6 @@ services:
     command: daemon --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+
+volumes:
+  exclude:
