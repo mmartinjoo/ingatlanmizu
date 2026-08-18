@@ -49,10 +49,6 @@ onMounted(load)
 
     <p class="attribution">
       <a :href="MAP_ATTRIBUTION.href" target="_blank" rel="noopener noreferrer">geo-data-hungary</a>
-      ·
-      <a :href="MAP_ATTRIBUTION.licenseHref" target="_blank" rel="noopener noreferrer"
-        >CC BY-SA 3.0</a
-      >
     </p>
 
     <CountyMarketPanel :county="selectedCounty" :rows="selectedRows" />

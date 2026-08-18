@@ -23,6 +23,22 @@ function formatCount(value: number | null): string {
   return value === null ? '–' : huf.format(value)
 }
 
+function formatConditionScore(value: number): string {
+  switch (value) {
+    case 1: 
+      return 'Felújítandó'
+    case 2:
+      return 'Átlagos'
+    case 3:
+      return 'Jó állapotú'
+    case 4:
+      return 'Újszerű'
+    case 5:
+      return 'Új építésű'
+    
+  }
+}
+
 const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_count, 0))
 </script>
 
@@ -32,7 +48,7 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
 
     <template v-else>
       <header class="panel-head">
-        <h2>{{ county.label }}</h2>
+        <h2>{{ county.label }} megyei ingatlanhirdetések</h2>
         <p class="total">{{ formatCount(total) }} hirdetés</p>
       </header>
 
@@ -47,20 +63,20 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
               <dd>{{ formatCount(row.listing_count) }}</dd>
             </div>
             <div>
-              <dt>Medián négyzetméterár</dt>
-              <dd class="highlight">{{ formatHuf(row.median_price_per_sqm) }}</dd>
+              <dt>Átlagos négyzetméterár</dt>
+              <dd>{{ formatHuf(row.median_price_per_sqm) }}</dd>
             </div>
             <div>
-              <dt>Újépítés aránya</dt>
+              <dt>Újépítésú ingatalnok aránya</dt>
               <dd>{{ formatRatio(row.new_build_ratio) }}</dd>
             </div>
             <div>
-              <dt>Medián építési év</dt>
+              <dt>Átlagos építési év</dt>
               <dd>{{ row.median_year_of_building || '–' }}</dd>
             </div>
             <div>
-              <dt>Medián állapot (1–5)</dt>
-              <dd>{{ row.median_condition_score ?? '–' }}</dd>
+              <dt>Meghirdetett ingatlanok állapota</dt>
+              <dd>{{ formatConditionScore(row.median_condition_score) ?? '–' }}</dd>
             </div>
           </dl>
 
@@ -142,10 +158,6 @@ dd {
   margin: 0;
   font-variant-numeric: tabular-nums;
   font-weight: 600;
-}
-
-dd.highlight {
-  color: #e8590c;
 }
 
 .split {
