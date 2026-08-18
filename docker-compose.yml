@@ -20,7 +20,7 @@ services:
     command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && make runapi"
     restart: always
     ports:
-      - "8000:8000"
+      - "${APP_PORT}:8000"
     volumes:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages
@@ -33,15 +33,7 @@ services:
       - migrate      
     environment: *env_vars
 
-  ofelia:
-    image: mcuadros/ofelia:latest
-    depends_on:
-      - ingest
-    command: daemon --docker
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-
-  ingest:
+  scheduler:
     build:
       context: .
       dockerfile: Dockerfile
@@ -51,50 +43,8 @@ services:
       ofelia.enabled: "true"
       ofelia.job-exec.ingest.schedule: ${INGESTION_SCHEDULE}
       ofelia.job-exec.ingest.command: "make runingest"
-    volumes:
-      - ./db:/usr/src/app/db
-      - ./packages:/usr/src/app/packages
-      - ./transform:/usr/src/app/transform
-      - ./pyproject.toml:/usr/src/app/pyproject.toml
-      - ./Makefile:/usr/src/app/Makefile
-      - ./.env:/usr/src/app/.env
-    depends_on:
-      - minio
-      - postgres
-      - migrate      
-    environment: *env_vars
-
-  transform:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
-    restart: always
-    labels:
-      ofelia.enabled: "true"
       ofelia.job-exec.transform.schedule: ${TRANSFORM_SCHEDULE}
       ofelia.job-exec.transform.command: "make dbt-build"
-    volumes:
-      - ./db:/usr/src/app/db
-      - ./packages:/usr/src/app/packages
-      - ./transform:/usr/src/app/transform
-      - ./pyproject.toml:/usr/src/app/pyproject.toml
-      - ./Makefile:/usr/src/app/Makefile
-      - ./.env:/usr/src/app/.env
-    depends_on:
-      - minio
-      - postgres
-      - migrate      
-    environment: *env_vars
-
-  indicators:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: sh -c "./wait-for-it.sh postgres:5432 -t 30 && ./wait-for-it.sh minio:9000 -t 30 && sleep infinity"
-    restart: always
-    labels:
-      ofelia.enabled: "true"
       ofelia.job-exec.indicators.schedule: ${INDICATORS_SCHEDULE}
       ofelia.job-exec.indicators.command: "make runindicators"
     volumes:
@@ -129,8 +79,8 @@ services:
   minio:
     image: minio/minio:RELEASE.2025-09-07T16-13-09Z-cpuv1
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "${MINIO_BACKEND_PORT}:9000"
+      - "${MINIO_FRONTEND_PORT}:9001"
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
@@ -147,4 +97,12 @@ services:
       - ./postgres/data:/var/lib/postgresql/data/pgdata
       - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
     ports:
-      - "54321:5432"
+      - "${POSTGRES_PORT}:5432"
+
+  ofelia:
+    image: mcuadros/ofelia:latest
+    depends_on:
+      - scheduler
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro

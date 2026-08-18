@@ -29,6 +29,6 @@ def main():
     uvicorn.run(
         "ingatlanmizu.api.run:app",
         host="0.0.0.0",
-        port=8000 if settings.environment == 'local' else 80,
+        port=8000,
         reload=True if settings.environment == 'local' else False,
     )
