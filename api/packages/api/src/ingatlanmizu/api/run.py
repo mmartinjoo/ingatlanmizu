@@ -3,7 +3,7 @@ from datetime import date
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from ingatlanmizu.core.config import settings
-from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city, fetch_market_months
+from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city, fetch_market_months, fetch_cities
 
 app = FastAPI()
 
@@ -18,6 +18,10 @@ app.add_middleware(
 def market_months():
     return fetch_market_months()
 
+@app.get("/counties/{county}/cities")
+def cities(county: str):
+    return fetch_cities(county)
+
 @app.get("/market-monthly-by-county")
 def market_monthly_by_county(month_start: date):
     return fetch_market_monthly_by_county(
@@ -25,10 +29,15 @@ def market_monthly_by_county(month_start: date):
     )
 
 @app.get("/market-monthly-by-city")
-def market_monthly_by_city(month_start: date, county: str|None = None):
+def market_monthly_by_city(
+    month_start: date, 
+    county: str|None = None,
+    city: str|None = None,
+):
     return fetch_market_monthly_by_city(
         month_start=month_start,
         county=county,
+        city=city,
     )
     
 @app.get("/market-indicators-monthly")

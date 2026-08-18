@@ -50,46 +50,42 @@ def fetch_market_monthly_by_county(month_start: date) -> list[MarketMonthlyByCou
             
         return results
     
-def fetch_market_monthly_by_city(month_start: date, county: str|None = None) -> list[MarketMonthlyByCity]:
+def fetch_market_monthly_by_city(
+    month_start: date, 
+    county: str|None = None,
+    city: str|None = None,
+) -> list[MarketMonthlyByCity]:
     results = []
     with pool().connection() as conn:
+        q = """
+            select 
+                month_start, 
+                city, 
+                county, 
+                main_type, 
+                listing_count, 
+                new_build_count, 
+                old_build_count, 
+                unknown_build_count, 
+                median_price_per_sqm, 
+                median_year_of_building, 
+                median_condition_score, 
+                new_build_ratio
+            from gold.mart_market_monthly_by_city
+            where month_start = %s
+        """
+        
+        values = (month_start,)
+        
         if county is not None:
-            rows = conn.execute("""
-                select 
-                    month_start, 
-                    city, 
-                    county, 
-                    main_type, 
-                    listing_count, 
-                    new_build_count, 
-                    old_build_count, 
-                    unknown_build_count, 
-                    median_price_per_sqm, 
-                    median_year_of_building, 
-                    median_condition_score, 
-                    new_build_ratio
-                from gold.mart_market_monthly_by_city
-                where month_start = %s
-                and county = %s
-            """, (month_start,county,)).fetchall()
-        else:
-            rows = conn.execute("""
-                select 
-                    month_start, 
-                    city, 
-                    county, 
-                    main_type, 
-                    listing_count, 
-                    new_build_count, 
-                    old_build_count, 
-                    unknown_build_count, 
-                    median_price_per_sqm, 
-                    median_year_of_building, 
-                    median_condition_score, 
-                    new_build_ratio
-                from gold.mart_market_monthly_by_city
-                where month_start = %s
-            """, (month_start,)).fetchall()
+            q += "\nand county = %s"
+            values = (month_start, county,)
+            
+            if city is not None:
+                q += "\nand city = %s"
+                values = (month_start, county, city,)
+                
+        rows = conn.execute(q, values).fetchall()
         
         for row in rows:
             results.append(MarketMonthlyByCity(
@@ -159,3 +155,12 @@ def fetch_market_indicators_monthly(month_start: date) -> MarketIndicatorsMonthl
             highest_monthly_installment=row[8],
         )
     
+def fetch_cities(county: str) -> list[str]:
+    with pool().connection() as conn:
+        rows = conn.execute("""
+            select distinct city
+            from gold.mart_listings_current 
+            where county = %s    
+        """, (county,)).fetchall()
+        
+    return [row[0] for row in rows]
