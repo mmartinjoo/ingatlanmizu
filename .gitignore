@@ -4,3 +4,5 @@ postgres
 minio
 .env
 .DS_Store
+.vite
+node_modules

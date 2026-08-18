@@ -1,10 +1,18 @@
 import uvicorn
 from datetime import date
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from ingatlanmizu.core.config import settings
 from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.cors_origin_list,
+    allow_methods=["GET"],
+    allow_headers=["*"],
+)
 
 @app.get("/market-monthly-by-county")
 def market_monthly_by_county(month_start: date):
