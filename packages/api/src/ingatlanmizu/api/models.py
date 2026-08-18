@@ -29,3 +29,15 @@ class MarketMonthlyByCity():
     median_year_of_building: int
     median_condition_score: int
     new_build_ratio: float
+    
+@dataclass
+class MarketIndicatorsMonthly():
+    month_start: date 
+    base_rate: float 
+    inflation: float 
+    median_apr: float 
+    lowest_apr: float 
+    highest_apr: float 
+    median_monthly_installment: int 
+    lowest_monthly_installment: int 
+    highest_monthly_installment: int 

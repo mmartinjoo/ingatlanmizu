@@ -2,7 +2,7 @@ import uvicorn
 from datetime import date
 from fastapi import FastAPI
 from ingatlanmizu.core.config import settings
-from ingatlanmizu.api.selectors import fetch_market_monthly_by_county, fetch_market_monthly_by_city
+from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city
 
 app = FastAPI()
 
@@ -17,6 +17,12 @@ def market_monthly_by_city(month_start: date, county: str|None = None):
     return fetch_market_monthly_by_city(
         month_start=month_start,
         county=county,
+    )
+    
+@app.get("/market-indicators-monthly")
+def market_indicators_monthly(month_start: date):
+    return fetch_market_indicators_monthly(
+        month_start=month_start,
     )
 
 def main():
