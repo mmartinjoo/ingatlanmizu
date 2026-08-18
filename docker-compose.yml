@@ -47,6 +47,31 @@ services:
       ofelia.job-exec.transform.command: "make dbt-build"
       ofelia.job-exec.indicators.schedule: ${INDICATORS_SCHEDULE}
       ofelia.job-exec.indicators.command: "make runindicators"
+
+      ofelia.job-exec.ingest.smtp-host: "${SMTP_HOST}"
+      ofelia.job-exec.ingest.smtp-port: "${SMTP_PORT}"
+      ofelia.job-exec.ingest.smtp-user: "${SMTP_USER}"
+      ofelia.job-exec.ingest.smtp-password: "${SMTP_PASSWORD}"
+      ofelia.job-exec.ingest.email-to: "${ALERT_EMAIL_TO}"
+      ofelia.job-exec.ingest.email-from: "${ALERT_EMAIL_FROM}"
+      ofelia.job-exec.ingest.mail-only-on-error: "true"
+
+      ofelia.job-exec.transform.smtp-host: "${SMTP_HOST}"
+      ofelia.job-exec.transform.smtp-port: "${SMTP_PORT}"
+      ofelia.job-exec.transform.smtp-user: "${SMTP_USER}"
+      ofelia.job-exec.transform.smtp-password: "${SMTP_PASSWORD}"
+      ofelia.job-exec.transform.email-to: "${ALERT_EMAIL_TO}"
+      ofelia.job-exec.transform.email-from: "${ALERT_EMAIL_FROM}"
+      ofelia.job-exec.transform.mail-only-on-error: "true"
+
+      ofelia.job-exec.indicators.smtp-host: "${SMTP_HOST}"
+      ofelia.job-exec.indicators.smtp-port: "${SMTP_PORT}"
+      ofelia.job-exec.indicators.smtp-user: "${SMTP_USER}"
+      ofelia.job-exec.indicators.smtp-password: "${SMTP_PASSWORD}"
+      ofelia.job-exec.indicators.email-to: "${ALERT_EMAIL_TO}"
+      ofelia.job-exec.indicators.email-from: "${ALERT_EMAIL_FROM}"
+      ofelia.job-exec.indicators.mail-only-on-error: "true"
+
     volumes:
       - ./db:/usr/src/app/db
       - ./packages:/usr/src/app/packages

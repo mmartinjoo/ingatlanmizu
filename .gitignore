@@ -43,3 +43,5 @@ transform/logs/
 # docker
 postgres
 minio
+
+logs/
