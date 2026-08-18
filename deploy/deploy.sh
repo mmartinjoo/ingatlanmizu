@@ -1,0 +1,16 @@
+set -e
+
+rsync -avz \
+  --exclude='.venv/' \
+  --exclude='minio/' \
+  --exclude='postgres/' \
+  --exclude='.env' \
+  --exclude='.env.example' \
+  --exclude='.git' \
+  --exclude='transform/target/' \
+  --exclude='transform/logs/' \
+  --exclude='logs/' \
+  ../ alwyzon@203.34.137.201:/home/alwyzon/ingatlanmizu
+
+ssh -tt -o StrictHostKeyChecking=no alwyzon@203.34.137.201 "cd /home/alwyzon/ingatlanmizu && docker compose down"
+ssh -tt -o StrictHostKeyChecking=no alwyzon@203.34.137.201 "cd /home/alwyzon/ingatlanmizu && docker compose up -d"

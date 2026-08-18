@@ -1,47 +1,6 @@
-# Bytecode and caches
-__pycache__/
-*.py[cod]
-*$py.class
-.pytest_cache/
-.coverage
-.coverage.*
-htmlcov/
-.ruff_cache/
-.mypy_cache/
-.tox/
-.nox/
-
-# Virtual environments
-.venv/
-venv/
-env/
-ENV/
-.python-version
-
-# Packaging / build output
-build/
-dist/
-*.egg-info/
-pip-wheel-metadata/
-
-# Editor and OS files
-.vscode/
-.idea/
-.DS_Store
-
-# Environment files
-.env
-.env.*
-!.env.example
-
-# dbt
-transform/target/
-transform/dbt_packages
-transform/logstransform/.user.yml
-transform/logs/
-
-# docker
+logs
+.git
 postgres
 minio
-
-logs/
+.env
+.DS_Store
