@@ -105,29 +105,9 @@ def fetch_market_monthly_by_city(
             
         return results
     
-def fetch_market_indicators_monthly(month_start: date) -> MarketIndicatorsMonthly:
+def fetch_market_indicators_monthly(month_start: date) -> MarketIndicatorsMonthly | None:
+    """None when the month has no indicators - absence, not zeroes."""
     with pool().connection() as conn:
-        exists = conn.execute("""
-            select exists (
-                select 1
-                from gold.mart_market_indicators_monthly
-                where month_start = %s
-            )                      
-        """, (month_start,)).fetchone()
-        
-        if exists[0] is False:
-            return MarketIndicatorsMonthly(
-                month_start=month_start,
-                base_rate=0,
-                inflation=0,
-                median_apr=0,
-                lowest_apr=0,
-                highest_apr=0,
-                median_monthly_installment=0,
-                lowest_monthly_installment=0,
-                highest_monthly_installment=0,
-            )
-        
         row = conn.execute("""
             select 
                 month_start, 
@@ -142,6 +122,9 @@ def fetch_market_indicators_monthly(month_start: date) -> MarketIndicatorsMonthl
             from gold.mart_market_indicators_monthly
             where month_start = %s
         """, (month_start,)).fetchone()
+        
+        if row is None:
+            return None
         
         return MarketIndicatorsMonthly(
             month_start=row[0],

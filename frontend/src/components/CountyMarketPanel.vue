@@ -11,6 +11,14 @@ const props = defineProps<{
 }>()
 
 const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_count, 0))
+
+/** Budapest is the capital, not a megye - "Budapest megyei" would be wrong. */
+const heading = computed(() => {
+  if (!props.county) return ''
+  return props.county.dbName === 'Budapest'
+    ? 'Budapesti ingatlanhirdetések'
+    : `${props.county.label} megyei ingatlanhirdetések`
+})
 </script>
 
 <template>
@@ -19,7 +27,7 @@ const total = computed(() => props.rows.reduce((sum, row) => sum + row.listing_c
 
     <template v-else>
       <header class="panel-head">
-        <h2>{{ county.label }} megyei ingatlanhirdetések</h2>
+        <h2>{{ heading }}</h2>
         <p class="total">{{ formatCount(total) }} hirdetés</p>
       </header>
 

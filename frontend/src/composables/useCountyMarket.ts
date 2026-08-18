@@ -1,11 +1,16 @@
 import { computed, ref, shallowRef } from 'vue'
 import {
   fetchCitiesForCounty,
+  fetchMarketIndicatorsMonthly,
   fetchMarketMonthlyByCity,
   fetchMarketMonthlyByCounty,
   fetchMarketMonths,
 } from '@/api/market'
-import type { MarketMonthlyByCity, MarketMonthlyByCounty } from '@/api/types'
+import type {
+  MarketIndicatorsMonthly,
+  MarketMonthlyByCity,
+  MarketMonthlyByCounty,
+} from '@/api/types'
 import { COUNTIES, type County } from '@/data/counties'
 
 export function useCountyMarket() {
@@ -38,6 +43,13 @@ export function useCountyMarket() {
 
   let citiesRequestId = 0
   let cityRowsRequestId = 0
+
+  // --- National financing indicators. Month-scoped, but not county-scoped. ---
+
+  /** `null` whenever the selected month has no indicator row. */
+  const indicators = shallowRef<MarketIndicatorsMonthly | null>(null)
+  const indicatorsCache = new Map<string, MarketIndicatorsMonthly | null>()
+  let indicatorsRequestId = 0
 
   /** All rows for a county, keyed by the API's `county` string. */
   const rowsByCounty = computed(() => {
@@ -158,6 +170,25 @@ export function useCountyMarket() {
     }
   }
 
+  async function loadIndicators(month: string) {
+    if (indicatorsCache.has(month)) {
+      indicators.value = indicatorsCache.get(month) ?? null
+      return
+    }
+
+    const id = ++indicatorsRequestId
+    try {
+      const fetched = await fetchMarketIndicatorsMonthly(month)
+      if (id !== indicatorsRequestId) return
+      indicatorsCache.set(month, fetched)
+      indicators.value = fetched
+    } catch {
+      if (id !== indicatorsRequestId) return
+      // Fail soft: the strip just hides. A broken feed must not take down the map.
+      indicators.value = null
+    }
+  }
+
   /** Filter the selected county down to one city, or clear back to county-only with `null`. */
   async function selectCity(city: string | null) {
     selectedCity.value = city
@@ -172,7 +203,7 @@ export function useCountyMarket() {
   async function selectMonth(month: string) {
     if (!month || month === monthStart.value) return
     monthStart.value = month
-    await loadRows(month)
+    await Promise.all([loadRows(month), loadIndicators(month)])
     if (selectedCity.value && selectedCounty.value) {
       await loadCityRows(month, selectedCounty.value.dbName, selectedCity.value)
     }
@@ -197,7 +228,7 @@ export function useCountyMarket() {
     }
 
     monthStart.value = latest
-    await loadRows(latest)
+    await Promise.all([loadRows(latest), loadIndicators(latest)])
   }
 
   return {
@@ -221,5 +252,6 @@ export function useCountyMarket() {
     cityLoading,
     cityError,
     selectCity,
+    indicators,
   }
 }

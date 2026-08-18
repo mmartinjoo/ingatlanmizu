@@ -1,5 +1,9 @@
 import { get } from './client'
-import type { MarketMonthlyByCity, MarketMonthlyByCounty } from './types'
+import type {
+  MarketIndicatorsMonthly,
+  MarketMonthlyByCity,
+  MarketMonthlyByCounty,
+} from './types'
 
 /** Months that have county data, newest first, as `YYYY-MM-DD`. */
 export function fetchMarketMonths() {
@@ -20,5 +24,12 @@ export function fetchMarketMonthlyByCity(monthStart: string, county: string, cit
     month_start: monthStart,
     county,
     city,
+  })
+}
+
+/** National financing indicators. `null` when the month has no data. */
+export function fetchMarketIndicatorsMonthly(monthStart: string) {
+  return get<MarketIndicatorsMonthly | null>('/market-indicators-monthly', {
+    month_start: monthStart,
   })
 }

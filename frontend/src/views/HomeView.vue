@@ -5,6 +5,8 @@ import MonthPicker from '@/components/MonthPicker.vue'
 import CountyMarketPanel from '@/components/CountyMarketPanel.vue'
 import CityPicker from '@/components/CityPicker.vue'
 import CityMarketPanel from '@/components/CityMarketPanel.vue'
+import MarketIndicators from '@/components/MarketIndicators.vue'
+import AffordabilityPanel from '@/components/AffordabilityPanel.vue'
 import { useCountyMarket } from '@/composables/useCountyMarket'
 import { formatMonth } from '@/utils/formatMonth'
 import { MAP_ATTRIBUTION } from '@/data/counties'
@@ -26,9 +28,20 @@ const {
   selectedCity,
   cityRows,
   selectCity,
+  indicators,
 } = useCountyMarket()
 
 const monthLabel = computed(() => formatMonth(monthStart.value))
+
+/** Affordability follows whatever scope the page is showing: city if one is
+ *  picked, otherwise the county. */
+const affordabilityScope = computed(() => {
+  if (!selectedCounty.value) return null
+  if (selectedCity.value) {
+    return { label: selectedCity.value, rows: cityRows.value }
+  }
+  return { label: selectedCounty.value.dbName, rows: selectedRows.value }
+})
 
 onMounted(load)
 </script>
@@ -36,12 +49,12 @@ onMounted(load)
 <template>
   <main class="home">
     <header class="intro">
-      <h1>Ingatlanpiac megyénként</h1>
+      <h1>Ingatlanpiac alakulása</h1>
       <p>
         Válassz egy megyét a térképen, és nézd meg a piaci adatokat –
         <strong>{{ monthLabel }}</strong>
       </p>
-    </header>
+    </header>    
 
     <p v-if="error" class="notice notice-error" role="alert">{{ error }}</p>
     <p v-else-if="loading" class="notice">Adatok betöltése…</p>
@@ -53,9 +66,11 @@ onMounted(load)
       }}
     </p>
 
+    <MarketIndicators v-if="indicators" :indicators="indicators" />
+
     <div class="map-wrap" :class="{ 'is-dim': loading || isEmpty || !!error }">
       <HungaryMap :available="countiesWithData" :selected="selectedCode" @select="select" />
-    </div>
+    </div>    
 
     <MonthPicker :months="months" :selected="monthStart" @select="selectMonth" />
 
@@ -70,6 +85,13 @@ onMounted(load)
         :rows="cityRows"
       />
     </template>
+
+    <AffordabilityPanel
+      v-if="affordabilityScope && indicators && affordabilityScope.rows.length > 0"
+      :scope-label="affordabilityScope.label"
+      :rows="affordabilityScope.rows"
+      :indicators="indicators"
+    />
 
     <footer class="attribution">
       Megyehatárok:
