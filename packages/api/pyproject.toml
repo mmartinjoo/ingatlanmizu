@@ -1,0 +1,27 @@
+[project]
+name = "ingatlanmizu-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "martinjoo", email = "martin@martinjoo.dev" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "ingatlanmizu-core",
+    "uvicorn>=0.52.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "ingatlanmizu.api"
+
+[tool.uv.sources]
+ingatlanmizu-core = { workspace = true }
+
+[project.scripts] 
+api = "ingatlanmizu.api.run:main"

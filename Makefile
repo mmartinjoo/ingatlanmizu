@@ -18,6 +18,9 @@ runingest:
 runindicators:
 	uv run ingest-indicators
 
+runapi:
+	uv run api
+
 runcore:
 	uv run core
 
