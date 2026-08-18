@@ -14,7 +14,7 @@ SEED_URLS = [
     SeedUrl(county="Borsod-Abaúj-Zemplén megye", main_type="Lakás", url="https://www.zenga.hu/borsod-abauj-zemplen-megye+elado+lakas"),
     SeedUrl(county="Borsod-Abaúj-Zemplén megye", main_type="Ház", url="https://www.zenga.hu/borsod-abauj-zemplen-megye+elado+haz"),
     SeedUrl(county="Csongrád megye", main_type="Lakás", url="https://www.zenga.hu/csongrad-megye+elado+lakas"),
-    SeedUrl(county="Csongrád megye", main_type="Ház", url="https://www.zenga.hu/csongrad-megye+elado+lakas"),
+    SeedUrl(county="Csongrád megye", main_type="Ház", url="https://www.zenga.hu/csongrad-megye+elado+haz"),
     SeedUrl(county="Fejér megye", main_type="Lakás", url="https://www.zenga.hu/fejer-megye+elado+lakas"),
     SeedUrl(county="Fejér megye", main_type="Ház", url="https://www.zenga.hu/fejer-megye+elado+haz"),
     SeedUrl(county="Győr-Moson-Sopron megye", main_type="Lakás", url="https://www.zenga.hu/gyor-moson-sopron-megye+elado+lakas"),
