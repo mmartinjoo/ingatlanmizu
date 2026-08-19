@@ -14,7 +14,7 @@ def load(data: dict[str, float|None]):
                     and inflation is not null
                 )                
             """, (
-                month_start  
+                month_start,  
             )).fetchone()
             
             if row[0]:
