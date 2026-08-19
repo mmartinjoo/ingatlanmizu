@@ -242,3 +242,65 @@ models:
                 min_value: 0
                 max_value: 1000000
                 inclusive: true
+
+  - name: mart_market_monthly_change_by_county
+    columns:
+      - name: month_start
+        data_tests:
+          - not_null
+      - name: county
+        data_tests:
+          - not_null
+          - not_empty
+      - name: main_type
+        data_tests:
+          - not_null
+          - not_empty
+      - name: current_median_price_per_sqm
+        data_tests:
+          - not_null
+      - name: previous_median_price_per_sqm
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 10000
+                max_value: 10000000
+      - name: change_pct
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -100
+                max_value: 100
+
+  - name: mart_market_monthly_change_by_city
+    columns:
+      - name: month_start
+        data_tests:
+          - not_null
+      - name: county
+        data_tests:
+          - not_null
+          - not_empty
+      - name: city
+        data_tests:
+          - not_null
+          - not_empty
+      - name: main_type
+        data_tests:
+          - not_null
+          - not_empty
+      - name: current_median_price_per_sqm
+        data_tests:
+          - not_null
+      - name: previous_median_price_per_sqm
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 10000
+                max_value: 10000000
+      - name: change_pct
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -100
+                max_value: 100
