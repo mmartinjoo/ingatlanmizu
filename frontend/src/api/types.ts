@@ -65,3 +65,7 @@ export interface MarketMonthlyChangeByCounty {
    *  yields no previous value there. */
   change_pct: number | null
 }
+
+export interface ListingCount {
+  count: number
+}

@@ -3,7 +3,7 @@ from datetime import date
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from ingatlanmizu.core.config import settings
-from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city, fetch_market_months, fetch_cities, fetch_market_monthly_change_by_county
+from ingatlanmizu.api.selectors import fetch_market_indicators_monthly, fetch_market_monthly_by_county, fetch_market_monthly_by_city, fetch_market_months, fetch_cities, fetch_market_monthly_change_by_county, fetch_overall_listing_count
 
 app = FastAPI()
 
@@ -53,6 +53,13 @@ def market_monthy_change_by_county(month_start: date, county: str, main_type: st
         county=county,
         main_type=main_type,
     )
+    
+@app.get("/api/listing-count")
+def listing_count():
+    count = fetch_overall_listing_count()
+    return {
+        "count": count,
+    }
 
 def main():
     uvicorn.run(

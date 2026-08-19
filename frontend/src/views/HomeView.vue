@@ -32,6 +32,7 @@ const {
   indicators,
   trendHouse,
   trendFlat,
+  listingCount,
 } = useCountyMarket()
 
 const monthLabel = computed(() => formatMonth(monthStart.value))
@@ -52,7 +53,8 @@ onMounted(load)
 <template>
   <main class="home">
     <header class="intro">
-      <h1>Ingatlanpiac alakulása</h1>
+      <h1 v-if="listingCount">Ingatlanpiac alakulása {{ listingCount }} hirdetés alapján</h1>
+      <h1 v-else>Ingatlanpiac alakulása</h1>
       <p>
         Válassz egy megyét a térképen, és nézd meg a piaci adatokat –
         <strong>{{ monthLabel }}</strong>

@@ -180,3 +180,8 @@ def fetch_market_monthly_change_by_county(
             ))
             
         return results
+    
+def fetch_overall_listing_count() -> int:
+    with pool().connection() as conn:
+        row = conn.execute("select count(*) from gold.mart_listings_current").fetchone()
+        return row[0]

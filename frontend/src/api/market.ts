@@ -4,6 +4,7 @@ import type {
   MarketMonthlyByCity,
   MarketMonthlyByCounty,
   MarketMonthlyChangeByCounty,
+  ListingCount,
 } from './types'
 
 /** Months that have county data, newest first, as `YYYY-MM-DD`. */
@@ -47,4 +48,8 @@ export function fetchMarketMonthlyChangeByCounty(
     `/api/market-monthly-change-by-county/${encodeURIComponent(county)}`,
     { month_start: monthStart, main_type: mainType },
   )
+}
+
+export function fetchListingCount() {
+  return get<ListingCount>(`/api/listing-count`)
 }

@@ -6,6 +6,7 @@ import {
   fetchMarketMonthlyByCounty,
   fetchMarketMonthlyChangeByCounty,
   fetchMarketMonths,
+  fetchListingCount,
 } from '@/api/market'
 import type {
   MarketIndicatorsMonthly,
@@ -29,6 +30,7 @@ export function useCountyMarket() {
   const loading = ref(false)
   const error = ref<string | null>(null)
   const selectedCode = ref<number | null>(null)
+  const listingCount = ref(0)
 
   /** Rows already fetched, keyed by month. Switching back is instant and silent. */
   const cache = new Map<string, MarketMonthlyByCounty[]>()
@@ -251,6 +253,15 @@ export function useCountyMarket() {
     }
   }
 
+  async function loadListingCount() {
+    try {
+      const count = await fetchListingCount()
+      listingCount.value = count.count
+    } catch {
+      listingCount.value = 0
+    }
+  }
+
   /** Filter the selected county down to one city, or clear back to county-only with `null`. */
   async function selectCity(city: string | null) {
     selectedCity.value = city
@@ -293,7 +304,8 @@ export function useCountyMarket() {
     }
 
     monthStart.value = latest
-    await Promise.all([loadRows(latest), loadIndicators(latest)])
+
+    await Promise.all([loadRows(latest), loadIndicators(latest), loadListingCount()])
   }
 
   return {
@@ -320,5 +332,6 @@ export function useCountyMarket() {
     indicators,
     trendHouse,
     trendFlat,
+    listingCount,
   }
 }
