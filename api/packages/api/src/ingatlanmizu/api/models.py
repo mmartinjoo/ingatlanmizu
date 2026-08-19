@@ -41,3 +41,11 @@ class MarketIndicatorsMonthly():
     median_monthly_installment: int 
     lowest_monthly_installment: int 
     highest_monthly_installment: int 
+    
+@dataclass
+class MarketMonthlyChangeByCounty():
+    month_start: date
+    county: str
+    main_type: str
+    current_median_price_per_sqm: int
+    change_pct: float

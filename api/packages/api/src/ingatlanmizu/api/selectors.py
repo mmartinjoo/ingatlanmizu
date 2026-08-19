@@ -1,6 +1,7 @@
+from ast import main
 from datetime import date
 from ingatlanmizu.core.db import pool
-from ingatlanmizu.api.models import MarketMonthlyByCounty, MarketMonthlyByCity, MarketIndicatorsMonthly
+from ingatlanmizu.api.models import MarketMonthlyByCounty, MarketMonthlyByCity, MarketIndicatorsMonthly, MarketMonthlyChangeByCounty
 
 def fetch_market_months() -> list[date]:
     """Months that actually have county data, newest first."""
@@ -147,3 +148,35 @@ def fetch_cities(county: str) -> list[str]:
         """, (county,)).fetchall()
         
     return [row[0] for row in rows]
+
+def fetch_market_monthly_change_by_county(
+    month_start: date, 
+    county: str,
+    main_type: str,
+) -> list[MarketMonthlyChangeByCounty]:
+    with pool().connection() as conn:
+        rows = conn.execute("""
+            select
+                month_start,
+                county,
+                main_type,
+                current_median_price_per_sqm,
+                change_pct
+            from gold.mart_market_monthly_change_by_county
+            where county = %s
+            and main_type = %s
+            and month_start between %s - interval '12 months' and %s
+            order by month_start asc           
+        """, (county, main_type, month_start, month_start,)).fetchall()
+        
+        results = []
+        for row in rows:
+            results.append(MarketMonthlyChangeByCounty(
+                month_start=row[0],
+                county=row[1],
+                main_type=row[2],
+                current_median_price_per_sqm=row[3],
+                change_pct=row[4],
+            ))
+            
+        return results
