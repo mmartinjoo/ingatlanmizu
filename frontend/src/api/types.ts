@@ -49,3 +49,19 @@ export interface MarketIndicatorsMonthly {
   lowest_monthly_installment: number
   highest_monthly_installment: number
 }
+
+/** Mirrors the `MarketMonthlyChangeByCounty` dataclass in the API.
+ *  One row per month, oldest first, covering the 12 months up to and including
+ *  the requested `month_start` - so up to 13 rows, the window being inclusive
+ *  at both ends. */
+export interface MarketMonthlyChangeByCounty {
+  month_start: string
+  county: string
+  /** 'Ház' or 'Lakás'. */
+  main_type: string
+  current_median_price_per_sqm: number
+  /** Month-over-month change, percent. `null` for the first month the
+   *  county/type pair has data - the API's dataclass says `float`, but `lag()`
+   *  yields no previous value there. */
+  change_pct: number | null
+}

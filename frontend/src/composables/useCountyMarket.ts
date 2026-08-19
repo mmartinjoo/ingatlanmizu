@@ -4,14 +4,22 @@ import {
   fetchMarketIndicatorsMonthly,
   fetchMarketMonthlyByCity,
   fetchMarketMonthlyByCounty,
+  fetchMarketMonthlyChangeByCounty,
   fetchMarketMonths,
 } from '@/api/market'
 import type {
   MarketIndicatorsMonthly,
   MarketMonthlyByCity,
   MarketMonthlyByCounty,
+  MarketMonthlyChangeByCounty,
 } from '@/api/types'
 import { COUNTIES, type County } from '@/data/counties'
+
+/** The only two values `main_type` ever takes. The API does no validation - an
+ *  unknown value silently returns an empty series - so these must match the
+ *  accented strings the mart stores exactly. */
+export const MAIN_TYPE_HOUSE = 'Ház'
+export const MAIN_TYPE_FLAT = 'Lakás'
 
 export function useCountyMarket() {
   const months = shallowRef<string[]>([])
@@ -43,6 +51,18 @@ export function useCountyMarket() {
 
   let citiesRequestId = 0
   let cityRowsRequestId = 0
+
+  // --- Price trend for the selected county: one series per main_type. ---
+
+  const trendHouse = shallowRef<MarketMonthlyChangeByCounty[]>([])
+  const trendFlat = shallowRef<MarketMonthlyChangeByCounty[]>([])
+
+  /** Series already fetched, keyed by `${month}|${county}|${mainType}`. */
+  const trendCache = new Map<string, MarketMonthlyChangeByCounty[]>()
+
+  /** Shared by both main_types - they are always fetched as one pair, so a
+   *  single guard is enough to drop a whole stale pair. */
+  let trendRequestId = 0
 
   // --- National financing indicators. Month-scoped, but not county-scoped. ---
 
@@ -96,8 +116,15 @@ export function useCountyMarket() {
     cities.value = []
     cityError.value = null
 
+    // Deselection lands here too, so these must be cleared unconditionally.
+    trendHouse.value = []
+    trendFlat.value = []
+
     const county = next === null ? null : COUNTIES.find((c) => c.kshCode === next)
-    if (county) void loadCities(county.dbName)
+    if (county) {
+      void loadCities(county.dbName)
+      void loadTrends(monthStart.value, county.dbName)
+    }
   }
 
   async function loadRows(month: string) {
@@ -170,6 +197,41 @@ export function useCountyMarket() {
     }
   }
 
+  async function loadTrends(month: string, countyDbName: string) {
+    const houseKey = `${month}|${countyDbName}|${MAIN_TYPE_HOUSE}`
+    const flatKey = `${month}|${countyDbName}|${MAIN_TYPE_FLAT}`
+    // Bump first, even on a cache hit: a request for the *previous* county may
+    // still be in flight, and without invalidating it here that late response
+    // would overwrite the cached series we are about to show.
+    const id = ++trendRequestId
+
+    const cachedHouse = trendCache.get(houseKey)
+    const cachedFlat = trendCache.get(flatKey)
+    if (cachedHouse && cachedFlat) {
+      trendHouse.value = cachedHouse
+      trendFlat.value = cachedFlat
+      return
+    }
+
+    try {
+      const [house, flat] = await Promise.all([
+        fetchMarketMonthlyChangeByCounty(month, countyDbName, MAIN_TYPE_HOUSE),
+        fetchMarketMonthlyChangeByCounty(month, countyDbName, MAIN_TYPE_FLAT),
+      ])
+      if (id !== trendRequestId) return // A newer county or month won the race.
+      trendCache.set(houseKey, house)
+      trendCache.set(flatKey, flat)
+      trendHouse.value = house
+      trendFlat.value = flat
+    } catch {
+      if (id !== trendRequestId) return
+      // Fail soft: the charts just hide. A broken series must not take down the
+      // county panel above it.
+      trendHouse.value = []
+      trendFlat.value = []
+    }
+  }
+
   async function loadIndicators(month: string) {
     if (indicatorsCache.has(month)) {
       indicators.value = indicatorsCache.get(month) ?? null
@@ -204,6 +266,9 @@ export function useCountyMarket() {
     if (!month || month === monthStart.value) return
     monthStart.value = month
     await Promise.all([loadRows(month), loadIndicators(month)])
+    if (selectedCounty.value) {
+      void loadTrends(month, selectedCounty.value.dbName)
+    }
     if (selectedCity.value && selectedCounty.value) {
       await loadCityRows(month, selectedCounty.value.dbName, selectedCity.value)
     }
@@ -253,5 +318,7 @@ export function useCountyMarket() {
     cityError,
     selectCity,
     indicators,
+    trendHouse,
+    trendFlat,
   }
 }

@@ -1,5 +1,6 @@
 const huf = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 })
 const percent = new Intl.NumberFormat('hu-HU', { maximumFractionDigits: 1 })
+const percentDouble = new Intl.NumberFormat('hu-HU', { maximumFractionDigits: 2 })
 /** Interest rates are quoted to 2 decimals: 5,75% must not round to 5,8%. */
 const rate = new Intl.NumberFormat('hu-HU', { maximumFractionDigits: 2 })
 
@@ -9,6 +10,10 @@ export function formatHuf(value: number | null): string {
 
 export function formatRatio(value: number | null, nullValue: string = '-'): string {
   return value === null ? nullValue : `${percent.format(value)}%`
+}
+
+export function formatRatioDouble(value: number | null, nullValue: string = '-'): string {
+  return value === null ? nullValue : `${percentDouble.format(value)}%`
 }
 
 /** For interest rates (alapkamat, THM), where 1 decimal loses real precision. */

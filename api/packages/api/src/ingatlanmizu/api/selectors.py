@@ -165,7 +165,7 @@ def fetch_market_monthly_change_by_county(
             from gold.mart_market_monthly_change_by_county
             where county = %s
             and main_type = %s
-            and month_start between %s - interval '12 months' and %s
+            and month_start between %s - interval '11 months' and %s
             order by month_start asc           
         """, (county, main_type, month_start, month_start,)).fetchall()
         

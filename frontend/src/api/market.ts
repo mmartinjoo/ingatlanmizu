@@ -3,6 +3,7 @@ import type {
   MarketIndicatorsMonthly,
   MarketMonthlyByCity,
   MarketMonthlyByCounty,
+  MarketMonthlyChangeByCounty,
 } from './types'
 
 /** Months that have county data, newest first, as `YYYY-MM-DD`. */
@@ -32,4 +33,18 @@ export function fetchMarketIndicatorsMonthly(monthStart: string) {
   return get<MarketIndicatorsMonthly | null>('/api/market-indicators-monthly', {
     month_start: monthStart,
   })
+}
+
+/** Median price per sqm month by month for one county and property type, oldest
+ *  first, ending at `monthStart`. `change_pct` is null on the first row when the
+ *  pair has no earlier month. */
+export function fetchMarketMonthlyChangeByCounty(
+  monthStart: string,
+  county: string,
+  mainType: string,
+) {
+  return get<MarketMonthlyChangeByCounty[]>(
+    `/api/market-monthly-change-by-county/${encodeURIComponent(county)}`,
+    { month_start: monthStart, main_type: mainType },
+  )
 }

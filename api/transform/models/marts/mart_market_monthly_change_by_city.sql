@@ -19,7 +19,7 @@ select
 	current.main_type,
 	current.median_price_per_sqm as current_median_price_per_sqm,
 	previous.median_price_per_sqm as previous_median_price_per_sqm,
-	round(((current.median_price_per_sqm - previous.median_price_per_sqm)::numeric / current.median_price_per_sqm)*100, 2) as change_pct
+	round(((current.median_price_per_sqm - previous.median_price_per_sqm)::numeric / previous.median_price_per_sqm)*100, 2) as change_pct
 from {{ ref('mart_market_monthly_by_city') }} as current
 join previous
 	on current.month_start = previous.month_start
