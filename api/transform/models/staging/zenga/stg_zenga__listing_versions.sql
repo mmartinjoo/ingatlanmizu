@@ -51,7 +51,7 @@ with
                 when tipus ilike '%ház%'      then 'Ház'
                 when tipus ilike '%lakás%'    then 'Lakás'
                 when tipus ilike '%garzon%'   then 'Lakás'
-                else null       -- this will cause a data test error
+                else null       
             end as main_type,
             case
                 when allapot is null then   'Ismeretlen'
@@ -61,4 +61,6 @@ with
         from source
     )
 
-select * from renamed
+select * 
+from renamed
+where main_type is not null
