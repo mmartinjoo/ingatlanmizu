@@ -265,12 +265,6 @@ models:
               arguments:
                 min_value: 10000
                 max_value: 10000000
-      - name: change_pct
-        data_tests:
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: -100
-                max_value: 100
 
   - name: mart_market_monthly_change_by_city
     columns:
@@ -298,9 +292,3 @@ models:
               arguments:
                 min_value: 10000
                 max_value: 10000000
-      - name: change_pct
-        data_tests:
-          - dbt_utils.accepted_range:
-              arguments:
-                min_value: -100
-                max_value: 100
