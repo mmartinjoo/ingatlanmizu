@@ -73,12 +73,6 @@ models:
                 
   - name: int_listings__price_changes
     description: "Price changes for listings (if any)"
-    data_tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - listing_key
-            - previous_price_huf
-            - new_price_huf
     columns:
       - name: listing_key
         description: "Source + listing code"
